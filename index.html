@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deborah Lyon Lymphatic Specialist - Bridge of Allen. Professional lymphatic drainage and massage therapy.">
+    <meta name="keywords" content="lymphatic drainage, lymphatic specialist, Bridge of Allen, massage therapy">
+    <title>Deborah Lyon Lymphatic Specialist - Bridge of Allen</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --mauve: #9F7CAE;
+            --light-mauve: #B899C7;
+            --cream: #F5F5DC;
+            --light-cream: #FAFAF0;
+            --grey: #6B6B6B;
+            --light-grey: #E5E5E5;
+            --dark-grey: #4A4A4A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--dark-grey);
+            background-color: var(--light-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--cream);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mld-logo {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-grey);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--grey);
+        }
+
+        .header-text h1 {
+            color: var(--mauve);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .header-text .subtitle {
+            color: var(--grey);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .book-now-btn {
+            background-color: var(--mauve);
+            color: var(--white);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-now-btn:hover {
+            background-color: var(--light-mauve);
+        }
+
+        /* Slideshow */
+        .slideshow {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .slide p {
+            font-size: 1.2rem;
+        }
+
+        .dots-container {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--cream);
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: var(--light-grey);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: var(--mauve);
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--white);
+        }
+
+        .section h2 {
+            color: var(--mauve);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: var(--light-grey);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-text .quote {
+            font-style: italic;
+            color: var(--mauve);
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: var(--light-cream);
+            border-left: 4px solid var(--mauve);
+        }
+
+        .read-more-container {
+            margin-top: 20px;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--mauve);
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: underline;
+            padding: 0;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            color: var(--light-mauve);
+        }
+
+        .read-more-content {
+            display: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .memberships {
+            margin-top: 40px;
+        }
+
+        .memberships h3 {
+            color: var(--mauve);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .membership-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .badge {
+            background-color: var(--cream);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark-grey);
+            border: 1px solid var(--light-grey);
+        }
+
+        /* Book Now Section */
+        .book-now-section {
+            background: linear-gradient(135deg, var(--mauve), var(--light-mauve));
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .book-now-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .book-now-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .book-now-large {
+            background-color: var(--white);
+            color: var(--mauve);
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .book-now-large:hover {
+            background-color: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--light-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--grey);
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: var(--mauve);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Reviews Section */
+        .reviews-slideshow {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .review {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background-color: var(--cream);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .review.active {
+            display: block;
+        }
+
+        .review-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark-grey);
+        }
+
+        .review-author {
+            font-weight: bold;
+            color: var(--mauve);
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: var(--light-grey);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--grey);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h3,
+        .opening-times h3 {
+            color: var(--mauve);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p,
+        .opening-times p {
+            margin-bottom: 10px;
+        }
+
+        .map-placeholder {
+            height: 200px;
+            background-color: var(--light-grey);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--grey);
+        }
+
+        .opening-times .day {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-grey);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-memberships h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-badge {
+            background-color: var(--grey);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--grey);
+            color: var(--light-grey);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-text h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+
+            .slide p {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .slideshow {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="mld-logo">MLD Logo</div>
+                    <div class="header-text">
+                        <h1>Deborah Lyon Lymphatic Specialist</h1>
+                        <div class="subtitle">Bridge of Allen</div>
+                    </div>
+                </div>
+                <a href="#" class="book-now-btn">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slideshow -->
+    <section class="slideshow">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect fill=%22%23E5E5E5%22 width=%221200%22 height=%22400%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%236B6B6B%22 font-size=%2224%22>Slideshow Image 1</text></svg>')">
+            <div class="slide-content">
+                <h2>[Slideshow Title 1]</h2>
+                <p>[Slideshow description 1]</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect fill=%22%23E5E5E5%22 width=%221200%22 height=%22400%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%236B6B6B%22 font-size=%2224%22>Slideshow Image 2</text></svg>')">
+            <div class="slide-content">
+                <h2>[Slideshow Title 2]</h2>
+                <p>[Slideshow description 2]</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect fill=%22%23E5E5E5%22 width=%221200%22 height=%22400%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%236B6B6B%22 font-size=%2224%22>Slideshow Image 3</text></svg>')">
+            <div class="slide-content">
+                <h2>[Slideshow Title 3]</h2>
+                <p>[Slideshow description 3]</p>
+            </div>
+        </div>
+        <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/profile-crop.jpeg" alt="Deborah Lyon - Lymphatic Specialist" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <p>Deborah Lyon is a certified Lymphoedema therapist and massage specialist. She has always been drawn to the philosophy of helping others,</p>
+
+                    <div class="quote">
+                        "Helping one person might not change the world, but it could change the world for one person"
+                    </div>
+
+                    <p>With over 20 years experience, Deborah now specialises in the lymphatic system, with extensive knowledge, dealing with complex cases and compromised lymphatic systems.</p>
+
+                    <div class="read-more-container">
+                        <button class="read-more-btn" onclick="toggleReadMore()">Read more about Deborah's expertise</button>
+
+                        <div class="read-more-content" id="readMoreContent">
+                            <p>Qualified in FG-MLD (fluoroscopy guided manual lymphatic drainage) LTA cert, and as a member of MLD UK and the British Lymphology Society, you can be assured you're in safe hands.</p>
+
+                            <p>Working in Oncology, Deborah quickly realised a more in depth knowledge was needed of the lymphatic system, which also led her onto a journey discovering scar therapy.</p>
+
+                            <p>Trained with Restore Scar Therapy Deborah uses evidence-informed techniques to help improve scar tissue and release adhesions, giving advice to clients on how to self manage their own healing.</p>
+
+                            <p>Incorporating her extensive knowledge of lymphatic drainage, massage and scar therapy, Deborah is able to help many different clients recover post-operatively. Her knowledge and techniques help to minimise pain and inflammation, recovering faster and enhancing your surgical results.</p>
+
+                            <p>Her techniques are beneficial for both reconstructive or plastic surgeries or procedures such as liposuction for lipoedema.</p>
+
+                            <p>Deborah also provides lymphatic treatments to sculpt and define your body with visible results after just one session, reducing swelling, bloating and fluid retention, improving skin texture, cellulite and boosting the metabolism.</p>
+
+                            <p>The Brazilian lymphatic sculpting treatment is very popular with clients wanting to feel more sculpted and energised.</p>
+
+                            <p>Deborah's clients love her knowledge and ability to turn her hand using different techniques to achieve the best results possible, making sure each treatment is tailor made to each individual client.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memberships">
+                <h3>Professional Memberships</h3>
+                <div class="membership-badges">
+                    <span class="badge">MLD UK</span>
+                    <span class="badge">[Other badges placeholder]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Now Section -->
+    <section class="book-now-section">
+        <div class="container">
+            <h2>[Book Now Title]</h2>
+            <p>[Book Now description]</p>
+            <a href="#" class="book-now-large">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-1289232543.jpg" alt="Manual Lymphatic Drainage"></div>
+                    <div class="service-content">
+                        <h3>Manual Lymphatic Drainage</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-1188150432.jpg" alt="Brazilian Lymphatic Sculpting Massage"></div>
+                    <div class="service-content">
+                        <h3>Brazilian Lymphatic Sculpting Massage</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-514138559.jpg" alt="Post-Operative Care"></div>
+                    <div class="service-content">
+                        <h3>Post-Operative Care</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-1176500076.jpg" alt="Scar Therapy"></div>
+                    <div class="service-content">
+                        <h3>Scar Therapy</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-1648673108.jpg" alt="Oncology Massage"></div>
+                    <div class="service-content">
+                        <h3>Oncology Massage</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-1289232543.jpg" alt="Massage Therapy"></div>
+                    <div class="service-content">
+                        <h3>Massage Therapy</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-1337659476.jpg" alt="Lymphatic Facials"></div>
+                    <div class="service-content">
+                        <h3>Lymphatic Facials</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/measuring-for-compression.jpg" alt="Measuring for Compression"></div>
+                    <div class="service-content">
+                        <h3>Measuring for Compression</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image"><img src="img/services/iStock-182830021.jpg" alt="Complete Decongestive Therapy for Lymphoedema"></div>
+                    <div class="service-content">
+                        <h3>Complete Decongestive Therapy for Lymphoedema</h3>
+                        <p>[Service description placeholder]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Now Section -->
+    <section class="book-now-section">
+        <div class="container">
+            <h2>[Book Now Title 2]</h2>
+            <p>[Book Now description 2]</p>
+            <a href="#" class="book-now-large">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews">
+        <div class="container">
+            <h2>Reviews</h2>
+            <div class="reviews-slideshow">
+                <div class="review active">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">[Review 1 placeholder]</div>
+                    <div class="review-author">- [Name 1]</div>
+                </div>
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">[Review 2 placeholder]</div>
+                    <div class="review-author">- [Name 2]</div>
+                </div>
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">[Review 3 placeholder]</div>
+                    <div class="review-author">- [Name 3]</div>
+                </div>
+                <div class="review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">[Review 4 placeholder]</div>
+                    <div class="review-author">- [Name 4]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">[Gallery Image 1]</div>
+                <div class="gallery-item">[Gallery Image 2]</div>
+                <div class="gallery-item">[Gallery Image 3]</div>
+                <div class="gallery-item">[Gallery Image 4]</div>
+                <div class="gallery-item">[Gallery Image 5]</div>
+                <div class="gallery-item">[Gallery Image 6]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><strong>Phone:</strong> [Phone Number]</p>
+                    <p><strong>Email:</strong> [Email Address]</p>
+                    <p><strong>Address:</strong><br>
+                    Bridge of Allen<br>
+                    [Full Address]</p>
+                </div>
+
+                <div class="map-placeholder">
+                    Map Location
+                </div>
+
+                <div class="opening-times">
+                    <h3>Opening Times</h3>
+                    <div class="day">
+                        <span>Monday</span>
+                        <span>[Time]</span>
+                    </div>
+                    <div class="day">
+                        <span>Tuesday</span>
+                        <span>[Time]</span>
+                    </div>
+                    <div class="day">
+                        <span>Wednesday</span>
+                        <span>[Time]</span>
+                    </div>
+                    <div class="day">
+                        <span>Thursday</span>
+                        <span>[Time]</span>
+                    </div>
+                    <div class="day">
+                        <span>Friday</span>
+                        <span>[Time]</span>
+                    </div>
+                    <div class="day">
+                        <span>Saturday</span>
+                        <span>[Time]</span>
+                    </div>
+                    <div class="day">
+                        <span>Sunday</span>
+                        <span>[Time]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Deborah Lyon Lymphatic Specialist</h3>
+                    <p>[Footer description placeholder]</p>
+                </div>
+                <div class="footer-memberships">
+                    <h3>Professional Memberships</h3>
+                    <div class="footer-badges">
+                        <span class="footer-badge">MLD UK</span>
+                        <span class="footer-badge">[Badge 2]</span>
+                        <span class="footer-badge">[Badge 3]</span>
+                        <span class="footer-badge">[Badge 4]</span>
+                        <span class="footer-badge">[Badge 5]</span>
+                        <span class="footer-badge">[Badge 6]</span>
+                        <span class="footer-badge">[Badge 7]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Deborah Lyon Lymphatic Specialist - Bridge of Allen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideTimer;
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+        }
+
+        function currentSlide(n) {
+            clearTimeout(slideTimer);
+            slideIndex = n;
+            showSlides(slideIndex);
+            autoSlide();
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlides(slideIndex);
+        }
+
+        function autoSlide() {
+            slideTimer = setTimeout(() => {
+                nextSlide();
+                autoSlide();
+            }, 5000);
+        }
+
+        // Reviews slideshow functionality
+        let reviewIndex = 1;
+        let reviewTimer;
+
+        function showReviews(n) {
+            let reviews = document.getElementsByClassName("review");
+
+            if (n > reviews.length) { reviewIndex = 1; }
+            if (n < 1) { reviewIndex = reviews.length; }
+
+            for (let i = 0; i < reviews.length; i++) {
+                reviews[i].classList.remove("active");
+            }
+
+            reviews[reviewIndex - 1].classList.add("active");
+        }
+
+        function nextReview() {
+            reviewIndex++;
+            showReviews(reviewIndex);
+        }
+
+        function autoReview() {
+            reviewTimer = setTimeout(() => {
+                nextReview();
+                autoReview();
+            }, 4000);
+        }
+
+        // Read more toggle functionality
+        function toggleReadMore() {
+            const content = document.getElementById('readMoreContent');
+            const button = document.querySelector('.read-more-btn');
+
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.textContent = "Read more about Deborah's expertise";
+            } else {
+                content.classList.add('show');
+                button.textContent = "Read less";
+            }
+        }
+
+        // Initialize slideshows
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlides(slideIndex);
+            autoSlide();
+
+            showReviews(reviewIndex);
+            autoReview();
+        });
+    </script>
+</body>
+</html>
