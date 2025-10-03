@@ -40,7 +40,8 @@
 
         /* Header */
         .header {
-            background-color: var(--cream);
+            background-color: var(--mauve);
+            color: var(--white);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -62,46 +63,54 @@
         }
 
         .mld-logo {
-            width: 60px;
             height: 60px;
-            background-color: var(--light-grey);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: var(--grey);
+            width: auto;
+            border-radius: 10px;
         }
 
         .header-text h1 {
-            color: var(--mauve);
+            color: var(--white);
             font-size: 1.8rem;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+            line-height: 1.2;
+            text-wrap: balance;
         }
 
         .header-text .subtitle {
-            color: var(--grey);
+            color: var(--white);
             font-size: 1.1rem;
             font-weight: 600;
+            line-height: 1.2;
         }
 
         .book-now-btn {
-            background-color: var(--mauve);
-            color: var(--white);
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
+            background-color: var(--white);
+            color: var(--mauve);
+            padding: 20px 40px;
+            font-size: 1.3rem;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .book-now-btn:hover {
-            background-color: var(--light-mauve);
+            background-color: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* Slideshow */
-        .slideshow {
+        /* Banner Slideshow */
+        .banner-slideshow {
             position: relative;
+            height: 460px;
+        }
+
+        .banner-slideshow .slideshow-container {
+            position: relative;
+            width: 100%;
             height: 400px;
             overflow: hidden;
         }
@@ -130,19 +139,28 @@
             text-align: center;
         }
 
-        .slide h2 {
+        .slide-content h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            text-wrap: balance;
         }
 
-        .slide p {
+        .slide-content p {
             font-size: 1.2rem;
+            max-width: 65ch;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .dots-container {
             text-align: center;
             padding: 20px 0;
             background-color: var(--cream);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
         }
 
         .dot {
@@ -154,10 +172,25 @@
             display: inline-block;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            border: 2px solid var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .dot.active, .dot:hover {
             background-color: var(--mauve);
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
         }
 
         /* Sections */
@@ -174,6 +207,11 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 40px;
+            text-wrap: balance;
+        }
+
+        .section h2:has(+ p) {
+            margin-bottom: 0;
         }
 
         /* About Section */
@@ -188,9 +226,11 @@
         .about-image {
             width: 100%;
             aspect-ratio: 1;
-            background-color: var(--light-grey);
             border-radius: 10px;
             overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: solid 5px #fff;
         }
 
         .about-image img {
@@ -200,40 +240,49 @@
             object-position: center;
         }
 
+        .about-text {
+            display: flex;
+            flex-direction: column;
+        }
+
         .about-text p {
             margin-bottom: 20px;
             font-size: 1.1rem;
+            max-width: 65ch;
         }
 
         .about-text .quote {
             font-style: italic;
             color: var(--mauve);
-            text-align: center;
-            font-size: 1.2rem;
+            text-align: left;
+            font-size: 1.4rem;
             margin: 20px 0;
             padding: 20px;
-            background-color: var(--light-cream);
+            background-color: var(--cream);
             border-left: 4px solid var(--mauve);
+            border-radius: 0 10px 10px 0;
         }
 
         .read-more-container {
-            margin-top: 20px;
+            margin-top: auto;
         }
 
         .read-more-btn {
-            background: none;
+            background-color: var(--mauve);
+            color: var(--white);
             border: none;
-            color: var(--mauve);
+            padding: 12px 25px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
-            text-decoration: underline;
-            padding: 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
             margin-bottom: 15px;
-            transition: color 0.3s ease;
         }
 
         .read-more-btn:hover {
-            color: var(--light-mauve);
+            background-color: var(--light-mauve);
         }
 
         .read-more-content {
@@ -250,10 +299,6 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        .memberships {
-            margin-top: 40px;
         }
 
         .memberships h3 {
@@ -290,12 +335,13 @@
             color: var(--white);
             margin-bottom: 20px;
             font-size: 2.5rem;
+            text-wrap: balance;
         }
 
         .book-now-section p {
             font-size: 1.3rem;
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 65ch;
             margin-left: auto;
             margin-right: auto;
         }
@@ -329,13 +375,10 @@
         .service-card {
             background-color: var(--white);
             border-radius: 10px;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
+            display: flex;
+            flex-direction: column;
         }
 
         .service-image {
@@ -347,6 +390,7 @@
             justify-content: center;
             color: var(--grey);
             overflow: hidden;
+            border-radius: 10px 10px 0 0;
         }
 
         .service-image img {
@@ -354,16 +398,104 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:has(.see-benefits-btn:hover) .service-image img {
+            transform: scale(1.1);
         }
 
         .service-content {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .service-content h3 {
             color: var(--mauve);
             margin-bottom: 15px;
             font-size: 1.5rem;
+            text-wrap: balance;
+        }
+
+        .benefits-wrapper {
+            margin-top: auto;
+            position: relative;
+        }
+
+        .see-benefits-btn {
+            background-color: var(--mauve);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .see-benefits-btn:hover {
+            background-color: var(--light-mauve);
+        }
+
+        .benefits-tooltip {
+            display: none;
+            position: absolute;
+            background-color: var(--mauve);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 100;
+            width: 100%;
+            max-width: 24em;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(100% + 15px);
+        }
+
+        .benefits-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 10px solid transparent;
+            border-top-color: var(--mauve);
+        }
+
+        .benefits-tooltip.show {
+            display: block;
+        }
+
+        .benefits-tooltip p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .benefits-tooltip ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-tooltip ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .benefits-tooltip ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+        }
+
+        .service-card {
+            position: relative;
         }
 
         /* Reviews Section */
@@ -422,6 +554,25 @@
             transition: transform 0.3s ease;
         }
 
+        .gallery-item {
+            height: 200px;
+            background-color: var(--light-grey);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--grey);
+            transition: transform 0.3s ease;
+            overflow: hidden !important;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
         .gallery-item:hover {
             transform: scale(1.05);
         }
@@ -470,9 +621,10 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-bottom: 30px;
+            align-items: end;
         }
 
         .footer-memberships h3 {
@@ -490,6 +642,21 @@
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-badge:hover {
+            background-color: var(--mauve);
+        }
+
+        .external-icon {
+            font-size: 0.7rem;
+            opacity: 0.8;
         }
 
         .footer-bottom {
@@ -497,6 +664,16 @@
             padding-top: 20px;
             border-top: 1px solid var(--grey);
             color: var(--light-grey);
+        }
+
+        /* Footer Profile Photo */
+        .footer-profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--cream);
         }
 
         /* Responsive Design */
@@ -524,16 +701,20 @@
                 grid-template-columns: 1fr;
             }
 
-            .slide h2 {
+            .slide-content h2 {
                 font-size: 1.8rem;
             }
 
-            .slide p {
+            .slide-content p {
                 font-size: 1rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .benefits-list-columns {
+                column-count: 1 !important;
             }
         }
 
@@ -550,20 +731,26 @@
                 font-size: 2rem;
             }
 
-            .slideshow {
+            .banner-slideshow {
                 height: 250px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr !important;
             }
         }
         /* Membership Images */
         .membership-image {
-            height: 94px;
+            height: 86px;
             width: auto;
             object-fit: contain;
-            background-color: var(--white);
-            padding: 8px;
+            /* padding: 8px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
             transition: transform 0.3s ease;
+            mix-blend-mode: multiply;
+            opacity: 0.85;
         }
 
         .membership-image:hover {
@@ -577,54 +764,88 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
-                    <div class="mld-logo">MLD Logo</div>
+                    <img src="img/logos/MLD-UK-logo.jpg" alt="MLD UK" class="mld-logo">
                     <div class="header-text">
                         <h1>Deborah Lyon Lymphatic Specialist</h1>
                         <div class="subtitle">Bridge of Allen</div>
                     </div>
                 </div>
-                <a href="#" class="book-now-btn">Book Now</a>
+                <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
     </header>
 
-    <!-- Slideshow -->
-    <section class="slideshow">
-        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect fill=%22%23E5E5E5%22 width=%221200%22 height=%22400%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%236B6B6B%22 font-size=%2224%22>Slideshow Image 1</text></svg>')">
-            <div class="slide-content">
-                <h2>[Slideshow Title 1]</h2>
-                <p>[Slideshow description 1]</p>
+    <!-- Slideshow 1 
+    <section class="banner-slideshow" data-slideshow="1">
+        <div class="slideshow-container">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1337659476.jpg')">
+                <div class="slide-content">
+                    <h2>Professional Lymphatic Care</h2>
+                    <p>Expert treatments tailored to your individual needs</p>
+                </div>
             </div>
-        </div>
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect fill=%22%23E5E5E5%22 width=%221200%22 height=%22400%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%236B6B6B%22 font-size=%2224%22>Slideshow Image 2</text></svg>')">
-            <div class="slide-content">
-                <h2>[Slideshow Title 2]</h2>
-                <p>[Slideshow description 2]</p>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-514138559.jpg')">
+                <div class="slide-content">
+                    <h2>Post-Operative Support</h2>
+                    <p>Compassionate care to enhance your recovery journey</p>
+                </div>
             </div>
-        </div>
-        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect fill=%22%23E5E5E5%22 width=%221200%22 height=%22400%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 fill=%22%236B6B6B%22 font-size=%2224%22>Slideshow Image 3</text></svg>')">
-            <div class="slide-content">
-                <h2>[Slideshow Title 3]</h2>
-                <p>[Slideshow description 3]</p>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1176500076.jpg')">
+                <div class="slide-content">
+                    <h2>Advanced Scar Therapy</h2>
+                    <p>Evidence-based techniques for optimal healing</p>
+                </div>
             </div>
         </div>
         <div class="dots-container">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
-    </section>
+    </section> -->
+
+
+
+    <!-- Slideshow 2
+    <section class="banner-slideshow" data-slideshow="2">
+        <div class="slideshow-container">
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1289232543.jpg')">
+                <div class="slide-content">
+                    <h2>Detox and Rejuvenate with Lymphatic Drainage</h2>
+                    <p>Each treatment is tailor made to your needs</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1648673108.jpg')">
+                <div class="slide-content">
+                    <h2>Boost Your Health in a Whole New Way</h2>
+                    <p>Expert care for lymphoedema, oncology, and post-operative recovery</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1188150432.jpg')">
+                <div class="slide-content">
+                    <h2>Enhance Your Body's Natural Detoxification</h2>
+                    <p>Brazilian lymphatic sculpting with visible results after just one session</p>
+                </div>
+            </div>
+        </div>
+        <div class="dots-container">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section> -->
 
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <h2>About Us</h2>
+            <h2>Boost Your Health in a Whole New Way with Lymphatic Drainage</h2>
+            <h2 class="sr-only">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
                     <img src="img/profile-crop.jpeg" alt="Deborah Lyon - Lymphatic Specialist" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <p>Deborah Lyon is a certified Lymphoedema therapist and massage specialist. She has always been drawn to the philosophy of helping others,</p>
+                    <p style="font-size: 1.3rem; color: var(--mauve); font-weight: 600;">Deborah Lyon is a certified Lymphoedema therapist and massage specialist. She has always been drawn to the philosophy of helping&nbsp;others...</p>
 
                     <div class="quote">
                         "Helping one person might not change the world, but it could change the world for one person"
@@ -642,7 +863,9 @@
 
                             <p>Trained with Restore Scar Therapy Deborah uses evidence-informed techniques to help improve scar tissue and release adhesions, giving advice to clients on how to self manage their own healing.</p>
 
-                            <p>Incorporating her extensive knowledge of lymphatic drainage, massage and scar therapy, Deborah is able to help many different clients recover post-operatively. Her knowledge and techniques help to minimise pain and inflammation, recovering faster and enhancing your surgical results.</p>
+                            <p>Incorporating her extensive knowledge of lymphatic drainage, massage and scar therapy, Deborah is able to help many different clients recover post-operatively.</p>
+
+                            <p>Her knowledge and techniques help to minimise pain and inflammation, recovering faster and enhancing your surgical results.</p>
 
                             <p>Her techniques are beneficial for both reconstructive or plastic surgeries or procedures such as liposuction for lipoedema.</p>
 
@@ -651,45 +874,103 @@
                             <p>The Brazilian lymphatic sculpting treatment is very popular with clients wanting to feel more sculpted and energised.</p>
 
                             <p>Deborah's clients love her knowledge and ability to turn her hand using different techniques to achieve the best results possible, making sure each treatment is tailor made to each individual client.</p>
+
+                            <p>Deborah provides expert care and knowledge for the treatment of:</p>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Lymphoedema / Lipoedema</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Compression service (made to measure or off the shelf)</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Post-operative recovery</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Oncology care</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Scar therapy</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Full body lymphatic drainage</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Brazilian lymphatic body sculpting</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Lymphatic facials</li>
+                                <li style="padding: 5px 0; position: relative; padding-left: 25px;">✓ Swedish/deep tissue and Indian head massage</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="memberships">
-                <h3>Professional Memberships</h3>
+                <h3 class="sr-only">Deborah's Professional Memberships</h3>
                 <div class="membership-badges">
-                    <img src="img/logos/MLD-UK-logo.jpg" alt="MLD UK" class="membership-image">
-                    <img src="img/logos/LTA-logo.jpg" alt="LTA" class="membership-image">
-                    <img src="img/logos/British-Lymphology-Society-logo.jpg" alt="BLS - British Lymphology Society" class="membership-image">
-                    <img src="img/logos/Juzo-logo.jpg" alt="Juzo" class="membership-image">
-                    <img src="img/logos/Restore-scar-therapy-logo.jpg" alt="Restore Scar Therapy" class="membership-image">
-                    <img src="img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg" alt="LSN Lymphoedema Support Network" class="membership-image">
-                    <img src="img/logos/Lipoelastic-logo.jpg" alt="Lipoelastic" class="membership-image">
+                    <img src="img/logos/MLD-UK-logo.jpg" alt="MLD UK" class="membership-image" title="MLD UK">
+                    <img src="img/logos/LTA-logo.jpg" alt="LTA" class="membership-image" title="Lymphoedema Training Academy">
+                    <img src="img/logos/British-Lymphology-Society-logo.jpg" alt="BLS - British Lymphology Society" class="membership-image" title="British Lymphology Society">
+                    <img src="img/logos/Juzo-logo.jpg" alt="Juzo" class="membership-image" title="Juzo">
+                    <img src="img/logos/Restore-scar-therapy-logo.jpg" alt="Restore Scar Therapy" class="membership-image" title="Restore Scar Therapy">
+                    <img src="img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg" alt="LSN Lymphoedema Support Network" class="membership-image" title="LSN Lymphoedema Support Network">
+                    <img src="img/logos/Lipoelastic-logo.jpg" alt="Lipoelastic" class="membership-image" title="Lipoelastic">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Book Now Section -->
+    <!-- Lymphatic Drainage Benefits Section -->
+    <section class="section" id="benefits">
+        <div class="container">
+
+            <div style="color: var(--dark-grey); margin-bottom: 30px; display: grid; grid-template-columns: 0.65fr 2fr; gap: 30px; align-items: center;">
+                <div style="aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: solid 4px #fff;">
+                    <img src="img/services/iStock-1188150432.jpg" alt="Lymphatic drainage" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="text-align: left;">
+                    <h3 style="margin-bottom: 15px; font-size: 1.8rem; text-wrap: balance; color: var(--mauve);">Enhance your body's natural detoxification and immune function with lymphatic drainage</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 15px;">Full Decongestive Lymphatic Therapy (DLT) an intensive treatment for Lymphoedema with multicomponent bandaging can also be provided.</p>
+                    <p style="font-size: 1.1rem;">Your expert care will be provided within a safe, private relaxing environment that promotes well-being. If you have any concerns about your lymphatic health, are experiencing any swelling and discomfort, have a history of cancer treatment or surgery, or are simply looking for a detox and relaxation, then please get in touch.</p>
+                </div>
+            </div>
+
+            <div style="background: var(--cream); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+                <h3 style="color: var(--mauve); margin-bottom: 20px; text-align: center; font-size: 1.8rem;">Benefits of lymphatic drainage</h3>
+                <ul class="benefits-list-columns" style="list-style: none; padding-left: 0; max-width: 1000px; margin: 0 auto; column-count: 2; column-gap: 30px;">
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Boosts immune system and eliminates toxins</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Reduces fluid retention and puffiness</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Lymphoedema/lipoedema management</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Post operative care</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Reduces swelling and inflammation which optimises wound healing</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Improves scar healing and reduces fibrosis</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Optimises cancer care after treatments such as radiotherapy/chemotherapy</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Benefits skin disorders</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Relieving tired and heavy legs</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Boosts metabolism</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Now Section 1 -->
     <section class="book-now-section">
         <div class="container">
-            <h2>[Book Now Title]</h2>
-            <p>[Book Now description]</p>
-            <a href="#" class="book-now-large">Book Now</a>
+            <h2>Ready to Begin Your Healing Journey?</h2>
+            <p style="text-wrap: balance;">Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment.</p>
+            <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-large" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="section" id="services">
         <div class="container">
-            <h2>Services</h2>
+            <h2>Expert Care & Treatments</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: var(--mauve); font-style: italic;">Each treatment is tailor made to your needs</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image"><img src="img/services/iStock-1289232543.jpg" alt="Manual Lymphatic Drainage"></div>
                     <div class="service-content">
                         <h3>Manual Lymphatic Drainage</h3>
-                        <p>[Service description placeholder]</p>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Lymphatic drainage is a specialised technique which uses gentle rhythmic movements to stimulate lymph flow and ease swelling. Full Decongestive Lymphatic Therapy (DLT) with multicomponent bandaging also available.</p>
+                                <ul>
+                                    <li>Boosts immune system and eliminates toxins</li>
+                                    <li>Reduces fluid retention and puffiness</li>
+                                    <li>Lymphoedema/lipoedema management</li>
+                                    <li>Relieves tired and heavy legs</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -697,7 +978,18 @@
                     <div class="service-image"><img src="img/services/iStock-1188150432.jpg" alt="Brazilian Lymphatic Sculpting Massage"></div>
                     <div class="service-content">
                         <h3>Brazilian Lymphatic Sculpting Massage</h3>
-                        <p>[Service description placeholder]</p>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Sculpt and define your body with visible results after just one session. Reduces swelling, bloating and fluid retention, improving skin texture, cellulite and boosting metabolism.</p>
+                                <ul>
+                                    <li>Visible results after one session</li>
+                                    <li>Reduces swelling, bloating and fluid retention</li>
+                                    <li>Improves skin texture and cellulite</li>
+                                    <li>Boosts metabolism</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -705,7 +997,18 @@
                     <div class="service-image"><img src="img/services/iStock-514138559.jpg" alt="Post-Operative Care"></div>
                     <div class="service-content">
                         <h3>Post-Operative Care</h3>
-                        <p>[Service description placeholder]</p>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Expert post-operative care to minimize pain and inflammation, helping you recover faster and enhance your surgical results. Beneficial for reconstructive, plastic surgeries, and liposuction procedures.</p>
+                                <ul>
+                                    <li>Minimizes pain and inflammation</li>
+                                    <li>Optimizes wound healing</li>
+                                    <li>Enhances surgical results</li>
+                                    <li>Faster recovery times</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -713,23 +1016,56 @@
                     <div class="service-image"><img src="img/services/iStock-1176500076.jpg" alt="Scar Therapy"></div>
                     <div class="service-content">
                         <h3>Scar Therapy</h3>
-                        <p>[Service description placeholder]</p>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Evidence-informed techniques to help improve scar tissue and release adhesions. Advice provided on how to self-manage your own healing process.</p>
+                                <ul>
+                                    <li>Improves scar healing and reduces fibrosis</li>
+                                    <li>Releases adhesions and restrictions</li>
+                                    <li>Self-management guidance</li>
+                                    <li>Evidence-informed techniques</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-image"><img src="img/services/iStock-1648673108.jpg" alt="Oncology Massage"></div>
                     <div class="service-content">
-                        <h3>Oncology Massage</h3>
-                        <p>[Service description placeholder]</p>
+                        <h3>Oncology Care</h3>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Expert lymphatic drainage optimises cancer care after treatments such as radiotherapy/chemotherapy. Gentle, specialized techniques support recovery and wellbeing.</p>
+                                <ul>
+                                    <li>Optimises cancer care after treatments</li>
+                                    <li>Reduces swelling and inflammation</li>
+                                    <li>Supports immune function</li>
+                                    <li>Benefits skin disorders</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-image"><img src="img/services/iStock-1289232543.jpg" alt="Massage Therapy"></div>
                     <div class="service-content">
-                        <h3>Massage Therapy</h3>
-                        <p>[Service description placeholder]</p>
+                        <h3>Swedish/Deep Tissue & Indian Head Massage</h3>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Therapeutic massage treatments to complement lymphatic care. Swedish, deep tissue, and Indian head massage techniques for complete wellness.</p>
+                                <ul>
+                                    <li>Relieves muscle tension and stress</li>
+                                    <li>Improves circulation</li>
+                                    <li>Enhances overall wellbeing</li>
+                                    <li>Complements lymphatic treatments</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -737,15 +1073,37 @@
                     <div class="service-image"><img src="img/services/iStock-1337659476.jpg" alt="Lymphatic Facials"></div>
                     <div class="service-content">
                         <h3>Lymphatic Facials</h3>
-                        <p>[Service description placeholder]</p>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Gentle facial lymphatic drainage using specialized techniques to reduce puffiness, improve skin tone, and promote natural radiance.</p>
+                                <ul>
+                                    <li>Reduces facial puffiness</li>
+                                    <li>Improves skin radiance</li>
+                                    <li>Promotes natural detoxification</li>
+                                    <li>Gentle and relaxing treatment</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-image"><img src="img/services/measuring-for-compression.jpg" alt="Measuring for Compression"></div>
                     <div class="service-content">
-                        <h3>Measuring for Compression</h3>
-                        <p>[Service description placeholder]</p>
+                        <h3>Compression Service</h3>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Professional compression garment service offering both made-to-measure and off-the-shelf options to support your lymphatic health and treatment goals.</p>
+                                <ul>
+                                    <li>Made-to-measure options</li>
+                                    <li>Off-the-shelf solutions</li>
+                                    <li>Professional fitting service</li>
+                                    <li>Ongoing support and advice</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -753,26 +1111,28 @@
                     <div class="service-image"><img src="img/services/iStock-1226369341.jpg" alt="Complete Decongestive Therapy for Lymphoedema"></div>
                     <div class="service-content">
                         <h3>Complete Decongestive Therapy for Lymphoedema</h3>
-                        <p>[Service description placeholder]</p>
+                        <div class="benefits-wrapper">
+                            <button class="see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
+                            <div class="benefits-tooltip">
+                                <p>Lymphatic drainage is a specialised technique which uses gentle rhythmic movements to stimulate lymph flow and ease swelling. Full Decongestive Lymphatic Therapy (DLT) with multicomponent bandaging also available.</p>
+                                <ul>
+                                    <li>Boosts immune system and eliminates toxins</li>
+                                    <li>Reduces fluid retention and puffiness</li>
+                                    <li>Lymphoedema/lipoedema management</li>
+                                    <li>Relieves tired and heavy legs</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Book Now Section -->
-    <section class="book-now-section">
-        <div class="container">
-            <h2>[Book Now Title 2]</h2>
-            <p>[Book Now description 2]</p>
-            <a href="#" class="book-now-large">Book Now</a>
-        </div>
-    </section>
-
     <!-- Reviews Section -->
     <section class="section" id="reviews">
         <div class="container">
-            <h2>Reviews</h2>
+            <h2>Client Testimonials</h2>
             <div class="reviews-slideshow">
                 <div class="review active">
                     <div class="stars">★★★★★</div>
@@ -795,36 +1155,58 @@
                     <div class="review-author">- [Name 4]</div>
                 </div>
             </div>
+            <div class="dots-container" style="background-color: transparent; position: static;">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Now Section 2 -->
+    <section class="book-now-section">
+        <div class="container">
+            <h2>Ready to Begin Your Healing Journey?</h2>
+            <p style="text-wrap: balance;">Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment.</p>
+            <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-large" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section class="section" id="gallery">
         <div class="container">
-            <h2>Gallery</h2>
+            <h2>Treatment Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">[Gallery Image 1]</div>
-                <div class="gallery-item">[Gallery Image 2]</div>
-                <div class="gallery-item">[Gallery Image 3]</div>
-                <div class="gallery-item">[Gallery Image 4]</div>
-                <div class="gallery-item">[Gallery Image 5]</div>
-                <div class="gallery-item">[Gallery Image 6]</div>
+                <div class="gallery-item"><img src="img/services/iStock-1289232543.jpg" alt="Manual Lymphatic Drainage"></div>
+                <div class="gallery-item"><img src="img/services/iStock-1188150432.jpg" alt="Brazilian Lymphatic Sculpting Massage"></div>
+                <div class="gallery-item"><img src="img/services/iStock-514138559.jpg" alt="Post-Operative Care"></div>
+                <div class="gallery-item"><img src="img/services/iStock-1176500076.jpg" alt="Scar Therapy"></div>
+                <div class="gallery-item"><img src="img/services/iStock-1648673108.jpg" alt="Oncology Massage"></div>
+                <div class="gallery-item"><img src="img/services/iStock-1337659476.jpg" alt="Lymphatic Facials"></div>
+                <div class="gallery-item"><img src="img/services/measuring-for-compression.jpg" alt="Measuring for Compression"></div>
+                <div class="gallery-item"><img src="img/services/iStock-1226369341.jpg" alt="Complete Decongestive Therapy for Lymphoedema"></div>
             </div>
         </div>
     </section>
 
-    <!-- Get In Touch Section -->
+    
+
+    <!-- Get In Touch Section Alt -->
     <section class="section" id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Contact Details</h3>
-                    <p><strong>Phone:</strong> [Phone Number]</p>
-                    <p><strong>Email:</strong> [Email Address]</p>
+                    <p><strong>Phone:</strong> 01234 567 890</p>
+                    <p><strong>Email:</strong> info@deborahlyon-lymphaticspecialist.co.uk</p>
                     <p><strong>Address:</strong><br>
                     Bridge of Allen<br>
-                    [Full Address]</p>
+                    Stirling<br>
+                    Scotland</p>
+                    <p><strong>Parking:</strong> Free on-site parking available</p>
+                    <p><strong>Accessibility:</strong> Ground floor access, disabled parking</p>
                 </div>
 
                 <div class="map-placeholder">
@@ -832,34 +1214,34 @@
                 </div>
 
                 <div class="opening-times">
-                    <h3>Opening Times</h3>
+                    <h3>Opening Hours</h3>
                     <div class="day">
                         <span>Monday</span>
-                        <span>[Time]</span>
+                        <span>9:00 AM - 6:00 PM</span>
                     </div>
                     <div class="day">
                         <span>Tuesday</span>
-                        <span>[Time]</span>
+                        <span>9:00 AM - 6:00 PM</span>
                     </div>
                     <div class="day">
                         <span>Wednesday</span>
-                        <span>[Time]</span>
+                        <span>9:00 AM - 6:00 PM</span>
                     </div>
                     <div class="day">
                         <span>Thursday</span>
-                        <span>[Time]</span>
+                        <span>9:00 AM - 8:00 PM</span>
                     </div>
                     <div class="day">
                         <span>Friday</span>
-                        <span>[Time]</span>
+                        <span>9:00 AM - 6:00 PM</span>
                     </div>
                     <div class="day">
                         <span>Saturday</span>
-                        <span>[Time]</span>
+                        <span>9:00 AM - 4:00 PM</span>
                     </div>
                     <div class="day">
                         <span>Sunday</span>
-                        <span>[Time]</span>
+                        <span>Closed</span>
                     </div>
                 </div>
             </div>
@@ -871,19 +1253,20 @@
         <div class="container">
             <div class="footer-content">
                 <div>
+                    <img src="img/profile-crop.jpeg" alt="Deborah Lyon" class="footer-profile">
                     <h3>Deborah Lyon Lymphatic Specialist</h3>
                     <p>Personalized, compassionate care for your health and wellness journey</p>
                 </div>
                 <div class="footer-memberships">
                     <h3>Professional Memberships</h3>
                     <div class="footer-badges">
-                        <span class="footer-badge">MLD UK</span>
-                        <span class="footer-badge">LTA</span>
-                        <span class="footer-badge">BLS - British Lymphology Society</span>
-                        <span class="footer-badge">Juzo</span>
-                        <span class="footer-badge">Restore Scar Therapy</span>
-                        <span class="footer-badge">LSN Lymphoedema Support Network</span>
-                        <span class="footer-badge">Lipoelastic</span>
+                        <a href="https://mlduk.org.uk/" target="_blank" rel="noopener noreferrer" class="footer-badge">MLD UK <span class="external-icon">↗</span></a>
+                        <a href="https://www.lymph.org.uk/" target="_blank" rel="noopener noreferrer" class="footer-badge">LTA <span class="external-icon">↗</span></a>
+                        <a href="https://www.thebls.com/" target="_blank" rel="noopener noreferrer" class="footer-badge">BLS - British Lymphology Society <span class="external-icon">↗</span></a>
+                        <a href="https://www.juzo.co.uk/" target="_blank" rel="noopener noreferrer" class="footer-badge">Juzo <span class="external-icon">↗</span></a>
+                        <a href="https://www.restoretherapy.co.uk/" target="_blank" rel="noopener noreferrer" class="footer-badge">Restore Scar Therapy <span class="external-icon">↗</span></a>
+                        <a href="https://www.lymphoedema.org/" target="_blank" rel="noopener noreferrer" class="footer-badge">LSN Lymphoedema Support Network <span class="external-icon">↗</span></a>
+                        <a href="https://www.lipoelastic.co.uk/" target="_blank" rel="noopener noreferrer" class="footer-badge">Lipoelastic <span class="external-icon">↗</span></a>
                     </div>
                 </div>
             </div>
@@ -894,51 +1277,72 @@
     </footer>
 
     <script>
-        // Slideshow functionality
-        let slideIndex = 1;
-        let slideTimer;
+        // Independent slideshow functionality
+        class SlideshowManager {
+            constructor(containerElement, slideSelector = '.slide', dotSelector = '.dot') {
+                this.container = containerElement;
+                if (!this.container) return;
 
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
+                this.slides = this.container.querySelectorAll(slideSelector);
+                this.dots = this.container.querySelectorAll(dotSelector);
+                this.slideIndex = 1;
+                this.slideTimer = null;
 
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
+                this.init();
             }
 
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
+            init() {
+                // Set up dot click handlers
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.currentSlide(index + 1);
+                    });
+                });
+
+                this.showSlides(this.slideIndex);
+                this.autoSlide();
             }
 
-            slides[slideIndex - 1].classList.add("active");
-            dots[slideIndex - 1].classList.add("active");
-        }
+            showSlides(n) {
+                if (n > this.slides.length) { this.slideIndex = 1; }
+                if (n < 1) { this.slideIndex = this.slides.length; }
 
-        function currentSlide(n) {
-            clearTimeout(slideTimer);
-            slideIndex = n;
-            showSlides(slideIndex);
-            autoSlide();
-        }
+                this.slides.forEach(slide => slide.classList.remove("active"));
+                this.dots.forEach(dot => dot.classList.remove("active"));
 
-        function nextSlide() {
-            slideIndex++;
-            showSlides(slideIndex);
-        }
+                if (this.slides[this.slideIndex - 1]) {
+                    this.slides[this.slideIndex - 1].classList.add("active");
+                }
+                if (this.dots[this.slideIndex - 1]) {
+                    this.dots[this.slideIndex - 1].classList.add("active");
+                }
+            }
 
-        function autoSlide() {
-            slideTimer = setTimeout(() => {
-                nextSlide();
-                autoSlide();
-            }, 5000);
+            currentSlide(n) {
+                clearTimeout(this.slideTimer);
+                this.slideIndex = n;
+                this.showSlides(this.slideIndex);
+                this.autoSlide();
+            }
+
+            nextSlide() {
+                this.slideIndex++;
+                this.showSlides(this.slideIndex);
+            }
+
+            autoSlide() {
+                this.slideTimer = setTimeout(() => {
+                    this.nextSlide();
+                    this.autoSlide();
+                }, 5000);
+            }
         }
 
         // Reviews slideshow functionality
         let reviewIndex = 1;
         let reviewTimer;
+        const reviewSection = document.querySelector('#reviews');
+        const reviewDots = reviewSection ? reviewSection.querySelectorAll('.dot') : [];
 
         function showReviews(n) {
             let reviews = document.getElementsByClassName("review");
@@ -950,7 +1354,19 @@
                 reviews[i].classList.remove("active");
             }
 
+            reviewDots.forEach(dot => dot.classList.remove("active"));
+
             reviews[reviewIndex - 1].classList.add("active");
+            if (reviewDots[reviewIndex - 1]) {
+                reviewDots[reviewIndex - 1].classList.add("active");
+            }
+        }
+
+        function currentReview(n) {
+            clearTimeout(reviewTimer);
+            reviewIndex = n;
+            showReviews(reviewIndex);
+            autoReview();
         }
 
         function nextReview() {
@@ -976,13 +1392,83 @@
             } else {
                 content.classList.add('show');
                 button.textContent = "Read less";
+
+                // Scroll the read more content into view
+                setTimeout(() => {
+                    const header = document.querySelector('.header');
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const contentRect = content.getBoundingClientRect();
+                    const scrollTo = contentRect.top + window.scrollY - headerHeight - 80;
+
+                    window.scrollTo({
+                        top: scrollTo,
+                        behavior: 'smooth'
+                    });
+                }, 100);
             }
         }
 
-        // Initialize slideshows
+        // Benefits tooltip toggle functionality
+        function toggleBenefits(button) {
+            const tooltip = button.nextElementSibling;
+            const allTooltips = document.querySelectorAll('.benefits-tooltip');
+
+            // Close all other tooltips
+            allTooltips.forEach(t => {
+                if (t !== tooltip) {
+                    t.classList.remove('show');
+                }
+            });
+
+            // Toggle current tooltip
+            const isShowing = tooltip.classList.toggle('show');
+
+            // Scroll to show tooltip if opening
+            if (isShowing) {
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const tooltipRect = tooltip.getBoundingClientRect();
+                const requiredTopSpace = headerHeight + 20;
+
+                // Only scroll if tooltip top is not visible (above the required space)
+                if (tooltipRect.top < requiredTopSpace) {
+                    const tooltipTop = tooltipRect.top + window.scrollY;
+                    const scrollTo = tooltipTop - headerHeight - 20;
+
+                    window.scrollTo({
+                        top: scrollTo,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        // Close tooltips when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.service-content')) {
+                document.querySelectorAll('.benefits-tooltip').forEach(tooltip => {
+                    tooltip.classList.remove('show');
+                });
+            }
+        });
+
+        // Initialize independent slideshows
         document.addEventListener('DOMContentLoaded', function() {
-            showSlides(slideIndex);
-            autoSlide();
+            // Create independent slideshow instances for each slideshow section
+            document.querySelectorAll('.banner-slideshow').forEach(slideshow => {
+                new SlideshowManager(slideshow);
+            });
+
+            // Initialize review dots click handlers
+            const reviewSection = document.querySelector('#reviews');
+            if (reviewSection) {
+                const dots = reviewSection.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentReview(index + 1);
+                    });
+                });
+            }
 
             showReviews(reviewIndex);
             autoReview();
