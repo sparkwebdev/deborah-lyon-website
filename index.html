@@ -51,9 +51,8 @@
         .header-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 15px 0;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .logo-section {
@@ -654,33 +653,82 @@
             background-color: var(--cream);
             border-radius: 10px;
             margin: 20px 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
 
         .review.active {
-            display: block;
+            display: flex;
+            opacity: 1;
+        }
+
+        .review-header {
+            margin-bottom: 15px;
+        }
+
+        .review-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .review-author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .review-author {
             font-weight: bold;
             color: var(--mauve);
-            margin-bottom: 5px;
+            font-size: 1.8rem;
+            line-height: 1.2;
         }
 
         .review-date {
             font-size: 0.9rem;
             color: var(--grey);
-            margin-bottom: 15px;
+        }
+
+        .stars {
+            font-size: 1.6rem;
+            color: #ffa500;
+            line-height: 1;
+        }
+
+        /* Mobile layout - add padding for chevrons and adjust layout */
+        @media (max-width: 768px) {
+            .reviews-slideshow {
+                padding: 0 20px;
+            }
+
+            .review-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .review-author {
+                font-size: 1.5rem;
+            }
+
+            .stars {
+                align-self: flex-start;
+            }
         }
 
         .review-title {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--mauve);
             margin-bottom: 10px;
         }
 
         .review-text {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-style: italic;
             margin-bottom: 20px;
             color: var(--dark-grey);
@@ -689,7 +737,55 @@
         .stars {
             color: #FFD700;
             font-size: 1.5rem;
-            margin-bottom: 20px;
+        }
+
+        /* Review Navigation Arrows */
+        .review-nav {
+            position: absolute;
+            top: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--mauve);
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .review-nav:hover {
+            background: var(--mauve);
+            color: var(--white);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .review-nav.prev {
+            left: -80px;
+        }
+
+        .review-nav.next {
+            right: -80px;
+        }
+
+        @media (max-width: 1024px) {
+            .review-nav {
+                display: none;
+            }
+
+            .dots-container {
+                display: none;
+            }
+
+            .review {
+                padding: 30px;
+            }
         }
 
         /* Gallery Section */
@@ -882,24 +978,63 @@
         }
 
         /* Responsive Design */
+        /* Tablet and below */
+        @media (max-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
-                gap: 20px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .header-text {
+                flex: 1;
+                min-width: 0;
             }
 
             .header-text h1 {
-                font-size: 1.5rem;
-                text-align: center;
+                font-size: 1.2rem;
+                line-height: 1.2;
+            }
+
+            .header-text h1 .name {
+                display: block;
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+
+            .header-text h1 .title {
+                display: block;
+                font-size: 1rem;
+                font-weight: 400;
             }
 
             .header-text.shrunk h1 {
-                font-size: 1.125rem;
+                font-size: 1rem;
+            }
+
+            .header-text.shrunk h1 .name {
+                font-size: 1.2rem;
+            }
+
+            .header-text.shrunk h1 .title {
+                font-size: 0.9rem;
+            }
+
+            .header-book-btn {
+                flex-shrink: 0;
+                font-size: 0.9rem;
+                padding: 8px 16px;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
 
             .contact-content {
@@ -944,9 +1079,6 @@
                 height: 250px;
             }
 
-            .benefits-grid {
-                grid-template-columns: 1fr !important;
-            }
         }
         /* Membership Images */
         .membership-image {
@@ -974,7 +1106,10 @@
             <div class="header-content">
                 <div class="logo-section">
                     <div class="header-text">
-                        <h1>Deborah Lyon Lymphatic Specialist</h1>
+                        <h1>
+                            <span class="name">Deborah Lyon</span>
+                            <span class="title">Lymphatic Specialist</span>
+                        </h1>
                     </div>
                 </div>
                 <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-btn header-book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
@@ -1059,8 +1194,8 @@
     <section class="section" id="benefits">
         <div class="container">
 
-            <div style="color: var(--dark-grey); margin-bottom: 30px; display: grid; grid-template-columns: 0.65fr 2fr; gap: 30px; align-items: center;">
-                <div style="aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: solid 4px #fff;">
+            <div class="benefits-grid" style="color: var(--dark-grey); margin-bottom: 30px; display: grid; grid-template-columns: 1fr 2fr; gap: 30px; ">
+                <div style="aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: solid 4px #fff; max-width: 320px; justify-self: center;">
                     <img src="img/services/iStock-1188150432.jpg" alt="Lymphatic drainage" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="text-align: left;">
@@ -1073,16 +1208,16 @@
             <div style="background: var(--light-cream); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
                 <h3 style="color: var(--mauve); margin-bottom: 20px; text-align: center; font-size: 1.8rem;">Benefits of lymphatic drainage</h3>
                 <ul class="benefits-list-columns" style="list-style: none; padding-left: 0; max-width: 1000px; margin: 0 auto; column-count: 2; column-gap: 30px;">
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Boosts immune system and eliminates toxins</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Reduces fluid retention and puffiness</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Lymphoedema/lipoedema management</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Post operative care</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Reduces swelling and inflammation which optimises wound healing</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Improves scar healing and reduces fibrosis</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Optimises cancer care after treatments such as radiotherapy/chemotherapy</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Benefits skin disorders</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Relieving tired and heavy legs</li>
-                    <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Boosts metabolism</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Boosts immune system and eliminates toxins</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Reduces fluid retention and puffiness</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Lymphoedema/lipoedema management</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Post operative care</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Reduces swelling and inflammation which optimises wound healing</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Improves scar healing and reduces fibrosis</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Optimises cancer care after treatments such as radiotherapy/chemotherapy</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Benefits skin disorders</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Relieving tired and heavy legs</li>
+                    <li style="padding: 8px 0; position: relative; padding-left: 0;">✓ Boosts metabolism</li>
                 </ul>
             </div>
         </div>
@@ -1238,75 +1373,139 @@
             <h2>Client Testimonials</h2>
             <div class="reviews-slideshow">
                 <div class="review active">
-                    <div class="review-author">Kirsty</div>
-                    <div class="review-date">Thursday, July 24, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Kirsty</div>
+                                <div class="review-date">Thursday, July 24, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Scar therapy with Deborah</div>
                     <div class="review-text">"Deborah is an excellent therapist and has made significant headway with my scar adhesion - restoring movement and flow. If you've had surgery then consider using her services."</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Carla</div>
-                    <div class="review-date">Wednesday, November 5, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Carla</div>
+                                <div class="review-date">Wednesday, November 5, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Body and face lymphatic drainage with Deborah</div>
                     <div class="review-text">"Deborah is so welcoming and an absolute expert in her field. I always look forward to my massages with her — it's now a regular part of my beauty routine. I would highly recommend Deborah; you're truly in safe hands."</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Audrey</div>
-                    <div class="review-date">Monday, November 3, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Audrey</div>
+                                <div class="review-date">Monday, November 3, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Post-Op MLD with Deborah</div>
                     <div class="review-text">"Thank you once again for the fantastic MLD this week as every week pre and post op lower limb lipoedema surgery. Deborah is very skilled and knowledgeable with her MLD. I also got fitted the previous week for new compression and ensures quick response to GP practice with prescription. My legs are looking lovely at 6 weeks post op - thank you so much. Next surgery incoming 3rd Dec 25 - upper leg fronts :)"</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Elaine</div>
-                    <div class="review-date">Monday, October 27, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Elaine</div>
+                                <div class="review-date">Monday, October 27, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Lymphatic facial with Deborah</div>
                     <div class="review-text">"Such a lovely experience with Deborah today. The facial was incredibly relaxing, and my skin feels amazing. Would 100% recommend and I can't wait to come back. Deborah was so knowledgeable and gave me great advice on my particular skin concerns."</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Anonymous</div>
-                    <div class="review-date">Monday, October 13, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Anonymous</div>
+                                <div class="review-date">Monday, October 13, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Scar therapy with Deborah</div>
                     <div class="review-text">"Fantastic session. Huge relief over scar tissue area, surgery was nearly three years ago!"</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Gemma</div>
-                    <div class="review-date">Thursday, October 9, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Gemma</div>
+                                <div class="review-date">Thursday, October 9, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Swedish Massage with Deborah</div>
                     <div class="review-text">"A wonderful treatment with Debbie that I would highly recommend to anyone looking for complete relaxation in beautiful surroundings! Debbie listened to what I was looking for and absolutely delivered. I was so relaxed I fell asleep during my massage! Thank you Debbie x"</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Olivia</div>
-                    <div class="review-date">Monday, August 25, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Olivia</div>
+                                <div class="review-date">Monday, August 25, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Brazilian Lymphatic Sculpting massage full body with Deborah</div>
                     <div class="review-text">"I had never had a lymphatic massage before and didn't know what to expect. I could not have been happier! Deborah is so lovely and made me feel immediately at ease. The salon is beautiful and relaxing. I feel lighter and less bloated after the treatment, and can't wait to get back in again soon!"</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Anonymous</div>
-                    <div class="review-date">Thursday, August 14, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Anonymous</div>
+                                <div class="review-date">Thursday, August 14, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Post-Op MLD with Deborah</div>
                     <div class="review-text">"Been going to Debbie for post operative lymphatic drainage massage.. had two treatments now....after last weeks massage my fluid retention dramatically reduced and pain was far more manageable.. Debbie's great advice on scar minimising, I can already see the difference in 1 week.. wounds are healing great, now that I have bought the products she recommended..and stuck to her advice ....she is so knowledgable. I would highly recommend Debbie x"</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Anonymous</div>
-                    <div class="review-date">Thursday, July 31, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Anonymous</div>
+                                <div class="review-date">Thursday, July 31, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Lymphatic drainage followed by 15 min massage with Deborah</div>
                     <div class="review-text">"Debbie is a lovely, warm lady and a very skilled therapist. I had one of the best treatments I've ever had and I would have no hesitation in recommending her to anyone. I'll definitely be having more treatment soon. Thank you Debbie."</div>
                 </div>
                 <div class="review">
-                    <div class="review-author">Rhonda</div>
-                    <div class="review-date">Wednesday, June 18, 2025</div>
-                    <div class="stars">★★★★★</div>
+                    <div class="review-header">
+                        <div class="review-top">
+                            <div class="review-author-info">
+                                <div class="review-author">Rhonda</div>
+                                <div class="review-date">Wednesday, June 18, 2025</div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
                     <div class="review-title">Oncology Massage with Deborah</div>
                     <div class="review-text">"The treatment was great at the time and the next day I felt even better. Debbie is so helpful and knowledgeable."</div>
                 </div>
+
+                <!-- Navigation Arrows -->
+                <button class="review-nav prev" onclick="changeReview(-1)">‹</button>
+                <button class="review-nav next" onclick="changeReview(1)">›</button>
             </div>
             <div class="dots-container" style="background-color: transparent; position: static;">
                 <span class="dot active" onclick="currentReview(1)"></span>
@@ -1532,13 +1731,29 @@
             if (n > reviews.length) { reviewIndex = 1; }
             if (n < 1) { reviewIndex = reviews.length; }
 
+            // Fade out current review
             for (let i = 0; i < reviews.length; i++) {
-                reviews[i].classList.remove("active");
+                if (reviews[i].classList.contains("active")) {
+                    reviews[i].style.opacity = "0";
+                    setTimeout(() => {
+                        reviews[i].classList.remove("active");
+                        reviews[i].style.display = "";
+                    }, 150);
+                } else {
+                    reviews[i].classList.remove("active");
+                }
             }
 
             reviewDots.forEach(dot => dot.classList.remove("active"));
 
-            reviews[reviewIndex - 1].classList.add("active");
+            // Fade in new review
+            setTimeout(() => {
+                reviews[reviewIndex - 1].classList.add("active");
+                setTimeout(() => {
+                    reviews[reviewIndex - 1].style.opacity = "1";
+                }, 50);
+            }, 150);
+
             if (reviewDots[reviewIndex - 1]) {
                 reviewDots[reviewIndex - 1].classList.add("active");
             }
@@ -1548,7 +1763,20 @@
             clearTimeout(reviewTimer);
             reviewIndex = n;
             showReviews(reviewIndex);
-            autoReview();
+            // Pause autoplay for 10 seconds after user interaction
+            setTimeout(() => {
+                autoReview();
+            }, 10000);
+        }
+
+        function changeReview(direction) {
+            clearTimeout(reviewTimer);
+            reviewIndex += direction;
+            showReviews(reviewIndex);
+            // Pause autoplay for 10 seconds after user interaction
+            setTimeout(() => {
+                autoReview();
+            }, 10000);
         }
 
         function nextReview() {
@@ -1560,7 +1788,45 @@
             reviewTimer = setTimeout(() => {
                 nextReview();
                 autoReview();
-            }, 4000);
+            }, 5000);
+        }
+
+        // Calculate and set consistent review heights (disabled on mobile)
+        function setReviewHeights() {
+            const reviews = document.querySelectorAll('.review');
+
+            // Reset heights to auto on mobile devices
+            if (window.innerWidth <= 768) {
+                reviews.forEach(review => {
+                    review.style.height = 'auto';
+                });
+                return;
+            }
+
+            let maxHeight = 0;
+            const originalDisplay = [];
+
+            // Store original display states and temporarily show all reviews to measure their natural height
+            reviews.forEach((review, index) => {
+                originalDisplay[index] = getComputedStyle(review).display;
+                review.style.height = 'auto';
+                review.style.display = 'flex';
+            });
+
+            // Find the tallest review
+            reviews.forEach(review => {
+                const height = review.offsetHeight;
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            // Set all reviews to the maximum height and restore original display states
+            reviews.forEach((review, index) => {
+                review.style.height = maxHeight + 'px';
+                // Don't override display with inline styles - let CSS classes handle it
+                review.style.display = '';
+            });
         }
 
         // Read more toggle functionality
@@ -1654,6 +1920,50 @@
 
             showReviews(reviewIndex);
             autoReview();
+
+            // Set consistent review heights after DOM is loaded
+            setTimeout(() => {
+                setReviewHeights();
+            }, 100);
+
+            // Add touch/swipe support for mobile reviews
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            const reviewsContainer = document.querySelector('.reviews-slideshow');
+            if (reviewsContainer) {
+                reviewsContainer.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, {passive: true});
+
+                reviewsContainer.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, {passive: true});
+            }
+
+            function handleSwipe() {
+                const swipeDistance = touchStartX - touchEndX;
+                const minSwipeDistance = 50;
+
+                if (Math.abs(swipeDistance) > minSwipeDistance) {
+                    if (swipeDistance > 0) {
+                        // Swiped left - go to next review
+                        changeReview(1);
+                    } else {
+                        // Swiped right - go to previous review
+                        changeReview(-1);
+                    }
+                }
+            }
+        });
+
+        // Recalculate heights on window resize
+        window.addEventListener('resize', () => {
+            clearTimeout(window.resizeTimeout);
+            window.resizeTimeout = setTimeout(() => {
+                setReviewHeights();
+            }, 250);
         });
 
         // Lightbox functionality
