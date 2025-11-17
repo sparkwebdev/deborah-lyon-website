@@ -373,6 +373,12 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .service-image {
@@ -393,6 +399,10 @@
             object-fit: cover;
             object-position: center;
             transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
         }
 
         .service-card:has(.see-benefits-btn:hover) .service-image img {
@@ -560,18 +570,8 @@
             justify-content: center;
             color: var(--grey);
             transition: transform 0.3s ease;
-        }
-
-        .gallery-item {
-            height: 200px;
-            background-color: var(--light-grey);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
-            transition: transform 0.3s ease;
-            overflow: hidden !important;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .gallery-item img {
@@ -579,10 +579,69 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: scale(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            border: none;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 0;
+            margin: 0;
+            max-width: 100vw;
+            max-height: 100vh;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .lightbox::backdrop {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Contact Section */
@@ -946,7 +1005,7 @@
             <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: var(--mauve); font-style: italic;">Each treatment is tailor made to your needs</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-image"><img src="img/services/iStock-1289232543.jpg" alt="Manual Lymphatic Drainage"></div>
+                    <div class="service-image"><img src="img/services/iStock-1226369341.jpg" alt="Manual Lymphatic Drainage"></div>
                     <div class="service-content">
                         <h3>Manual Lymphatic Drainage</h3>
                         <p>Manual Lymphatic Drainage helps to reduce swelling and detoxes the lymphatic system. The technique is a light skin stretch, without oil, to optimise drainage; it should not be confused with regular massage. Beneficial for lymphoedema/lipoedema management.</p>
@@ -1058,7 +1117,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image"><img src="img/services/iStock-1226369341.jpg" alt="Complete Decongestive Therapy for Lymphoedema"></div>
+                    <div class="service-image"><img src="img/services/iStock-182830021.jpg" alt="Complete Decongestive Therapy for Lymphoedema"></div>
                     <div class="service-content">
                         <h3>Complete Decongestive Therapy</h3>
                         <p>Multi-component bandaging service for the treatment of lymphoedema.</p>
@@ -1177,21 +1236,29 @@
     <!-- Gallery Section -->
     <section class="section" id="gallery">
         <div class="container">
-            <h2>Treatment Gallery</h2>
+            <h2>Studio Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="img/services/iStock-1289232543.jpg" alt="Manual Lymphatic Drainage"></div>
-                <div class="gallery-item"><img src="img/services/iStock-1188150432.jpg" alt="Brazilian Lymphatic Sculpting Massage"></div>
-                <div class="gallery-item"><img src="img/services/iStock-514138559.jpg" alt="Post-Operative Care"></div>
-                <div class="gallery-item"><img src="img/services/iStock-1176500076.jpg" alt="Scar Therapy"></div>
-                <div class="gallery-item"><img src="img/services/iStock-1648673108.jpg" alt="Oncology Massage"></div>
-                <div class="gallery-item"><img src="img/services/iStock-1337659476.jpg" alt="Lymphatic Facials"></div>
-                <div class="gallery-item"><img src="img/services/measuring-for-compression.jpg" alt="Measuring for Compression"></div>
-                <div class="gallery-item"><img src="img/services/iStock-1226369341.jpg" alt="Complete Decongestive Therapy for Lymphoedema"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0925.jpg')"><img src="img/studio/IMG_0925.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0924.jpg')"><img src="img/studio/IMG_0924.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0926.jpg')"><img src="img/studio/IMG_0926.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0931.jpg')"><img src="img/studio/IMG_0931.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0932.jpg')"><img src="img/studio/IMG_0932.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0933.jpg')"><img src="img/studio/IMG_0933.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0934.jpg')"><img src="img/studio/IMG_0934.jpg" alt="Deborah's Treatment Studio"></div>
+                <div class="gallery-item" onclick="openLightbox('img/studio/IMG_0936.jpg')"><img src="img/studio/IMG_0936.jpg" alt="Deborah's Treatment Studio"></div>
             </div>
         </div>
     </section>
 
-    
+    <!-- Lightbox Dialog -->
+    <dialog class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-image" src="" alt="Studio Image">
+        </div>
+    </dialog>
+
+
     <!-- Memberships Logos Section -->
     <section class="section" id="membership-logos">
         <div>
@@ -1488,6 +1555,33 @@
 
             showReviews(reviewIndex);
             autoReview();
+        });
+
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = imageSrc;
+            lightbox.showModal();
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.close();
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with escape key (browser default, but we can ensure it)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
         });
     </script>
 </body>
