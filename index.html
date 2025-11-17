@@ -102,6 +102,92 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 65vh;
+            min-height: 500px;
+            background-image: linear-gradient(45deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%), url('img/hero/d-l-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+            flex-grow: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            text-align: left;
+            margin: calc(4rem + 4vh) 0 0 0;
+            padding: 0;
+        }
+
+        .hero-quote {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 30px;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero .book-now-btn {
+            font-size: 1.3rem;
+            padding: 20px 40px;
+            background-color: var(--mauve);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            text-shadow: none;
+        }
+
+        .hero .book-now-btn:hover {
+            background-color: var(--white);
+            color: var(--mauve);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        }
+
+        /* Responsive hero */
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+                background-attachment: scroll;
+            }
+
+            .hero-quote {
+                font-size: 2.5rem;
+            }
+
+            .hero .book-now-btn {
+                font-size: 1.1rem;
+                padding: 15px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-quote {
+                font-size: 2rem;
+            }
+        }
+
         /* Banner Slideshow */
         .banner-slideshow {
             position: relative;
@@ -840,65 +926,15 @@
         </div>
     </header>
 
-    <!-- Slideshow 1 
-    <section class="banner-slideshow" data-slideshow="1">
-        <div class="slideshow-container">
-            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1337659476.jpg')">
-                <div class="slide-content">
-                    <h2>Professional Lymphatic Care</h2>
-                    <p>Expert treatments tailored to your individual needs</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-514138559.jpg')">
-                <div class="slide-content">
-                    <h2>Post-Operative Support</h2>
-                    <p>Compassionate care to enhance your recovery journey</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1176500076.jpg')">
-                <div class="slide-content">
-                    <h2>Advanced Scar Therapy</h2>
-                    <p>Evidence-based techniques for optimal healing</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-quote">Ready to begin your healing journey?</h1>
+                <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
-        <div class="dots-container">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section> -->
-
-
-
-    <!-- Slideshow 2
-    <section class="banner-slideshow" data-slideshow="2">
-        <div class="slideshow-container">
-            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1289232543.jpg')">
-                <div class="slide-content">
-                    <h2>Detox and Rejuvenate with Lymphatic Drainage</h2>
-                    <p>Each treatment is tailor made to your needs</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1648673108.jpg')">
-                <div class="slide-content">
-                    <h2>Boost Your Health in a Whole New Way</h2>
-                    <p>Expert care for lymphoedema, oncology, and post-operative recovery</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/services/iStock-1188150432.jpg')">
-                <div class="slide-content">
-                    <h2>Enhance Your Body's Natural Detoxification</h2>
-                    <p>Brazilian lymphatic sculpting with visible results after just one session</p>
-                </div>
-            </div>
-        </div>
-        <div class="dots-container">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section> -->
+    </section>
 
     <!-- About Section -->
     <section class="section" id="about">
