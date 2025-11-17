@@ -74,6 +74,11 @@
             margin-bottom: 2px;
             line-height: 1.2;
             text-wrap: balance;
+            transition: font-size 0.3s ease;
+        }
+
+        .header-text.shrunk h1 {
+            font-size: 1.6875rem;
         }
 
         .header-text .subtitle {
@@ -100,6 +105,34 @@
             background-color: var(--cream);
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Header Book Button - Initially Hidden */
+        .header-book-btn {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background-color: var(--mauve) !important;
+            color: var(--white) !important;
+            font-size: 1rem;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-book-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .header-book-btn:hover {
+            background-color: var(--white) !important;
+            color: var(--mauve) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         /* Hero Section */
@@ -314,9 +347,11 @@
             aspect-ratio: 1;
             border-radius: 10px;
             overflow: hidden;
-            border-radius: 50%;
+            /* border-radius: 50%; */
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             border: solid 5px #fff;
+            max-width: 360px;
+            margin: 0 auto  ;
         }
 
         .about-image img {
@@ -347,6 +382,23 @@
             background-color: var(--cream);
             border-left: 4px solid var(--mauve);
             border-radius: 0 10px 10px 0;
+        }
+
+        /* Feature highlights with ticks */
+        .feature-highlight {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--mauve);
+        }
+
+        .feature-highlight::before {
+            content: "✓";
+            color: var(--mauve);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
         .read-more-container {
@@ -775,9 +827,9 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 5vw;
             margin-bottom: 30px;
-            align-items: end;
+            /* align-items: end; */
         }
 
         .footer-memberships h3 {
@@ -823,10 +875,10 @@
         .footer-profile {
             width: 80px;
             height: 80px;
-            border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid var(--cream);
+            display: none;
         }
 
         /* Responsive Design */
@@ -839,6 +891,10 @@
             .header-text h1 {
                 font-size: 1.5rem;
                 text-align: center;
+            }
+
+            .header-text.shrunk h1 {
+                font-size: 1.125rem;
             }
 
             .about-content {
@@ -921,7 +977,7 @@
                         <h1>Deborah Lyon Lymphatic Specialist</h1>
                     </div>
                 </div>
-                <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
+                <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="book-now-btn header-book-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
     </header>
@@ -939,21 +995,28 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <h2>Boost Your Health in a Whole New Way with Lymphatic Drainage</h2>
-            <h2 class="sr-only">About Me</h2>
+            <!-- <h2>Boost Your Health in a Whole New Way with Lymphatic Drainage</h2> -->
+            <div class="about-description">
+            </div>
             <div class="about-content">
                 <div class="about-image">
                     <img src="img/profile-crop.jpeg" alt="Deborah Lyon - Lymphatic Specialist" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <p style="font-size: 1.3rem; color: var(--mauve); font-weight: 600;">Deborah Lyon is a certified Lymphoedema therapist and massage specialist.</p>
+            <h2 class="sr-only">About Me</h2>
+                    <p style="font-size: 1.3rem; color: var(--mauve); font-weight: 600;">Deborah is a certified lymphoedema therapist specialising in the lymphatic system, providing Manual Lymphatic Drainage, Post-operative care, Scar therapy, Lymphoedema and Lipoedema management and measuring services for compression.</p>
 
-                    <p>With over 20 years experience, Deborah now specialises in the lymphatic system, with extensive knowledge, dealing with complex cases and compromised lymphatic systems.</p>
+
+                <p>Deborah also provides massage treatments for Oncology care, Swedish/deep tissue, Brazilian lymphatic sculpting massage and lymphatic facials.</p>
+                <p class="feature-highlight">Qualified Restore Scar therapist</p>
+                <p class="feature-highlight">Online booking and Gift Vouchers available.</p>
 
                     <div class="read-more-container">
                         <button class="read-more-btn" onclick="toggleReadMore()">Read more about Deborah's expertise</button>
 
                         <div class="read-more-content" id="readMoreContent">
+
+                            <p>With over 20 years experience, Deborah now specialises in the lymphatic system, with extensive knowledge, dealing with complex cases and compromised lymphatic systems.</p>
                             <p>Qualified in FG-MLD (fluoroscopy guided manual lymphatic drainage) LTA cert, and as a member of MLD UK and the British Lymphology Society, you can be assured you're in safe hands.</p>
 
                             <p>Working in Oncology, Deborah quickly realised a more in depth knowledge was needed of the lymphatic system, which also led her onto a journey discovering scar therapy.</p>
@@ -1007,7 +1070,7 @@
                 </div>
             </div>
 
-            <div style="background: var(--cream); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+            <div style="background: var(--light-cream); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
                 <h3 style="color: var(--mauve); margin-bottom: 20px; text-align: center; font-size: 1.8rem;">Benefits of lymphatic drainage</h3>
                 <ul class="benefits-list-columns" style="list-style: none; padding-left: 0; max-width: 1000px; margin: 0 auto; column-count: 2; column-gap: 30px;">
                     <li style="padding: 8px 0; position: relative; padding-left: 25px;">✓ Boosts immune system and eliminates toxins</li>
@@ -1619,6 +1682,32 @@
                 closeLightbox();
             }
         });
+
+        // Header scroll functionality
+        function toggleHeaderElements() {
+            const heroBookButton = document.querySelector('.hero .book-now-btn');
+            const headerButton = document.querySelector('.header-book-btn');
+            const headerText = document.querySelector('.header-text');
+
+            if (!heroBookButton || !headerButton || !headerText) return;
+
+            const heroButtonTop = heroBookButton.getBoundingClientRect().top;
+
+            // Trigger when the hero book button reaches the top of the viewport
+            if (heroButtonTop <= 0) {
+                headerButton.classList.add('visible');
+                headerText.classList.add('shrunk');
+            } else {
+                headerButton.classList.remove('visible');
+                headerText.classList.remove('shrunk');
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', toggleHeaderElements);
+
+        // Initial check
+        toggleHeaderElements();
     </script>
 </body>
 </html>
