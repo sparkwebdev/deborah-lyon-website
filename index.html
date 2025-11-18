@@ -888,7 +888,7 @@
         /* Contact Section */
         .contact-content {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1.45fr 1.25fr;
             gap: 40px;
         }
 
@@ -903,14 +903,9 @@
             margin-bottom: 10px;
         }
 
-        .map-placeholder {
-            height: 200px;
-            background-color: var(--light-grey);
+        .map-placeholder img {
+            width: 100% ;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
         }
 
         .opening-times .day {
@@ -998,6 +993,7 @@
                 justify-content: space-between;
                 align-items: center;
                 gap: 1rem;
+            padding: 10px 0;
             }
 
             .header-text {
@@ -1018,12 +1014,12 @@
 
             .header-text h1 .title {
                 display: block;
-                font-size: 1rem;
+                font-size: 1.15rem;
                 font-weight: 400;
             }
 
             .header-text.shrunk h1 {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
 
             .header-text.shrunk h1 .name {
@@ -1031,7 +1027,7 @@
             }
 
             .header-text.shrunk h1 .title {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .header-book-btn {
@@ -1589,18 +1585,17 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Contact Details</h3>
-                    <p><strong>Phone:</strong> 01234 567 890</p>
-                    <p><strong>Email:</strong> info@deborahlyon-lymphaticspecialist.co.uk</p>
+                    <p><strong>Phone:</strong> 07825335039</p>
+                    <p><strong>Email:</strong> <a href="mailto:lyondeborah6@gmail.com">lyondeborah6@gmail.com</a></p>
                     <p><strong>Address:</strong><br>
-                    Bridge of Allen<br>
-                    Stirling<br>
-                    Scotland</p>
-                    <p><strong>Parking:</strong> Free on-site parking available</p>
-                    <p><strong>Accessibility:</strong> Ground floor access, disabled parking</p>
+                    2 New Street, <br>
+                    Bridge of Allan, <br>
+                    Stirlingshire, <br>
+                    FK9 4NZ</p>
                 </div>
 
                 <div class="map-placeholder">
-                    Map Location
+                    <img src="img/map.png" alt="Map Location">
                 </div>
 
                 <div class="opening-times">
@@ -1772,20 +1767,12 @@
             clearTimeout(reviewTimer);
             reviewIndex = n;
             showReviews(reviewIndex);
-            // Pause autoplay for 10 seconds after user interaction
-            setTimeout(() => {
-                autoReview();
-            }, 10000);
         }
 
         function changeReview(direction) {
             clearTimeout(reviewTimer);
             reviewIndex += direction;
             showReviews(reviewIndex);
-            // Pause autoplay for 10 seconds after user interaction
-            setTimeout(() => {
-                autoReview();
-            }, 10000);
         }
 
         function nextReview() {
