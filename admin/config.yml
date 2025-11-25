@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: https://github.com/sparkwebdev/deborah-lyon-website
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: "img/gallery"
+public_folder: "/img/gallery"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/hero.json"
+        fields:
+          - {label: "Main Heading", name: "heading", widget: "string", default: "Expert Lymphatic Drainage"}
+          - {label: "Subheading", name: "subheading", widget: "text", default: "Professional MLD therapy in Bridge of Allan"}
+          - {label: "Button Text", name: "buttonText", widget: "string", default: "Book Now"}
+          - {label: "Button Link", name: "buttonLink", widget: "string", default: "http://deborah-lyon--mld--post-op-expert.book.app/"}
+
+      - label: "About Section"
+        name: "about"
+        file: "content/about.json"
+        fields:
+          - {label: "Section Heading", name: "heading", widget: "string", default: "About Deborah"}
+          - {label: "Bio Paragraph 1", name: "bio1", widget: "text"}
+          - {label: "Bio Paragraph 2", name: "bio2", widget: "text"}
+          - {label: "Bio Paragraph 3", name: "bio3", widget: "text"}
+          - {label: "Profile Image", name: "profileImage", widget: "image", default: "/img/profile-crop.jpeg"}
+
+      - label: "Opening Hours"
+        name: "hours"
+        file: "content/hours.json"
+        fields:
+          - {label: "Section Heading", name: "heading", widget: "string", default: "Opening Hours"}
+          - label: "Hours"
+            name: "schedule"
+            widget: "list"
+            fields:
+              - {label: "Day", name: "day", widget: "string"}
+              - {label: "Time", name: "time", widget: "string"}
+
+  - name: "gallery"
+    label: "Gallery Images"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Alt Text", name: "alt", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}

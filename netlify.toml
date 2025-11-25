@@ -1,0 +1,30 @@
+# Netlify Configuration File
+
+[build]
+  # No build command needed - this is a static site
+  publish = "/"
+
+[[redirects]]
+  # Enable Netlify Identity for the admin panel
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[build.environment]
+  # Ensure proper character encoding
+  NODE_ENV = "production"
+
+# Headers for better performance and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
