@@ -53,17 +53,115 @@
     --transition: 0.3s ease;
 }
 
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+.hidden {
+    display: none;
+}
+
+.external-icon {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Layout Helper */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+}
+
+/* ============================================
+   BUTTON SYSTEM
+   ============================================ */
+
+/* Base Button */
+.btn {
+    background-color: var(--mauve);
+    color: var(--white);
+    padding: var(--space-lg) var(--space-3xl);
+    font-size: var(--font-md);
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-full);
+    transition: all var(--transition);
+    display: inline-block;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--light-mauve);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Button Variant: Inverted (light background) */
+.btn--inverted {
+    background-color: var(--white);
+    color: var(--mauve);
+}
+
+.btn--inverted:hover {
+    background-color: var(--cream);
+}
+
+/* Button Variant: Small */
+.btn--small {
+    font-size: var(--font-sm);
+    padding: 12px 24px;
+}
+
+/* Button Variant: Rectangular */
+.btn--rect {
+    border-radius: var(--radius-sm);
+    width: 100%;
+}
+
+.btn--rect:hover {
+    transform: none;
+}
+
 body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
     color: var(--dark-grey);
     background-color: var(--light-cream);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 /* Header */
@@ -118,51 +216,23 @@ body {
     line-height: 1.2;
 }
 
+/* Legacy button aliases - using new .btn system */
 .book-now-btn {
-    background-color: var(--white);
-    color: var(--mauve);
-    padding: var(--space-lg) var(--space-3xl);
-    font-size: var(--font-md);
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: var(--radius-full);
-    transition: all var(--transition);
-    display: inline-block;
-    box-shadow: var(--shadow-md);
-}
-
-.book-now-btn:hover {
-    background-color: var(--cream);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    /* Uses: .btn.btn--inverted */
 }
 
 /* Header Book Button - Initially Hidden */
 .header-book-btn {
+    /* Uses: .btn.btn--small */
     /* opacity: 0;
-    visibility: hidden; */
-    transition: all var(--transition);
-    /* pointer-events: none; */
-    background-color: var(--mauve) !important;
-    color: var(--white) !important;
-    font-size: var(--font-sm);
-    padding: 12px 24px;
-    border-radius: var(--radius-full);
-    font-weight: 600;
-    box-shadow: var(--shadow-md);
+    visibility: hidden;
+    pointer-events: none; */
 }
 
 .header-book-btn.visible {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-}
-
-.header-book-btn:hover {
-    background-color: var(--white) !important;
-    color: var(--mauve) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 /* Hero Section */
@@ -204,27 +274,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
-.hero .book-now-btn {
-    font-size: var(--font-md);
-    padding: var(--space-lg) var(--space-3xl);
-    background-color: var(--mauve);
-    color: var(--white);
-    border: none;
-    border-radius: var(--radius-full);
-    text-decoration: none;
-    display: inline-block;
-    font-weight: 600;
-    transition: all var(--transition);
-    box-shadow: var(--shadow-lg);
-    text-shadow: none;
-}
-
-.hero .book-now-btn:hover {
-    background-color: var(--white);
-    color: var(--mauve);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-}
+/* Hero button uses base .btn */
 
 /* Responsive hero */
 @media (max-width: 768px) {
@@ -238,10 +288,7 @@ body {
         font-size: var(--font-2xl);
     }
 
-    .hero .book-now-btn {
-        font-size: var(--font-base);
-        padding: var(--space-md) var(--space-2xl);
-    }
+    /* Hero button responsive adjustments handled by .btn */
 }
 
 @media (max-width: 480px) {
@@ -327,19 +374,6 @@ body {
 
 .dot.active, .dot:hover {
     background-color: var(--mauve);
-}
-
-/* Screen Reader Only */
-.sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
 }
 
 /* Sections */
@@ -441,21 +475,8 @@ h3 {
 }
 
 .read-more-btn {
-    background-color: var(--mauve);
-    color: var(--white);
-    border: none;
-    padding: 12px var(--space-xl);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-weight: bold;
-    font-size: var(--font-base);
-    transition: background-color var(--transition);
-    width: 100%;
+    /* Uses: .btn.btn--rect */
     margin-bottom: var(--space-md);
-}
-
-.read-more-btn:hover {
-    background-color: var(--light-mauve);
 }
 
 .read-more-content {
@@ -474,13 +495,31 @@ h3 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.membership-badges {
+/* ============================================
+   MEMBERSHIPS SECTION
+   ============================================ */
+
+.memberships__logos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-md);
 }
 
+.memberships__logo {
+    height: 86px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+
+.memberships__logo:hover {
+    transform: scale(1.05);
+}
+
+/* About Section Badges */
 .badge {
     background-color: var(--cream);
     padding: 8px var(--space-md);
@@ -490,15 +529,18 @@ h3 {
     border: 1px solid var(--light-grey);
 }
 
-/* Book Now Section */
-.book-now-section {
+/* ============================================
+   BOOK NOW SECTION
+   ============================================ */
+
+.book-now {
     background: linear-gradient(135deg, var(--mauve), var(--light-mauve));
     color: var(--white);
     text-align: center;
     padding: var(--space-4xl) 0;
 }
 
-.book-now-section h2 {
+.book-now h2 {
     color: var(--white);
     margin-bottom: var(--space-lg);
     font-size: var(--font-2xl);
@@ -506,31 +548,12 @@ h3 {
     text-wrap: balance;
 }
 
-.book-now-section p {
+.book-now p {
     font-size: var(--font-md);
     margin-bottom: var(--space-2xl);
     max-width: 65ch;
     margin-left: auto;
     margin-right: auto;
-}
-
-.book-now-large {
-    background-color: var(--white);
-    color: var(--mauve);
-    padding: var(--space-lg) var(--space-3xl);
-    font-size: var(--font-md);
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: var(--radius-full);
-    transition: all var(--transition);
-    display: inline-block;
-    box-shadow: var(--shadow-md);
-}
-
-.book-now-large:hover {
-    background-color: var(--cream);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
 }
 
 /* Services Section */
@@ -605,20 +628,7 @@ h3 {
 }
 
 .see-benefits-btn {
-    background-color: var(--mauve);
-    color: var(--white);
-    border: none;
-    padding: 12px var(--space-xl);
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    font-weight: bold;
-    font-size: var(--font-base);
-    transition: background-color var(--transition);
-    width: 100%;
-}
-
-.see-benefits-btn:hover {
-    background-color: var(--light-mauve);
+    /* Uses: .btn.btn--rect */
 }
 
 .benefits-tooltip {
@@ -747,23 +757,8 @@ h3 {
 }
 
 .feature-panel-btn {
-    background-color: var(--white);
-    color: var(--mauve);
-    padding: 12px 24px;
-    font-size: var(--font-sm);
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: var(--radius-full);
-    transition: all var(--transition);
-    display: inline-block;
-    box-shadow: 0 3px var(--space-sm) rgba(0,0,0,0.15);
+    /* Uses: .btn.btn--inverted.btn--small */
     white-space: nowrap;
-}
-
-.feature-panel-btn:hover {
-    background-color: var(--cream);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 768px) {
@@ -952,62 +947,72 @@ h3 {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Contact Section */
-.contact-content {
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+
+.contact__grid {
     display: grid;
     grid-template-columns: 1fr 1.45fr 1.25fr;
     gap: var(--space-3xl);
 }
 
-.contact-info h3,
-.opening-times h3 {
+/* .contact__details - no specific styles needed */
+
+.contact__details h3,
+.contact__hours h3 {
     color: var(--mauve);
     margin-bottom: var(--space-lg);
 }
 
-.contact-info p,
-.opening-times p {
+.contact__details p {
     margin-bottom: var(--space-sm);
 }
 
-.map-placeholder img {
-    width: 100% ;
+.contact__map img {
+    width: 100%;
     border-radius: var(--radius-md);
 }
 
-.opening-times .day {
+/* .contact__hours - no specific styles needed */
+
+.contact__day {
     display: flex;
     justify-content: space-between;
     padding: var(--space-xs) 0;
     border-bottom: 1px solid var(--light-grey);
 }
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
+
 .footer {
     background-color: var(--dark-grey);
     color: var(--white);
     padding: var(--space-3xl) 0 var(--space-lg);
 }
 
-.footer-content {
+.footer__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5vw;
     margin-bottom: var(--space-2xl);
-    /* align-items: end; */
 }
 
-.footer-memberships h3 {
+/* .footer__info - no specific styles needed */
+
+.footer__memberships h3 {
     margin-bottom: var(--space-lg);
 }
 
-.footer-badges {
+.footer__badges {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
 }
 
-.footer-badge {
+.footer__badge {
     background-color: var(--grey);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-lg);
@@ -1020,31 +1025,27 @@ h3 {
     gap: var(--space-xs);
 }
 
-.footer-badge:hover {
+.footer__badge:hover {
     background-color: var(--mauve);
 }
 
-.external-icon {
-    font-size: 0.7rem;
-    opacity: 0.8;
-}
-
-.footer-bottom {
+.footer__copyright {
     text-align: center;
     padding-top: var(--space-lg);
     border-top: 1px solid var(--grey);
     color: var(--light-grey);
 }
 
-/* Footer Profile Photo */
-.footer-profile {
+/* Commented out - unused profile photo
+.footer__profile {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin-bottom: var(--space-md);
     border: 3px solid var(--cream);
     display: none;
 }
+*/
 
 /* Responsive Design */
 /* Tablet and below */
@@ -1107,11 +1108,11 @@ h3 {
         grid-template-columns: 1fr;
     }
 
-    .contact-content {
+    .contact__grid {
         grid-template-columns: 1fr;
     }
 
-    .footer-content {
+    .footer__content {
         grid-template-columns: 1fr;
     }
 
@@ -1134,9 +1135,7 @@ h3 {
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 var(--space-md);
-    }
+    /* Container responsive padding handled in utilities section */
 
     .section {
         padding: var(--space-3xl) 0;
@@ -1152,36 +1151,10 @@ h3 {
     }
 
 }
-/* Membership Images */
-.membership-image {
-    height: 86px;
-    width: auto;
-    object-fit: contain;
-    /* padding: 8px;
-    border-radius: 8px;
-    background-color: var(--white);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
-    transition: transform var(--transition);
-    mix-blend-mode: multiply;
-    opacity: 0.85;
-}
 
-.membership-image:hover {
-    transform: scale(1.05);
-}
-
-/* Utility Classes for Refactored Inline Styles */
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-balance {
-    text-wrap: balance;
-}
+/* ============================================
+   COMPONENT CLASSES
+   ============================================ */
 
 .about-description {
     text-align: center;
@@ -1319,8 +1292,4 @@ h3 {
 .dots-transparent {
     background-color: transparent;
     position: static;
-}
-
-.hidden {
-    display: none;
 }
