@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: sparkwebdev/deborah-lyon-website
+  name: git-gateway
   branch: main
 
 media_folder: "img/gallery"
