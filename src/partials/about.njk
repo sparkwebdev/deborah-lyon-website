@@ -15,16 +15,7 @@
                     <button class="btn btn--rect read-more-btn" onclick="toggleReadMore()">{{ about.readMoreButtonText }}</button>
 
                     <div class="read-more-content" id="readMoreContent">
-                        {% for paragraph in about.expandedContent %}
-                        <p>{{ paragraph }}</p>
-                        {% endfor %}
-
-                        <p>{{ about.treatmentListIntro }}</p>
-                        <ul class="tick-list">
-                            {% for treatment in about.treatments %}
-                            <li>✓ {{ treatment }}</li>
-                            {% endfor %}
-                        </ul>
+                        {{ about.expandedContent | markdownFull | safe }}
                     </div>
                 </div>
             </div>

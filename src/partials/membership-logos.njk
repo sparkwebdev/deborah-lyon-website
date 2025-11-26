@@ -2,8 +2,8 @@
 <section class="section" id="membership-logos">
     <h3 class="sr-only">Deborah's Professional Memberships</h3>
     <div class="memberships__logos">
-        {% for logo in membershipLogos.logos %}
-        <img src="{{ logo.src }}" alt="{{ logo.alt }}" class="memberships__logo" title="{{ logo.title }}">
+        {% for item in memberships.items %}
+        <img src="{{ item.logo }}" alt="{{ item.name }}" class="memberships__logo" title="{{ item.name }}">
         {% endfor %}
     </div>
 </section>

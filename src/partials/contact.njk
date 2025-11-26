@@ -1,29 +1,27 @@
 <!-- Contact -->
 <section class="section bg-light" id="contact">
     <div class="container">
-        <h2>{{ contact.heading }}</h2>
+        <h2>Get In Touch</h2>
         <div class="contact">
             <div class="contact__details">
-                <h3>{{ contact.detailsHeading }}</h3>
-                <p><strong>Phone:</strong> {{ contact.phone }}</p>
-                <p><strong>Email:</strong> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+                <h3>Contact Details</h3>
+                <p><strong>Phone:</strong> {{ site.contact.phone }}</p>
+                <p><strong>Email:</strong> <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
                 <p><strong>Address:</strong><br>
-                {{ contact.addressLine1 }}<br>
-                {{ contact.addressLine2 }}<br>
-                {{ contact.addressLine3 }}<br>
-                {{ contact.postcode }}</p>
+                {{ site.contact.address | replace("\n", "<br>") | safe }}</p>
             </div>
 
             <div class="contact__map">
-                <img src="{{ contact.mapImage }}" alt="Map Location">
+                <img src="{{ site.contact.mapImage }}" alt="Map Location">
             </div>
 
             <div class="contact__hours">
-                <h3>{{ contact.hoursHeading }}</h3>
-                {% for day in contact.openingHours %}
+                <h3>Opening Hours</h3>
+                {% set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+                {% for hours in site.contact.openingHours %}
                 <div class="contact__day">
-                    <span>{{ day.day }}</span>
-                    <span>{{ day.hours }}</span>
+                    <span>{{ days[loop.index0] }}</span>
+                    <span>{{ hours }}</span>
                 </div>
                 {% endfor %}
             </div>

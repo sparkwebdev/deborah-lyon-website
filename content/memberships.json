@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "name": "MLD UK",
+      "logo": "img/logos/MLD-UK-logo.jpg",
+      "url": "https://mlduk.org.uk/"
+    },
+    {
+      "name": "LTA",
+      "logo": "img/logos/LTA-logo.jpg",
+      "url": "https://www.lymph.org.uk/"
+    },
+    {
+      "name": "BLS - British Lymphology Society",
+      "logo": "img/logos/British-Lymphology-Society-logo.jpg",
+      "url": "https://www.thebls.com/"
+    },
+    {
+      "name": "Juzo",
+      "logo": "img/logos/Juzo-logo.jpg",
+      "url": "https://www.juzo.co.uk/"
+    },
+    {
+      "name": "Restore Scar Therapy",
+      "logo": "img/logos/Restore-scar-therapy-logo.jpg",
+      "url": "https://www.restoretherapy.co.uk/"
+    },
+    {
+      "name": "LSN Lymphoedema Support Network",
+      "logo": "img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg",
+      "url": "https://www.lymphoedema.org/"
+    },
+    {
+      "name": "Lipoelastic",
+      "logo": "img/logos/Lipoelastic-logo.jpg",
+      "url": "https://www.lipoelastic.co.uk/"
+    }
+  ]
+}

@@ -8,10 +8,10 @@ public_folder: "/img/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: "site_settings"
+  - name: "settings"
     label: "Site Settings"
     files:
-      - label: "SEO & Meta Tags"
+      - label: "Site Configuration"
         name: "site"
         file: "content/site.json"
         fields:
@@ -21,41 +21,13 @@ collections:
           - {label: "Meta Description", name: "metaDescription", widget: "text"}
           - {label: "Meta Keywords", name: "metaKeywords", widget: "string"}
           - {label: "Booking URL", name: "bookingUrl", widget: "string"}
-          - {label: "Footer Tagline", name: "footerTagline", widget: "string"}
-          - label: "Contact Details"
-            name: "contact"
-            widget: "object"
-            fields:
-              - {label: "Phone", name: "phone", widget: "string"}
-              - {label: "Email", name: "email", widget: "string"}
-              - {label: "Address", name: "address", widget: "markdown", buttons: [bold], modes: [raw], hint: "Use **text** to highlight keywords"}
-              - {label: "Map Image Path", name: "mapImage", widget: "string"}
-              - label: "Opening Hours (Mon-Sun)"
-                name: "openingHours"
-                widget: "list"
-                hint: "7 entries: Monday through Sunday"
-                field: {label: "Hours", name: "hours", widget: "string"}
 
-      - label: "Call-to-Actions"
-        name: "ctas"
-        file: "content/ctas.json"
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/hero.json"
         fields:
-          - label: "Hero CTA"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Quote", name: "quote", widget: "string"}
-          - label: "Book Now CTA"
-            name: "bookNow"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-          - label: "Gift Panel CTA"
-            name: "giftPanel"
-            widget: "object"
-            fields:
-              - {label: "Text", name: "text", widget: "string"}
+          - {label: "Quote", name: "quote", widget: "string"}
+          - {label: "Button Text", name: "buttonText", widget: "string"}
 
       - label: "About Section"
         name: "about"
@@ -67,7 +39,23 @@ collections:
           - {label: "Services Offered", name: "servicesOffered", widget: "markdown", buttons: [bold], modes: [raw], hint: "Use **text** to highlight keywords"}
           - {label: "Special Qualification", name: "specialQualification", widget: "string"}
           - {label: "Read More Button Text", name: "readMoreButtonText", widget: "string"}
-          - {label: "Expanded Content", name: "expandedContent", widget: "markdown", hint: "Full markdown supported: paragraphs, **bold**, lists, etc."}
+          - label: "Expanded Content Paragraphs"
+            name: "expandedContent"
+            widget: "list"
+            field: {label: "Paragraph", name: "paragraph", widget: "text"}
+          - {label: "Treatment List Introduction", name: "treatmentListIntro", widget: "string"}
+          - label: "Treatments"
+            name: "treatments"
+            widget: "list"
+            field: {label: "Treatment", name: "treatment", widget: "string"}
+
+      - label: "Gift Panel"
+        name: "giftPanel"
+        file: "content/giftPanel.json"
+        fields:
+          - {label: "Icon Path", name: "icon", widget: "string"}
+          - {label: "Text", name: "text", widget: "string"}
+          - {label: "Button Text", name: "buttonText", widget: "string"}
 
       - label: "Benefits Section"
         name: "benefits"
@@ -86,9 +74,26 @@ collections:
             widget: "list"
             field: {label: "Benefit", name: "benefit", widget: "string"}
 
-  - name: "services"
-    label: "Services"
-    files:
+      - label: "Contact Information"
+        name: "contact"
+        file: "content/contact.json"
+        fields:
+          - {label: "Section Heading", name: "heading", widget: "string"}
+          - {label: "Details Heading", name: "detailsHeading", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Address Line 1", name: "addressLine1", widget: "string"}
+          - {label: "Address Line 2", name: "addressLine2", widget: "string"}
+          - {label: "Address Line 3", name: "addressLine3", widget: "string"}
+          - {label: "Postcode", name: "postcode", widget: "string"}
+          - {label: "Map Image Path", name: "mapImage", widget: "string"}
+          - {label: "Hours Heading", name: "hoursHeading", widget: "string"}
+          - label: "Opening Hours"
+            name: "openingHours"
+            widget: "list"
+            fields:
+              - {label: "Day", name: "day", widget: "string"}
+              - {label: "Hours", name: "hours", widget: "string"}
       - label: "Services"
         name: "services"
         file: "content/services.json"
@@ -103,9 +108,6 @@ collections:
               - {label: "Image Path", name: "image", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
 
-  - name: "reviews"
-    label: "Client Testimonials"
-    files:
       - label: "Reviews"
         name: "reviews"
         file: "content/reviews.json"
@@ -121,9 +123,14 @@ collections:
               - {label: "Review Title", name: "title", widget: "string"}
               - {label: "Review Text", name: "text", widget: "text"}
 
-  - name: "gallery"
-    label: "Studio Gallery"
-    files:
+      - label: "Book Now Section"
+        name: "bookNow"
+        file: "content/bookNow.json"
+        fields:
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Button Text", name: "buttonText", widget: "string"}
+
       - label: "Gallery"
         name: "gallery"
         file: "content/gallery.json"
@@ -136,17 +143,14 @@ collections:
               - {label: "Image Path", name: "src", widget: "string"}
               - {label: "Alt Text", name: "alt", widget: "string"}
 
-  - name: "memberships"
-    label: "Professional Memberships"
-    files:
-      - label: "Memberships"
-        name: "memberships"
-        file: "content/memberships.json"
+      - label: "Membership Logos"
+        name: "membershipLogos"
+        file: "content/membershipLogos.json"
         fields:
-          - label: "Membership Items"
-            name: "items"
+          - label: "Logo Items"
+            name: "logos"
             widget: "list"
             fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Logo Image Path", name: "logo", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Logo Image Path", name: "src", widget: "string"}
+              - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Title/Tooltip", name: "title", widget: "string"}

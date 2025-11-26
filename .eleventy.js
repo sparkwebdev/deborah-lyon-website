@@ -14,6 +14,11 @@ module.exports = function(eleventyConfig) {
     return md.renderInline(content);
   });
 
+  // Add markdownFull filter for block-level content (paragraphs, lists, etc.)
+  eleventyConfig.addFilter("markdownFull", (content) => {
+    return md.render(content);
+  });
+
   // Pass through img folder to _site
   eleventyConfig.addPassthroughCopy("img");
 

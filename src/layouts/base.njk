@@ -36,23 +36,19 @@
             <div class="footer__content">
                 <div class="footer__info">
                     <h3>{{ site.headerName }} {{ site.headerSubtitle }}</h3>
-                    <p>Personalized, compassionate care for your health and wellness journey</p>
+                    <p>{{ site.footerTagline }}</p>
                 </div>
                 <div class="footer__memberships">
                     <h3>Professional Memberships</h3>
                     <div class="footer__badges">
-                        <a href="https://mlduk.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">MLD UK <span class="external-icon">↗</span></a>
-                        <a href="https://www.lymph.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">LTA <span class="external-icon">↗</span></a>
-                        <a href="https://www.thebls.com/" target="_blank" rel="noopener noreferrer" class="footer__badge">BLS - British Lymphology Society <span class="external-icon">↗</span></a>
-                        <a href="https://www.juzo.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Juzo <span class="external-icon">↗</span></a>
-                        <a href="https://www.restoretherapy.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Restore Scar Therapy <span class="external-icon">↗</span></a>
-                        <a href="https://www.lymphoedema.org/" target="_blank" rel="noopener noreferrer" class="footer__badge">LSN Lymphoedema Support Network <span class="external-icon">↗</span></a>
-                        <a href="https://www.lipoelastic.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Lipoelastic <span class="external-icon">↗</span></a>
+                        {% for item in memberships.items %}
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footer__badge">{{ item.name }} <span class="external-icon">↗</span></a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="footer__copyright">
-                <p><span>&copy; {{ site.currentYear }}</span> <span>{{ site.headerName }} {{ site.headerSubtitle }} - Bridge of Allen. All rights reserved.</span></p>
+                <p><span>&copy; {{ site.currentYear }}</span> <span>{{ site.headerName }}. All rights reserved.</span></p>
             </div>
         </div>
     </footer>
