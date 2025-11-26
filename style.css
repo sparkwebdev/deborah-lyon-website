@@ -172,7 +172,7 @@
 
 /* Button Variant: Small */
 .btn--small {
-    font-size: var(--font-sm);
+    font-size: var(--font-base);
     padding: 12px 24px;
 }
 
