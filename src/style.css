@@ -155,9 +155,10 @@
 }
 
 .btn:hover {
-    background-color: var(--light-mauve);
+    background-color: var(--cream);
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+    color: var(--mauve);
 }
 
 /* Button Variant: Inverted (light background) */
@@ -434,7 +435,7 @@ h3 {
     flex-direction: column;
 }
 
-.about-text p {
+.about-text p:not(.feature-highlight) {
     margin-bottom: var(--space-lg);
     font-size: var(--font-base);
     max-width: 65ch;
@@ -453,6 +454,7 @@ h3 {
     margin-bottom: var(--space-md);
     font-weight: 600;
     color: var(--mauve);
+    font-size: var(--font-md);
 }
 
 .feature-highlight::before {
@@ -464,7 +466,7 @@ h3 {
 }
 
 .read-more-container {
-    margin-top: auto;
+    margin-top: var(--space-md);
 }
 
 .read-more-btn {
@@ -862,6 +864,11 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1.45fr 1.25fr;
     gap: var(--space-3xl);
+}
+@media (max-width: 768px) {
+    .contact {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* .contact__details - no specific styles needed */
