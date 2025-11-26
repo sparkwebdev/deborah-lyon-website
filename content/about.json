@@ -1,7 +1,32 @@
 {
-  "heading": "About Deborah",
-  "bio1": "Deborah Lyon is a highly experienced lymphatic specialist based in Bridge of Allan, Scotland. With extensive training in Manual Lymphatic Drainage (MLD) and post-operative care, she provides expert therapeutic treatments for a wide range of conditions.",
-  "bio2": "Her practice specializes in lymphoedema management, post-surgical recovery, and wellness treatments. Deborah is committed to providing personalized care tailored to each client's unique needs, using evidence-based techniques to achieve the best possible outcomes.",
-  "bio3": "As a member of leading professional organizations including MLD UK, the Lymphoedema Training Academy, and the British Lymphology Society, Deborah maintains the highest standards of professional practice and continues to advance her expertise through ongoing education.",
-  "profileImage": "/img/profile-crop.jpeg"
+  "image": "img/profile.jpeg",
+  "imageAlt": "Deborah Lyon - Lymphatic Specialist",
+  "intro": "Deborah is a certified lymphoedema therapist (MLD U.K.) specialising in the lymphatic system, providing **Manual Lymphatic Drainage**, **Post-operative care**, **Scar therapy**, **Lymphoedema and Lipoedema management** and **measuring services for compression**.",
+  "servicesOffered": "Deborah also provides massage treatments for **Oncology care**, **Swedish/deep tissue**, **Brazilian lymphatic sculpting massage** and **lymphatic facials**.",
+  "specialQualification": "Qualified Restore Scar therapist",
+  "readMoreButtonText": "Read more about Deborah's expertise",
+  "expandedContent": [
+    "With over 20 years experience, Deborah now specialises in the lymphatic system, with extensive knowledge, dealing with complex cases and compromised lymphatic systems.",
+    "Qualified in FG-MLD (fluoroscopy guided manual lymphatic drainage) LTA cert, and as a member of MLD UK and the British Lymphology Society, you can be assured you're in safe hands.",
+    "Working in Oncology, Deborah quickly realised a more in depth knowledge was needed of the lymphatic system, which also led her onto a journey discovering scar therapy.",
+    "Trained with Restore Scar Therapy Deborah uses evidence-informed techniques to help improve scar tissue and release adhesions, giving advice to clients on how to self manage their own healing.",
+    "Incorporating her extensive knowledge of lymphatic drainage, massage and scar therapy, Deborah is able to help many different clients recover post-operatively.",
+    "Her knowledge and techniques help to minimise pain and inflammation, recovering faster and enhancing your surgical results.",
+    "Her techniques are beneficial for both reconstructive or plastic surgeries or procedures such as liposuction for lipoedema.",
+    "Deborah also provides lymphatic treatments to sculpt and define your body with visible results after just one session, reducing swelling, bloating and fluid retention, improving skin texture, cellulite and boosting the metabolism.",
+    "The Brazilian lymphatic sculpting treatment is very popular with clients wanting to feel more sculpted and energised.",
+    "Deborah's clients love her knowledge and ability to turn her hand using different techniques to achieve the best results possible, making sure each treatment is tailor made to each individual client."
+  ],
+  "treatmentListIntro": "Deborah provides expert care and knowledge for the treatment of:",
+  "treatments": [
+    "Lymphoedema / Lipoedema",
+    "Compression service (made to measure or off the shelf)",
+    "Post-operative recovery",
+    "Oncology care",
+    "Scar therapy",
+    "Full body lymphatic drainage",
+    "Brazilian lymphatic body sculpting",
+    "Lymphatic facials",
+    "Swedish/deep tissue and Indian head massage"
+  ]
 }

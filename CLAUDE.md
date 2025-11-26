@@ -27,7 +27,7 @@ This is a single-page website for Deborah Lyon Lymphatic Specialist, a healthcar
   - "Read more" toggle functionality
 
 ### Images
-- `img/profile-crop.jpeg` - Profile photo used in About section and footer
+- `img/profile.jpeg` - Profile photo used in About section and footer
 - `img/logos/` - Professional membership logos (MLD UK, LTA, BLS, Juzo, Restore, LSN, Lipoelastic)
 - `img/services/` - Stock photos for service cards and gallery
 

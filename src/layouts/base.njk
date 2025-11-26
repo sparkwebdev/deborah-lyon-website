@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.metaDescription }}">
+    <meta name="keywords" content="{{ site.metaKeywords }}">
+    <title>{{ site.title }}</title>
+
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__title">
+                    <h1>
+                        <span class="header__name">{{ site.headerName }}</span>
+                        <span class="header__subtitle">{{ site.headerSubtitle }}</span>
+                    </h1>
+                </div>
+                <a href="{{ site.bookingUrl }}" class="btn btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    {{ content | safe }}
+
+    <!-- Footer -->
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <h3>{{ site.headerName }} {{ site.headerSubtitle }}</h3>
+                    <p>Personalized, compassionate care for your health and wellness journey</p>
+                </div>
+                <div class="footer__memberships">
+                    <h3>Professional Memberships</h3>
+                    <div class="footer__badges">
+                        <a href="https://mlduk.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">MLD UK <span class="external-icon">↗</span></a>
+                        <a href="https://www.lymph.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">LTA <span class="external-icon">↗</span></a>
+                        <a href="https://www.thebls.com/" target="_blank" rel="noopener noreferrer" class="footer__badge">BLS - British Lymphology Society <span class="external-icon">↗</span></a>
+                        <a href="https://www.juzo.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Juzo <span class="external-icon">↗</span></a>
+                        <a href="https://www.restoretherapy.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Restore Scar Therapy <span class="external-icon">↗</span></a>
+                        <a href="https://www.lymphoedema.org/" target="_blank" rel="noopener noreferrer" class="footer__badge">LSN Lymphoedema Support Network <span class="external-icon">↗</span></a>
+                        <a href="https://www.lipoelastic.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Lipoelastic <span class="external-icon">↗</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p><span>&copy; {{ site.currentYear }}</span> <span>{{ site.headerName }} {{ site.headerSubtitle }} - Bridge of Allen. All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

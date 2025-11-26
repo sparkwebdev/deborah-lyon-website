@@ -1,0 +1,25 @@
+{
+  "heading": "Studio Gallery",
+  "images": [
+    {
+      "src": "img/studio/IMG_0925.jpg",
+      "alt": "Deborah's Treatment Studio"
+    },
+    {
+      "src": "img/studio/IMG_0926.jpg",
+      "alt": "Deborah's Treatment Studio"
+    },
+    {
+      "src": "img/studio/IMG_0933.jpg",
+      "alt": "Deborah's Treatment Studio"
+    },
+    {
+      "src": "img/studio/IMG_0934.jpg",
+      "alt": "Deborah's Treatment Studio"
+    },
+    {
+      "src": "img/studio/IMG_0936.jpg",
+      "alt": "Deborah's Treatment Studio"
+    }
+  ]
+}

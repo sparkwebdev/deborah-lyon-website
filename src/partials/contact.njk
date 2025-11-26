@@ -1,0 +1,32 @@
+<!-- Contact -->
+<section class="section bg-light" id="contact">
+    <div class="container">
+        <h2>{{ contact.heading }}</h2>
+        <div class="contact">
+            <div class="contact__details">
+                <h3>{{ contact.detailsHeading }}</h3>
+                <p><strong>Phone:</strong> {{ contact.phone }}</p>
+                <p><strong>Email:</strong> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+                <p><strong>Address:</strong><br>
+                {{ contact.addressLine1 }}<br>
+                {{ contact.addressLine2 }}<br>
+                {{ contact.addressLine3 }}<br>
+                {{ contact.postcode }}</p>
+            </div>
+
+            <div class="contact__map">
+                <img src="{{ contact.mapImage }}" alt="Map Location">
+            </div>
+
+            <div class="contact__hours">
+                <h3>{{ contact.hoursHeading }}</h3>
+                {% for day in contact.openingHours %}
+                <div class="contact__day">
+                    <span>{{ day.day }}</span>
+                    <span>{{ day.hours }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+{
+  "heading": "Get In Touch",
+  "detailsHeading": "Contact Details",
+  "phone": "07825335039",
+  "email": "deborahlyonMLD@gmail.com",
+  "addressLine1": "2 New Street,",
+  "addressLine2": "Bridge of Allan,",
+  "addressLine3": "Stirlingshire,",
+  "postcode": "FK9 4NZ",
+  "mapImage": "img/map.png",
+  "hoursHeading": "Opening Hours",
+  "openingHours": [
+    {
+      "day": "Monday",
+      "hours": "Closed"
+    },
+    {
+      "day": "Tuesday",
+      "hours": "10:30 AM - 7:30 PM"
+    },
+    {
+      "day": "Wednesday",
+      "hours": "10:30 AM - 7:30 PM"
+    },
+    {
+      "day": "Thursday",
+      "hours": "10:00 AM - 3:00 PM"
+    },
+    {
+      "day": "Friday",
+      "hours": "Closed"
+    },
+    {
+      "day": "Saturday",
+      "hours": "Closed"
+    },
+    {
+      "day": "Sunday",
+      "hours": "9:30 AM - 6:30 PM"
+    }
+  ]
+}

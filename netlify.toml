@@ -1,8 +1,8 @@
 # Netlify Configuration File
 
 [build]
-  # No build command needed - this is a static site
-  publish = "/"
+  command = "npm run build"
+  publish = "_site"
 
 [[redirects]]
   # Enable Netlify Identity for the admin panel

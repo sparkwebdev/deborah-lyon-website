@@ -1,0 +1,26 @@
+<!-- Reviews -->
+<section class="section bg-light" id="reviews">
+    <div class="container">
+        <h2>{{ reviews.heading }}</h2>
+        <div class="reviews__slideshow">
+            {% for review in reviews.items %}
+            <div class="reviews__item bg-mid{% if loop.first %} active{% endif %}">
+                <div class="reviews__author">{{ review.author }}</div>
+                <div class="reviews__date">{{ review.date }}</div>
+                <div class="reviews__stars">{% for i in range(0, review.stars) %}★{% endfor %}</div>
+                <div class="reviews__title">{{ review.title }}</div>
+                <div class="reviews__text">"{{ review.text }}"</div>
+            </div>
+            {% endfor %}
+
+            <!-- Navigation Arrows -->
+            <button class="reviews__nav reviews__nav--prev" onclick="changeReview(-1)">‹</button>
+            <button class="reviews__nav reviews__nav--next" onclick="changeReview(1)">›</button>
+        </div>
+        <div class="dots-container dots-transparent">
+            {% for review in reviews.items %}
+            <span class="dot{% if loop.first %} active{% endif %}" onclick="currentReview({{ loop.index }})"></span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
