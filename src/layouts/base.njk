@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ site.metaDescription }}">
-    <meta name="keywords" content="{{ site.metaKeywords }}">
-    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ meta.description or (site.taglines.siteName + ' ' + site.taglines.siteSubtitle + ' - ' + site.taglines.siteLocation + '. ' + site.taglines.tagline) }}">
+    <meta name="keywords" content="{{ meta.keywords }}">
+    <title>{{ meta.title or (site.taglines.siteName + ' ' + site.taglines.siteSubtitle + ' - ' + site.taglines.siteLocation) }}</title>
 
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -19,11 +19,11 @@
             <div class="header__content">
                 <div class="header__title">
                     <h1>
-                        <span class="header__name">{{ site.headerName }}</span>
-                        <span class="header__subtitle">{{ site.headerSubtitle }}</span>
+                        <span class="header__name">{{ site.taglines.siteName }}</span>
+                        <span class="header__subtitle">{{ site.taglines.siteSubtitle }}</span>
                     </h1>
                 </div>
-                <a href="{{ site.bookingUrl }}" class="btn btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+                <a href="{{ site.contact.bookingUrl }}" class="btn btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
     </header>
@@ -35,20 +35,20 @@
         <div class="container">
             <div class="footer__content">
                 <div class="footer__info">
-                    <h3>{{ site.headerName }} {{ site.headerSubtitle }}</h3>
-                    <p>{{ site.footerTagline }}</p>
+                    <h3>{{ site.taglines.siteName }} {{ site.taglines.siteSubtitle }}</h3>
+                    <p>{{ site.taglines.tagline }}</p>
                 </div>
                 <div class="footer__memberships">
                     <h3>Professional Memberships</h3>
                     <div class="footer__badges">
-                        {% for item in memberships.items %}
+                        {% for item in site.memberships %}
                         <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footer__badge">{{ item.name }} <span class="external-icon">↗</span></a>
                         {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="footer__copyright">
-                <p><span>&copy; {{ site.currentYear }}</span> <span>{{ site.headerName }}. All rights reserved.</span></p>
+                <p><span>&copy; {{ currentYear }}</span> <span>{{ site.taglines.siteName }}. All rights reserved.</span></p>
             </div>
         </div>
     </footer>

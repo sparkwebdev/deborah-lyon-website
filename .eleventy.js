@@ -19,6 +19,11 @@ module.exports = function(eleventyConfig) {
     return md.render(content);
   });
 
+  // Add current year as a global data variable
+  eleventyConfig.addGlobalData("currentYear", () => {
+    return new Date().getFullYear();
+  });
+
   // Pass through img folder to _site
   eleventyConfig.addPassthroughCopy("img");
 
