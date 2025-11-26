@@ -4,18 +4,9 @@
     "siteSubtitle": "Lymphatic Specialist",
     "siteLocation": "Stirlingshire",
     "tagline": "Professional lymphatic drainage and massage therapy.",
-    "ctas": {
-      "hero": {
-        "quote": "Ready to begin your healing journey?"
-      },
-      "bookNow": {
-        "heading": "Ready to Begin Your Healing Journey?",
-        "description": "Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment."
-      },
-      "giftPanel": {
-        "text": "Online booking and Gift Vouchers available"
-      }
-    }
+    "bookNowHeading": "Ready to Begin Your Healing Journey?",
+    "bookNowDescription": "Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment.",
+    "giftPanelText": "Online booking and Gift Vouchers available"
   },
   "contact": {
     "bookingUrl": "http://deborah-lyon--mld--post-op-expert.book.app/",

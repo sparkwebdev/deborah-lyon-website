@@ -8,8 +8,8 @@ public_folder: "/img/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: "site_details"
-    label: "Site Details"
+  - name: "website"
+    label: "Website"
     files:
       - label: "Site Details"
         name: "site"
@@ -23,26 +23,9 @@ collections:
               - {label: "Site Subtitle", name: "siteSubtitle", widget: "string"}
               - {label: "Site Location", name: "siteLocation", widget: "string"}
               - {label: "Tagline", name: "tagline", widget: "string"}
-              - label: "Call-to-Actions"
-                name: "ctas"
-                widget: "object"
-                fields:
-                  - label: "Hero Section"
-                    name: "hero"
-                    widget: "object"
-                    fields:
-                      - {label: "Quote", name: "quote", widget: "string"}
-                  - label: "Book Now CTA"
-                    name: "bookNow"
-                    widget: "object"
-                    fields:
-                      - {label: "Heading", name: "heading", widget: "string"}
-                      - {label: "Description", name: "description", widget: "text"}
-                  - label: "Gift Panel"
-                    name: "giftPanel"
-                    widget: "object"
-                    fields:
-                      - {label: "Text", name: "text", widget: "string"}
+              - {label: "Book Now Heading", name: "bookNowHeading", widget: "string"}
+              - {label: "Book Now Description", name: "bookNowDescription", widget: "text"}
+              - {label: "Gift Panel Text", name: "giftPanelText", widget: "string"}
           - label: "Contact Details"
             name: "contact"
             widget: "object"
@@ -65,9 +48,6 @@ collections:
               - {label: "Logo Image Path", name: "logo", widget: "string"}
               - {label: "URL", name: "url", widget: "string"}
 
-  - name: "seo_meta"
-    label: "SEO & Meta Tags"
-    files:
       - label: "SEO & Meta Tags"
         name: "meta"
         file: "content/meta.json"
@@ -75,10 +55,6 @@ collections:
           - {label: "Page Title", name: "title", widget: "string", required: false, hint: "Leave blank to auto-generate from Site Name, Subtitle, and Location"}
           - {label: "Meta Description", name: "description", widget: "text", required: false, hint: "Leave blank to auto-generate from Site Name, Subtitle, Location, and Tagline"}
           - {label: "Meta Keywords", name: "keywords", widget: "text", hint: "Comma-separated keywords for SEO"}
-
-  - name: "content_sections"
-    label: "Content Sections"
-    files:
       - label: "About Section"
         name: "about"
         file: "content/about.json"
