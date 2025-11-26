@@ -1,65 +1,3 @@
-
-// Independent slideshow functionality
-class SlideshowManager {
-    constructor(containerElement, slideSelector = '.slide', dotSelector = '.dot') {
-        this.container = containerElement;
-        if (!this.container) return;
-
-        this.slides = this.container.querySelectorAll(slideSelector);
-        this.dots = this.container.querySelectorAll(dotSelector);
-        this.slideIndex = 1;
-        this.slideTimer = null;
-
-        this.init();
-    }
-
-    init() {
-        // Set up dot click handlers
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                this.currentSlide(index + 1);
-            });
-        });
-
-        this.showSlides(this.slideIndex);
-        this.autoSlide();
-    }
-
-    showSlides(n) {
-        if (n > this.slides.length) { this.slideIndex = 1; }
-        if (n < 1) { this.slideIndex = this.slides.length; }
-
-        this.slides.forEach(slide => slide.classList.remove("active"));
-        this.dots.forEach(dot => dot.classList.remove("active"));
-
-        if (this.slides[this.slideIndex - 1]) {
-            this.slides[this.slideIndex - 1].classList.add("active");
-        }
-        if (this.dots[this.slideIndex - 1]) {
-            this.dots[this.slideIndex - 1].classList.add("active");
-        }
-    }
-
-    currentSlide(n) {
-        clearTimeout(this.slideTimer);
-        this.slideIndex = n;
-        this.showSlides(this.slideIndex);
-        this.autoSlide();
-    }
-
-    nextSlide() {
-        this.slideIndex++;
-        this.showSlides(this.slideIndex);
-    }
-
-    autoSlide() {
-        this.slideTimer = setTimeout(() => {
-            this.nextSlide();
-            this.autoSlide();
-        }, 5000);
-    }
-}
-
 // Reviews slideshow functionality
 let reviewIndex = 1;
 let reviewTimer;
@@ -67,7 +5,7 @@ const reviewSection = document.querySelector('#reviews');
 const reviewDots = reviewSection ? reviewSection.querySelectorAll('.dot') : [];
 
 function showReviews(n) {
-    let reviews = document.getElementsByClassName("review");
+    let reviews = document.querySelectorAll(".reviews__item");
 
     if (n > reviews.length) { reviewIndex = 1; }
     if (n < 1) { reviewIndex = reviews.length; }
@@ -126,7 +64,7 @@ function autoReview() {
 
 // Calculate and set consistent review heights
 function setReviewHeights() {
-    const reviews = document.querySelectorAll('.review');
+    const reviews = document.querySelectorAll('.reviews__item');
     let maxHeight = 0;
     const originalDisplay = [];
 
@@ -180,56 +118,8 @@ function toggleReadMore() {
     }
 }
 
-// Benefits tooltip toggle functionality
-function toggleBenefits(button) {
-    const tooltip = button.nextElementSibling;
-    const allTooltips = document.querySelectorAll('.benefits-tooltip');
-
-    // Close all other tooltips
-    allTooltips.forEach(t => {
-        if (t !== tooltip) {
-            t.classList.remove('show');
-        }
-    });
-
-    // Toggle current tooltip
-    const isShowing = tooltip.classList.toggle('show');
-
-    // Scroll to show tooltip if opening
-    if (isShowing) {
-        const header = document.querySelector('.header');
-        const headerHeight = header ? header.offsetHeight : 0;
-        const tooltipRect = tooltip.getBoundingClientRect();
-        const requiredTopSpace = headerHeight + 20;
-
-        // Only scroll if tooltip top is not visible (above the required space)
-        if (tooltipRect.top < requiredTopSpace) {
-            const tooltipTop = tooltipRect.top + window.scrollY;
-            const scrollTo = tooltipTop - headerHeight - 20;
-
-            window.scrollTo({
-                top: scrollTo,
-                behavior: 'smooth'
-            });
-        }
-    }
-}
-
-// Close tooltips when clicking outside
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('.service-content')) {
-        document.querySelectorAll('.benefits-tooltip').forEach(tooltip => {
-            tooltip.classList.remove('show');
-        });
-    }
-});
-
 // Initialize independent slideshows
 document.addEventListener('DOMContentLoaded', function() {
-    // Create independent slideshow instances for each slideshow section
-    document.querySelectorAll('.banner-slideshow').forEach(slideshow => {
-        new SlideshowManager(slideshow);
-    });
 
     // Initialize review dots click handlers
     const reviewSection = document.querySelector('#reviews');
@@ -254,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchStartX = 0;
     let touchEndX = 0;
 
-    const reviewsContainer = document.querySelector('.reviews-slideshow');
+    const reviewsContainer = document.querySelector('.reviews__slideshow');
     if (reviewsContainer) {
         reviewsContainer.addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
@@ -317,34 +207,8 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Header scroll functionality
-function toggleHeaderElements() {
-    const heroBookButton = document.querySelector('.hero .book-now-btn');
-    const headerButton = document.querySelector('.header-book-btn');
-    const headerText = document.querySelector('.header-text');
 
-    if (!heroBookButton || !headerButton || !headerText) return;
-
-    const heroButtonTop = heroBookButton.getBoundingClientRect().top;
-
-    // Trigger when the hero book button reaches the top of the viewport
-    if (heroButtonTop <= 0) {
-        headerButton.classList.add('visible');
-        headerText.classList.add('shrunk');
-    } else {
-        headerButton.classList.remove('visible');
-        headerText.classList.remove('shrunk');
-    }
-}
-
-// Add scroll event listener
-window.addEventListener('scroll', toggleHeaderElements);
-
-// Initial check
-toggleHeaderElements();
-
-
-// Load content from JSON files
+// Netlify Load content from JSON files
 async function loadContent() {
     try {
         // Load hero content
