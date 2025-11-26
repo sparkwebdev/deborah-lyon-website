@@ -3,215 +3,308 @@
 // Register preview styles - this injects your site's CSS into the preview pane
 CMS.registerPreviewStyle("../style.css");
 
-// Optional: Create custom preview templates for better content editing experience
-
-// About Section Preview
-const AboutPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-
-  return `
-    <div class="section">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-image">
-            <img src="${data.profileImage}" alt="Deborah Lyon" />
-          </div>
-          <div class="about-text">
-            <p>${data.intro1 || ''}</p>
-            <p>${data.intro2 || ''}</p>
-            ${data.featureHighlight ? `<p class="feature-highlight">${data.featureHighlight}</p>` : ''}
-
-            ${data.extendedBio ? `
-              <div class="read-more-content show">
-                ${data.extendedBio.map(item => `<p>${item.text}</p>`).join('')}
-                ${data.treatments ? `
-                  <ul class="tick-list">
-                    ${data.treatments.map(item => `<li>✓ ${item.item}</li>`).join('')}
-                  </ul>
-                ` : ''}
-              </div>
-            ` : ''}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-};
-
-// Service Preview
-const ServicePreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-
-  return `
-    <div class="card service-card">
-      <div class="service-image">
-        <img src="${data.image}" alt="${data.title}" />
-      </div>
-      <div class="service-content">
-        <h3>${data.title}</h3>
-        <p>${data.description}</p>
-      </div>
-    </div>
-  `;
-};
-
-// Review/Testimonial Preview
-const ReviewPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-  const stars = '★'.repeat(parseInt(data.rating || 5));
-
-  return `
-    <div class="reviews__item bg-mid active">
-      <div class="reviews__author">${data.author || 'Anonymous'}</div>
-      <div class="reviews__date">${data.date || ''}</div>
-      <div class="reviews__stars">${stars}</div>
-      <div class="reviews__title">${data.title || ''}</div>
-      <div class="reviews__text">"${data.text || ''}"</div>
-    </div>
-  `;
-};
-
-// Hero Section Preview
-const HeroPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-
-  return `
-    <section class="hero" style="background-image: url('${data.backgroundImage}')">
-      <div class="container">
-        <div class="hero__content">
-          <p class="hero__quote">${data.quote || ''}</p>
-          <a href="${data.buttonLink}" class="btn" target="_blank">${data.buttonText || 'Book Now'}</a>
-        </div>
-      </div>
-    </section>
-  `;
-};
-
-// Benefits Section Preview
-const BenefitsPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-
-  return `
-    <div class="section bg-light">
-      <div class="container">
-        <div class="benefits__grid">
-          <div class="benefits__image">
-            <img src="${data.image}" alt="Lymphatic drainage" />
-          </div>
-          <div class="benefits__intro text-left">
-            <h3>${data.heading || ''}</h3>
-            <p>${data.description1 || ''}</p>
-            <p>${data.description2 || ''}</p>
-          </div>
-        </div>
-
-        <div class="benefits__box bg-mid">
-          <h3>${data.boxTitle || 'Benefits of lymphatic drainage'}</h3>
-          ${data.benefitsList ? `
-            <ul class="tick-list benefits__list">
-              ${data.benefitsList.map(item => `<li>✓ ${item.item}</li>`).join('')}
-            </ul>
-          ` : ''}
-        </div>
-      </div>
-    </div>
-  `;
-};
-
-// Book Now Section Preview
-const BookNowPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-
-  return `
-    <section class="book-now bg-brand-gradient">
-      <div class="container">
-        <h2>${data.heading1 || 'Ready to Begin Your Healing Journey?'}</h2>
-        <p class="text-balance">${data.description1 || ''}</p>
-        <a href="${data.buttonLink}" class="btn btn--inverted" target="_blank">${data.buttonText || 'Book Now'}</a>
-      </div>
-    </section>
-  `;
-};
-
-// Contact Section Preview
-const ContactPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
-
-  return `
-    <div class="section bg-light">
-      <div class="container">
-        <h2>${data.heading || 'Get In Touch'}</h2>
-        <div class="contact">
-          <div class="contact__details">
-            <h3>Contact Details</h3>
-            <p><strong>Phone:</strong> ${data.phone || ''}</p>
-            <p><strong>Email:</strong> <a href="mailto:${data.email}">${data.email || ''}</a></p>
-            <p><strong>Address:</strong><br>
-            ${data.address1 || ''}<br>
-            ${data.address2 || ''}<br>
-            ${data.address3 || ''}<br>
-            ${data.postcode || ''}</p>
-          </div>
-
-          <div class="contact__map">
-            <img src="${data.mapImage}" alt="Map Location" />
-          </div>
-
-          <div class="contact__hours">
-            <h3>Opening Hours</h3>
-            ${data.hours ? data.hours.map(hour => `
-              <div class="contact__day">
-                <span>${hour.day}</span>
-                <span>${hour.time}</span>
-              </div>
-            `).join('') : ''}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-};
+// Create React elements using the CMS's createClass and h function
+const h = CMS.h;
 
 // Gallery Preview
-const GalleryPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
+const GalleryPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const image = entry.getIn(['data', 'image']);
+    const alt = entry.getIn(['data', 'alt']) || 'Gallery image';
 
-  return `
-    <div class="card card--image-only">
-      <img src="${data.image}" alt="${data.alt || 'Gallery image'}" />
-    </div>
-  `;
-};
+    return h('div', { className: 'card card--image-only' },
+      h('img', { src: image, alt: alt })
+    );
+  }
+});
 
-// Membership Logo Preview
-const MembershipPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
+// Service Preview
+const ServicePreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const title = entry.getIn(['data', 'title']);
+    const image = entry.getIn(['data', 'image']);
+    const description = entry.getIn(['data', 'description']);
 
-  return `
-    <div style="text-align: center; padding: 20px;">
-      <img src="${data.logo}" alt="${data.name}" class="memberships__logo" title="${data.name}" />
-      <p><strong>${data.name}</strong></p>
-      ${data.url ? `<p><a href="${data.url}" target="_blank">Visit Website</a></p>` : ''}
-      <p><small>Show in header: ${data.showInHeader ? 'Yes' : 'No'}</small></p>
-      <p><small>Show in footer: ${data.showInFooter ? 'Yes' : 'No'}</small></p>
-    </div>
-  `;
-};
+    return h('div', { className: 'card service-card' },
+      h('div', { className: 'service-image' },
+        h('img', { src: image, alt: title })
+      ),
+      h('div', { className: 'service-content' },
+        h('h3', {}, title),
+        h('p', {}, description)
+      )
+    );
+  }
+});
+
+// Review/Testimonial Preview
+const ReviewPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const author = entry.getIn(['data', 'author']) || 'Anonymous';
+    const date = entry.getIn(['data', 'date']) || '';
+    const rating = entry.getIn(['data', 'rating']) || '5';
+    const title = entry.getIn(['data', 'title']) || '';
+    const text = entry.getIn(['data', 'text']) || '';
+    const stars = '★'.repeat(parseInt(rating));
+
+    return h('div', { className: 'reviews__item bg-mid active' },
+      h('div', { className: 'reviews__author' }, author),
+      h('div', { className: 'reviews__date' }, date),
+      h('div', { className: 'reviews__stars' }, stars),
+      h('div', { className: 'reviews__title' }, title),
+      h('div', { className: 'reviews__text' }, '"' + text + '"')
+    );
+  }
+});
+
+// Hero Section Preview
+const HeroPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const quote = entry.getIn(['data', 'quote']) || '';
+    const buttonText = entry.getIn(['data', 'buttonText']) || 'Book Now';
+    const buttonLink = entry.getIn(['data', 'buttonLink']) || '#';
+    const backgroundImage = entry.getIn(['data', 'backgroundImage']) || '';
+
+    return h('section', {
+      className: 'hero',
+      style: { backgroundImage: 'url(' + backgroundImage + ')' }
+    },
+      h('div', { className: 'container' },
+        h('div', { className: 'hero__content' },
+          h('p', { className: 'hero__quote' }, quote),
+          h('a', {
+            href: buttonLink,
+            className: 'btn',
+            target: '_blank'
+          }, buttonText)
+        )
+      )
+    );
+  }
+});
+
+// About Section Preview
+const AboutPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const profileImage = entry.getIn(['data', 'profileImage']) || '';
+    const intro1 = entry.getIn(['data', 'intro1']) || '';
+    const intro2 = entry.getIn(['data', 'intro2']) || '';
+    const featureHighlight = entry.getIn(['data', 'featureHighlight']) || '';
+    const extendedBio = entry.getIn(['data', 'extendedBio']);
+    const treatments = entry.getIn(['data', 'treatments']);
+
+    // Build extended bio paragraphs
+    const bioElements = [];
+    if (extendedBio) {
+      extendedBio.forEach((item, i) => {
+        bioElements.push(h('p', { key: 'bio-' + i }, item.get('text')));
+      });
+    }
+
+    // Build treatments list
+    const treatmentElements = [];
+    if (treatments) {
+      treatments.forEach((item, i) => {
+        treatmentElements.push(h('li', { key: 'treatment-' + i }, '✓ ' + item.get('item')));
+      });
+    }
+
+    return h('div', { className: 'section' },
+      h('div', { className: 'container' },
+        h('div', { className: 'about-content' },
+          h('div', { className: 'about-image' },
+            h('img', { src: profileImage, alt: 'Deborah Lyon' })
+          ),
+          h('div', { className: 'about-text' },
+            h('p', {}, intro1),
+            h('p', {}, intro2),
+            featureHighlight ? h('p', { className: 'feature-highlight' }, featureHighlight) : null,
+            extendedBio ? h('div', { className: 'read-more-content show' },
+              bioElements,
+              treatments ? h('ul', { className: 'tick-list' }, treatmentElements) : null
+            ) : null
+          )
+        )
+      )
+    );
+  }
+});
+
+// Benefits Section Preview
+const BenefitsPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const image = entry.getIn(['data', 'image']) || '';
+    const heading = entry.getIn(['data', 'heading']) || '';
+    const description1 = entry.getIn(['data', 'description1']) || '';
+    const description2 = entry.getIn(['data', 'description2']) || '';
+    const boxTitle = entry.getIn(['data', 'boxTitle']) || 'Benefits of lymphatic drainage';
+    const benefitsList = entry.getIn(['data', 'benefitsList']);
+
+    // Build benefits list items
+    const benefitsElements = [];
+    if (benefitsList) {
+      benefitsList.forEach((item, i) => {
+        benefitsElements.push(h('li', { key: 'benefit-' + i }, '✓ ' + item.get('item')));
+      });
+    }
+
+    return h('div', { className: 'section bg-light' },
+      h('div', { className: 'container' },
+        h('div', { className: 'benefits__grid' },
+          h('div', { className: 'benefits__image' },
+            h('img', { src: image, alt: 'Lymphatic drainage' })
+          ),
+          h('div', { className: 'benefits__intro text-left' },
+            h('h3', {}, heading),
+            h('p', {}, description1),
+            h('p', {}, description2)
+          )
+        ),
+        h('div', { className: 'benefits__box bg-mid' },
+          h('h3', {}, boxTitle),
+          benefitsList ? h('ul', { className: 'tick-list benefits__list' }, benefitsElements) : null
+        )
+      )
+    );
+  }
+});
+
+// Book Now Section Preview
+const BookNowPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const heading1 = entry.getIn(['data', 'heading1']) || 'Ready to Begin Your Healing Journey?';
+    const description1 = entry.getIn(['data', 'description1']) || '';
+    const buttonText = entry.getIn(['data', 'buttonText']) || 'Book Now';
+    const buttonLink = entry.getIn(['data', 'buttonLink']) || '#';
+
+    return h('section', { className: 'book-now bg-brand-gradient' },
+      h('div', { className: 'container' },
+        h('h2', {}, heading1),
+        h('p', { className: 'text-balance' }, description1),
+        h('a', {
+          href: buttonLink,
+          className: 'btn btn--inverted',
+          target: '_blank'
+        }, buttonText)
+      )
+    );
+  }
+});
+
+// Contact Section Preview
+const ContactPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const heading = entry.getIn(['data', 'heading']) || 'Get In Touch';
+    const phone = entry.getIn(['data', 'phone']) || '';
+    const email = entry.getIn(['data', 'email']) || '';
+    const address1 = entry.getIn(['data', 'address1']) || '';
+    const address2 = entry.getIn(['data', 'address2']) || '';
+    const address3 = entry.getIn(['data', 'address3']) || '';
+    const postcode = entry.getIn(['data', 'postcode']) || '';
+    const mapImage = entry.getIn(['data', 'mapImage']) || '';
+    const hours = entry.getIn(['data', 'hours']);
+
+    // Build hours list
+    const hoursElements = [];
+    if (hours) {
+      hours.forEach((hour, i) => {
+        hoursElements.push(
+          h('div', { className: 'contact__day', key: 'hour-' + i },
+            h('span', {}, hour.get('day')),
+            h('span', {}, hour.get('time'))
+          )
+        );
+      });
+    }
+
+    return h('div', { className: 'section bg-light' },
+      h('div', { className: 'container' },
+        h('h2', {}, heading),
+        h('div', { className: 'contact' },
+          h('div', { className: 'contact__details' },
+            h('h3', {}, 'Contact Details'),
+            h('p', {}, h('strong', {}, 'Phone: '), phone),
+            h('p', {},
+              h('strong', {}, 'Email: '),
+              h('a', { href: 'mailto:' + email }, email)
+            ),
+            h('p', {},
+              h('strong', {}, 'Address:'),
+              h('br', {}),
+              address1, h('br', {}),
+              address2, h('br', {}),
+              address3, h('br', {}),
+              postcode
+            )
+          ),
+          h('div', { className: 'contact__map' },
+            h('img', { src: mapImage, alt: 'Map Location' })
+          ),
+          h('div', { className: 'contact__hours' },
+            h('h3', {}, 'Opening Hours'),
+            hoursElements
+          )
+        )
+      )
+    );
+  }
+});
 
 // Gift Panel Preview
-const GiftPanelPreview = ({ entry }) => {
-  const data = entry.getIn(['data']).toJS();
+const GiftPanelPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const icon = entry.getIn(['data', 'icon']) || '';
+    const message = entry.getIn(['data', 'message']) || '';
+    const buttonText = entry.getIn(['data', 'buttonText']) || 'Buy Now';
+    const buttonLink = entry.getIn(['data', 'buttonLink']) || '#';
 
-  return `
-    <section class="gift-panel bg-brand">
-      <div class="container gift-panel__content">
-        <img src="${data.icon}" alt="" class="gift-panel__icon" />
-        <p class="gift-panel__text">${data.message || ''}</p>
-        <a href="${data.buttonLink}" class="btn btn--inverted btn--small" target="_blank">${data.buttonText || 'Buy Now'}</a>
-      </div>
-    </section>
-  `;
-};
+    return h('section', { className: 'gift-panel bg-brand' },
+      h('div', { className: 'container gift-panel__content' },
+        h('img', { src: icon, alt: '', className: 'gift-panel__icon' }),
+        h('p', { className: 'gift-panel__text' }, message),
+        h('a', {
+          href: buttonLink,
+          className: 'btn btn--inverted btn--small',
+          target: '_blank'
+        }, buttonText)
+      )
+    );
+  }
+});
+
+// Membership Logo Preview
+const MembershipPreview = CMS.createClass({
+  render: function() {
+    const entry = this.props.entry;
+    const name = entry.getIn(['data', 'name']) || '';
+    const logo = entry.getIn(['data', 'logo']) || '';
+    const url = entry.getIn(['data', 'url']) || '';
+    const showInHeader = entry.getIn(['data', 'showInHeader']);
+    const showInFooter = entry.getIn(['data', 'showInFooter']);
+
+    return h('div', { style: { textAlign: 'center', padding: '20px' } },
+      h('img', {
+        src: logo,
+        alt: name,
+        className: 'memberships__logo',
+        title: name
+      }),
+      h('p', {}, h('strong', {}, name)),
+      url ? h('p', {}, h('a', { href: url, target: '_blank' }, 'Visit Website')) : null,
+      h('p', {}, h('small', {}, 'Show in header: ' + (showInHeader ? 'Yes' : 'No'))),
+      h('p', {}, h('small', {}, 'Show in footer: ' + (showInFooter ? 'Yes' : 'No')))
+    );
+  }
+});
 
 // Register all preview templates
 CMS.registerPreviewTemplate("about", AboutPreview);
