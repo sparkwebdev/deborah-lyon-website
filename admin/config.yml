@@ -2,50 +2,181 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "img/gallery"
-public_folder: "/img/gallery"
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+# Publish mode - enables draft/review/publish workflow
+publish_mode: editorial_workflow
+
+# Site URL for preview
+site_url: https://your-site.netlify.app
+display_url: https://your-site.netlify.app
+
+# Preview styles are registered in admin/preview-templates.js
+# This allows content editors to see styled previews that match the live site
 
 collections:
+  # Site Settings
   - name: "settings"
     label: "Site Settings"
     files:
+      # SEO & Meta
+      - label: "SEO & Meta Tags"
+        name: "seo"
+        file: "content/seo.json"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string", default: "Deborah Lyon Lymphatic Specialist - Bridge of Allen"}
+          - {label: "Meta Description", name: "description", widget: "text", default: "Professional lymphatic drainage and massage therapy in Bridge of Allen"}
+          - {label: "Meta Keywords", name: "keywords", widget: "string", default: "lymphatic drainage, lymphatic specialist, Bridge of Allen, massage therapy"}
+
+      # Hero Section
       - label: "Hero Section"
         name: "hero"
         file: "content/hero.json"
         fields:
-          - {label: "Main Heading", name: "heading", widget: "string", default: "Expert Lymphatic Drainage"}
-          - {label: "Subheading", name: "subheading", widget: "text", default: "Professional MLD therapy in Bridge of Allan"}
+          - {label: "Hero Quote", name: "quote", widget: "string", default: "Ready to begin your healing journey?"}
           - {label: "Button Text", name: "buttonText", widget: "string", default: "Book Now"}
           - {label: "Button Link", name: "buttonLink", widget: "string", default: "http://deborah-lyon--mld--post-op-expert.book.app/"}
+          - {label: "Hero Background Image", name: "backgroundImage", widget: "image", default: "/img/hero/d-l-hero.jpg"}
 
+      # About Section
       - label: "About Section"
         name: "about"
         file: "content/about.json"
         fields:
-          - {label: "Section Heading", name: "heading", widget: "string", default: "About Deborah"}
-          - {label: "Bio Paragraph 1", name: "bio1", widget: "text"}
-          - {label: "Bio Paragraph 2", name: "bio2", widget: "text"}
-          - {label: "Bio Paragraph 3", name: "bio3", widget: "text"}
           - {label: "Profile Image", name: "profileImage", widget: "image", default: "/img/profile-crop.jpeg"}
+          - {label: "Intro Paragraph 1", name: "intro1", widget: "text", hint: "First paragraph about services"}
+          - {label: "Intro Paragraph 2", name: "intro2", widget: "text", hint: "Second paragraph about services"}
+          - {label: "Feature Highlight", name: "featureHighlight", widget: "string", default: "Qualified Restore Scar therapist"}
+          - {label: "Read More Button Text", name: "readMoreText", widget: "string", default: "Read more about Deborah's expertise"}
+          - label: "Extended Bio Paragraphs"
+            name: "extendedBio"
+            widget: "list"
+            hint: "Additional paragraphs shown when 'Read More' is clicked"
+            fields:
+              - {label: "Paragraph", name: "text", widget: "text"}
+          - label: "Treatment List"
+            name: "treatments"
+            widget: "list"
+            hint: "List shown at end of extended bio"
+            fields:
+              - {label: "Treatment", name: "item", widget: "string"}
 
-      - label: "Opening Hours"
-        name: "hours"
-        file: "content/hours.json"
+      # Gift Panel
+      - label: "Gift Panel"
+        name: "giftPanel"
+        file: "content/gift-panel.json"
         fields:
-          - {label: "Section Heading", name: "heading", widget: "string", default: "Opening Hours"}
-          - label: "Hours"
-            name: "schedule"
+          - {label: "Icon Image", name: "icon", widget: "image", default: "/img/gift.png"}
+          - {label: "Message", name: "message", widget: "string", default: "Online booking and Gift Vouchers available"}
+          - {label: "Button Text", name: "buttonText", widget: "string", default: "Buy Now"}
+          - {label: "Button Link", name: "buttonLink", widget: "string", default: "http://deborah-lyon--mld--post-op-expert.book.app/"}
+
+      # Benefits Section
+      - label: "Benefits Section"
+        name: "benefits"
+        file: "content/benefits.json"
+        fields:
+          - {label: "Benefits Image", name: "image", widget: "image", default: "/img/services/iStock-1188150432.jpg"}
+          - {label: "Section Heading", name: "heading", widget: "string", default: "Enhance your body's natural detoxification and immune function with lymphatic drainage"}
+          - {label: "Description Paragraph 1", name: "description1", widget: "text"}
+          - {label: "Description Paragraph 2", name: "description2", widget: "text"}
+          - {label: "Box Title", name: "boxTitle", widget: "string", default: "Benefits of lymphatic drainage"}
+          - label: "Benefits List"
+            name: "benefitsList"
+            widget: "list"
+            fields:
+              - {label: "Benefit", name: "item", widget: "string"}
+
+      # Book Now Sections
+      - label: "Book Now Call-to-Actions"
+        name: "bookNow"
+        file: "content/book-now.json"
+        fields:
+          - {label: "Section 1 Heading", name: "heading1", widget: "string", default: "Ready to Begin Your Healing Journey?"}
+          - {label: "Section 1 Description", name: "description1", widget: "text", default: "Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment."}
+          - {label: "Section 2 Heading", name: "heading2", widget: "string", default: "Ready to Begin Your Healing Journey?"}
+          - {label: "Section 2 Description", name: "description2", widget: "text", default: "Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment."}
+          - {label: "Button Text", name: "buttonText", widget: "string", default: "Book Now"}
+          - {label: "Button Link", name: "buttonLink", widget: "string", default: "http://deborah-lyon--mld--post-op-expert.book.app/"}
+
+      # Contact Information
+      - label: "Contact Information"
+        name: "contact"
+        file: "content/contact.json"
+        fields:
+          - {label: "Section Heading", name: "heading", widget: "string", default: "Get In Touch"}
+          - {label: "Phone Number", name: "phone", widget: "string", default: "07825335039"}
+          - {label: "Email Address", name: "email", widget: "string", default: "deborahlyonMLD@gmail.com"}
+          - {label: "Address Line 1", name: "address1", widget: "string", default: "2 New Street"}
+          - {label: "Address Line 2", name: "address2", widget: "string", default: "Bridge of Allan"}
+          - {label: "Address Line 3", name: "address3", widget: "string", default: "Stirlingshire"}
+          - {label: "Postcode", name: "postcode", widget: "string", default: "FK9 4NZ"}
+          - {label: "Map Image", name: "mapImage", widget: "image", default: "/img/map.png"}
+          - label: "Opening Hours"
+            name: "hours"
             widget: "list"
             fields:
               - {label: "Day", name: "day", widget: "string"}
               - {label: "Time", name: "time", widget: "string"}
 
+  # Services
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - {label: "Service Title", name: "title", widget: "string"}
+      - {label: "Service Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Lower numbers appear first"}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+
+  # Client Reviews/Testimonials
+  - name: "reviews"
+    label: "Client Testimonials"
+    folder: "content/reviews"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "author"
+    fields:
+      - {label: "Author Name", name: "author", widget: "string", hint: "Use 'Anonymous' for anonymous reviews"}
+      - {label: "Date", name: "date", widget: "datetime", format: "dddd, MMMM D, YYYY"}
+      - {label: "Star Rating", name: "rating", widget: "select", options: ["5", "4", "3", "2", "1"], default: "5"}
+      - {label: "Review Title", name: "title", widget: "string"}
+      - {label: "Review Text", name: "text", widget: "text"}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Lower numbers appear first"}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+
+  # Gallery Images
   - name: "gallery"
-    label: "Gallery Images"
+    label: "Studio Gallery"
     folder: "content/gallery"
     create: true
+    delete: true
     slug: "{{slug}}"
     fields:
       - {label: "Image", name: "image", widget: "image"}
-      - {label: "Alt Text", name: "alt", widget: "string"}
-      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int"}
+      - {label: "Alt Text", name: "alt", widget: "string", default: "Deborah's Treatment Studio"}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Lower numbers appear first"}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+
+  # Professional Memberships
+  - name: "memberships"
+    label: "Professional Memberships"
+    folder: "content/memberships"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "name"
+    fields:
+      - {label: "Organization Name", name: "name", widget: "string"}
+      - {label: "Logo Image", name: "logo", widget: "image"}
+      - {label: "Website URL", name: "url", widget: "string", required: false}
+      - {label: "Order", name: "order", widget: "number", default: 0, value_type: "int", hint: "Lower numbers appear first"}
+      - {label: "Show in Header Logos", name: "showInHeader", widget: "boolean", default: true}
+      - {label: "Show in Footer Links", name: "showInFooter", widget: "boolean", default: true}
