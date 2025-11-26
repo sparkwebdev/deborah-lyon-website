@@ -8,10 +8,10 @@ public_folder: "/img/uploads"
 publish_mode: editorial_workflow
 
 collections:
-  - name: "settings"
+  - name: "site_settings"
     label: "Site Settings"
     files:
-      - label: "Site Configuration"
+      - label: "SEO & Meta Tags"
         name: "site"
         file: "content/site.json"
         fields:
@@ -74,6 +74,14 @@ collections:
             widget: "list"
             field: {label: "Benefit", name: "benefit", widget: "string"}
 
+      - label: "Book Now Call-to-Actions"
+        name: "bookNow"
+        file: "content/bookNow.json"
+        fields:
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Button Text", name: "buttonText", widget: "string"}
+
       - label: "Contact Information"
         name: "contact"
         file: "content/contact.json"
@@ -94,6 +102,10 @@ collections:
             fields:
               - {label: "Day", name: "day", widget: "string"}
               - {label: "Hours", name: "hours", widget: "string"}
+
+  - name: "services"
+    label: "Services"
+    files:
       - label: "Services"
         name: "services"
         file: "content/services.json"
@@ -108,6 +120,9 @@ collections:
               - {label: "Image Path", name: "image", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
 
+  - name: "reviews"
+    label: "Client Testimonials"
+    files:
       - label: "Reviews"
         name: "reviews"
         file: "content/reviews.json"
@@ -123,14 +138,9 @@ collections:
               - {label: "Review Title", name: "title", widget: "string"}
               - {label: "Review Text", name: "text", widget: "text"}
 
-      - label: "Book Now Section"
-        name: "bookNow"
-        file: "content/bookNow.json"
-        fields:
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "Button Text", name: "buttonText", widget: "string"}
-
+  - name: "gallery"
+    label: "Studio Gallery"
+    files:
       - label: "Gallery"
         name: "gallery"
         file: "content/gallery.json"
@@ -143,6 +153,9 @@ collections:
               - {label: "Image Path", name: "src", widget: "string"}
               - {label: "Alt Text", name: "alt", widget: "string"}
 
+  - name: "memberships"
+    label: "Professional Memberships"
+    files:
       - label: "Membership Logos"
         name: "membershipLogos"
         file: "content/membershipLogos.json"
