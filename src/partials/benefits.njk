@@ -7,9 +7,7 @@
             </div>
             <div class="benefits__intro text-left">
                 <h3>{{ benefits.heading }}</h3>
-                {% for paragraph in benefits.introParagraphs %}
-                <p>{{ paragraph }}</p>
-                {% endfor %}
+                {{ benefits.intro | markdown | safe }}
             </div>
         </div>
 

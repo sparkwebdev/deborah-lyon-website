@@ -17,13 +17,34 @@
 
             <div class="contact__hours">
                 <h3>Opening Hours</h3>
-                {% set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
-                {% for hours in site.contact.openingHours %}
                 <div class="contact__day">
-                    <span>{{ days[loop.index0] }}</span>
-                    <span>{{ hours }}</span>
+                    <span>Monday</span>
+                    <span>{{ site.contact.openingHours.monday }}</span>
                 </div>
-                {% endfor %}
+                <div class="contact__day">
+                    <span>Tuesday</span>
+                    <span>{{ site.contact.openingHours.tuesday }}</span>
+                </div>
+                <div class="contact__day">
+                    <span>Wednesday</span>
+                    <span>{{ site.contact.openingHours.wednesday }}</span>
+                </div>
+                <div class="contact__day">
+                    <span>Thursday</span>
+                    <span>{{ site.contact.openingHours.thursday }}</span>
+                </div>
+                <div class="contact__day">
+                    <span>Friday</span>
+                    <span>{{ site.contact.openingHours.friday }}</span>
+                </div>
+                <div class="contact__day">
+                    <span>Saturday</span>
+                    <span>{{ site.contact.openingHours.saturday }}</span>
+                </div>
+                <div class="contact__day">
+                    <span>Sunday</span>
+                    <span>{{ site.contact.openingHours.sunday }}</span>
+                </div>
             </div>
         </div>
     </div>

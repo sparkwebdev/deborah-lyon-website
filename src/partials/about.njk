@@ -9,7 +9,9 @@
                 <p>{{ about.intro | markdown | safe }}</p>
 
                 <p>{{ about.servicesOffered | markdown | safe }}</p>
-                <p class="feature-highlight">{{ about.specialQualification }}</p>
+                {% for qualification in about.specialQualifications %}
+                <p class="feature-highlight">{{ qualification }}</p>
+                {% endfor %}
 
                 <div class="read-more-container">
                     <button class="btn btn--rect read-more-btn" onclick="toggleReadMore()">{{ about.readMoreButtonText }}</button>

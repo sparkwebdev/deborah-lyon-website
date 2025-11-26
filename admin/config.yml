@@ -2,14 +2,16 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "img/uploads"
-public_folder: "/img/uploads"
+local_backend: true
+
+media_folder: "img"
+public_folder: "/img"
 
 publish_mode: editorial_workflow
 
 collections:
   - name: "website"
-    label: "Website"
+    label: "Website Content"
     files:
       - label: "Site Details"
         name: "site"
@@ -33,20 +35,27 @@ collections:
               - {label: "Booking URL", name: "bookingUrl", widget: "string"}
               - {label: "Phone", name: "phone", widget: "string"}
               - {label: "Email", name: "email", widget: "string"}
-              - {label: "Address", name: "address", widget: "markdown", buttons: [bold], modes: [raw], hint: "Use **text** to highlight keywords"}
-              - {label: "Map Image Path", name: "mapImage", widget: "string"}
-              - label: "Opening Hours (Mon-Sun)"
+              - {label: "Address", name: "address", widget: "markdown", buttons: [bold, italic, link], editor_components: [], hint: "Use **text** to highlight keywords"}
+              - {label: "Map Image", name: "mapImage", widget: "image"}
+              - label: "Opening Hours"
                 name: "openingHours"
-                widget: "list"
-                hint: "7 entries: Monday through Sunday"
-                field: {label: "Hours", name: "hours", widget: "string"}
+                widget: "object"
+                fields:
+                  - {label: "Monday", name: "monday", widget: "string", default: "Closed"}
+                  - {label: "Tuesday", name: "tuesday", widget: "string", default: "10:30 AM - 7:30 PM"}
+                  - {label: "Wednesday", name: "wednesday", widget: "string", default: "10:30 AM - 7:30 PM"}
+                  - {label: "Thursday", name: "thursday", widget: "string", default: "10:00 AM - 3:00 PM"}
+                  - {label: "Friday", name: "friday", widget: "string", default: "Closed"}
+                  - {label: "Saturday", name: "saturday", widget: "string", default: "Closed"}
+                  - {label: "Sunday", name: "sunday", widget: "string", default: "9:30 AM - 6:30 PM"}
           - label: "Professional Memberships"
             name: "memberships"
             widget: "list"
+            summary: "{{fields.name}}"
             fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Logo Image Path", name: "logo", widget: "string"}
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Organization Name", name: "name", widget: "string"}
+              - {label: "Logo Image", name: "logo", widget: "image"}
+              - {label: "Website URL", name: "url", widget: "string", required: false}
 
       - label: "SEO & Meta Tags"
         name: "meta"
@@ -59,30 +68,24 @@ collections:
         name: "about"
         file: "content/about.json"
         fields:
-          - {label: "Profile Image Path", name: "image", widget: "string"}
+          - {label: "Profile Image", name: "image", widget: "image"}
           - {label: "Image Alt Text", name: "imageAlt", widget: "string"}
-          - {label: "Introduction", name: "intro", widget: "markdown", buttons: [bold], modes: [raw], hint: "Use **text** to highlight keywords"}
-          - {label: "Services Offered", name: "servicesOffered", widget: "markdown", buttons: [bold], modes: [raw], hint: "Use **text** to highlight keywords"}
-          - {label: "Special Qualification", name: "specialQualification", widget: "string"}
+          - {label: "Introduction", name: "intro", widget: "markdown", buttons: [bold, italic, link], editor_components: [], hint: "Use **text** to highlight keywords"}
+          - {label: "Services Offered", name: "servicesOffered", widget: "markdown", buttons: [bold, italic, link], editor_components: [], hint: "Use **text** to highlight keywords"}
+          - {label: "Special Qualifications", name: "specialQualifications", widget: "list", field: {label: "Qualification", name: "qualification", widget: "string"}, collapsed: false}
           - {label: "Read More Button Text", name: "readMoreButtonText", widget: "string"}
-          - {label: "Expanded Content", name: "expandedContent", widget: "markdown", hint: "Full markdown supported: paragraphs, **bold**, lists, etc."}
+          - {label: "Expanded Content", name: "expandedContent", widget: "markdown", buttons: [bold, italic, link, bulleted-list], editor_components: [], hint: "Full markdown supported: paragraphs, **bold**, lists, etc."}
 
       - label: "Benefits Section"
         name: "benefits"
         file: "content/benefits.json"
         fields:
-          - {label: "Image Path", name: "image", widget: "string"}
+          - {label: "Image", name: "image", widget: "image"}
           - {label: "Image Alt Text", name: "imageAlt", widget: "string"}
           - {label: "Heading", name: "heading", widget: "string"}
-          - label: "Introduction Paragraphs"
-            name: "introParagraphs"
-            widget: "list"
-            field: {label: "Paragraph", name: "paragraph", widget: "text"}
+          - {label: "Introduction", name: "intro", widget: "markdown", buttons: [bold, italic, link], editor_components: [], hint: "Use **text** to highlight keywords"}
           - {label: "List Heading", name: "listHeading", widget: "string"}
-          - label: "Benefits List"
-            name: "list"
-            widget: "list"
-            field: {label: "Benefit", name: "benefit", widget: "string"}
+          - {label: "Benefits List", name: "list", widget: "list", field: {label: "Benefit", name: "benefit", widget: "string"}, collapsed: false}
 
       - label: "Services"
         name: "services"
@@ -93,9 +96,10 @@ collections:
           - label: "Service Items"
             name: "items"
             widget: "list"
+            summary: "{{fields.title}}"
             fields:
               - {label: "Title", name: "title", widget: "string"}
-              - {label: "Image Path", name: "image", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
               - {label: "Description", name: "description", widget: "text"}
 
       - label: "Client Testimonials"
@@ -106,6 +110,7 @@ collections:
           - label: "Review Items"
             name: "items"
             widget: "list"
+            summary: "{{fields.author}} - {{fields.date}}"
             fields:
               - {label: "Author Name", name: "author", widget: "string"}
               - {label: "Date", name: "date", widget: "string"}
@@ -121,7 +126,8 @@ collections:
           - label: "Gallery Images"
             name: "images"
             widget: "list"
+            summary: "{{fields.alt}}"
             fields:
-              - {label: "Image Path", name: "src", widget: "string"}
-              - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Image", name: "src", widget: "image"}
+              - {label: "Image Description (Alt Text)", name: "alt", widget: "string"}
 

@@ -9,55 +9,55 @@
     "giftPanelText": "Online booking and Gift Vouchers available"
   },
   "contact": {
-    "bookingUrl": "http://deborah-lyon--mld--post-op-expert.book.app/",
+    "bookingUrl": "https://deborah-lyon--mld--post-op-expert.book.app/",
     "phone": "07825335039",
     "email": "deborahlyonMLD@gmail.com",
     "address": "2 New Street,\nBridge of Allan,\nStirlingshire,\nFK9 4NZ",
     "mapImage": "img/map.png",
-    "openingHours": [
-      "Closed",
-      "10:30 AM - 7:30 PM",
-      "10:30 AM - 7:30 PM",
-      "10:00 AM - 3:00 PM",
-      "Closed",
-      "Closed",
-      "9:30 AM - 6:30 PM"
-    ]
+    "openingHours": {
+      "monday": "Closed",
+      "tuesday": "10:30 AM - 7:30 PM",
+      "wednesday": "10:30 AM - 7:30 PM",
+      "thursday": "10:00 AM - 3:00 PM",
+      "friday": "Closed",
+      "saturday": "Closed",
+      "sunday": "9:30 AM - 6:30 PM"
+    }
   },
   "memberships": [
     {
       "name": "MLD UK",
-      "logo": "img/logos/MLD-UK-logo.jpg",
+      "logo": "/img/logos/MLD-UK-logo.jpg",
       "url": "https://mlduk.org.uk/"
     },
     {
       "name": "LTA",
-      "logo": "img/logos/LTA-logo.jpg",
+      "logo": "/img/logos/LTA-logo.jpg",
       "url": "https://www.lymph.org.uk/"
     },
     {
       "name": "BLS - British Lymphology Society",
-      "logo": "img/logos/British-Lymphology-Society-logo.jpg",
+      "logo": "/img/logos/British-Lymphology-Society-logo.jpg",
       "url": "https://www.thebls.com/"
     },
     {
       "name": "Juzo",
-      "logo": "img/logos/Juzo-logo.jpg",
+      "logo": "/img/logos/Juzo-logo.jpg",
       "url": "https://www.juzo.co.uk/"
     },
     {
       "name": "Restore Scar Therapy",
-      "logo": "img/logos/Restore-scar-therapy-logo.jpg",
+      "logo": "/img/logos/Restore-scar-therapy-logo.jpg",
       "url": "https://www.restoretherapy.co.uk/"
     },
     {
       "name": "LSN Lymphoedema Support Network",
-      "logo": "img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg",
+      "logo": "/img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg",
       "url": "https://www.lymphoedema.org/"
     },
     {
       "name": "Lipoelastic",
-      "logo": "img/logos/Lipoelastic-logo.jpg",
+      "logo": "/img/logos/Lipoelastic-logo.jpg",
       "url": "https://www.lipoelastic.co.uk/"
     }
   ]

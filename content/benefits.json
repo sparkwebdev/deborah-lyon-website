@@ -1,11 +1,8 @@
 {
-  "image": "img/services/iStock-1188150432.jpg",
+  "image": "/img/services/iStock-1188150432.jpg",
   "imageAlt": "Lymphatic drainage",
   "heading": "Enhance your body's natural detoxification and immune function with lymphatic drainage",
-  "introParagraphs": [
-    "Full Decongestive Lymphatic Therapy (DLT) an intensive treatment for Lymphoedema with multicomponent bandaging can also be provided.",
-    "Your expert care will be provided within a safe, private relaxing environment that promotes well-being."
-  ],
+  "intro": "Full Decongestive Lymphatic Therapy (DLT) an intensive treatment for Lymphoedema with multicomponent bandaging can also be provided.\n\nYour expert care will be provided within a safe, private relaxing environment that promotes well-being.",
   "listHeading": "Benefits of lymphatic drainage",
   "list": [
     "Boosts immune system and eliminates toxins",
