@@ -1,21 +1,19 @@
 <!-- Benefits -->
-<section class="section bg-light" id="benefits">
+<section class="section section-benefits bg-light" id="benefits">
     <div class="container">
-        <div class="benefits__grid">
-            <div class="benefits__image">
-                <img src="{{ benefits.image }}" alt="{{ benefits.imageAlt }}">
+        <div class="grid">
+            <div>
+                <h2 class="section-benefits__box-title">{{ benefits.heading }}</h2>
+                {{ benefits.intro | markdownFull | safe }}
             </div>
-            <div class="benefits__intro text-left">
-                <h3>{{ benefits.heading }}</h3>
-                {{ benefits.intro | markdown | safe }}
-            </div>
+            <img src="{{ benefits.image }}" alt="{{ benefits.imageAlt }}" class="section-benefits__image">
         </div>
 
-        <div class="benefits__box bg-mid">
-            <h3>{{ benefits.listHeading }}</h3>
-            <ul class="tick-list benefits__list">
+        <div class="section-benefits__box bg-mid">
+            <h3 class="section-benefits__box-title text-center">{{ benefits.listHeading }}</h3>
+            <ul class="tick-list section-benefits__list">
                 {% for benefit in benefits.list %}
-                <li>✓ {{ benefit }}</li>
+                <li>{{ benefit }}</li>
                 {% endfor %}
             </ul>
         </div>

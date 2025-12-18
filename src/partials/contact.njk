@@ -1,8 +1,8 @@
 <!-- Contact -->
-<section class="section bg-light" id="contact">
+<section class="section contact bg-light" id="contact">
     <div class="container">
         <h2>Get In Touch</h2>
-        <div class="contact">
+        <div class="grid">
             <div class="contact__details">
                 <h3>Contact Details</h3>
                 <p><strong>Phone:</strong> {{ site.contact.phone }}</p>
@@ -11,40 +11,44 @@
                 {{ site.contact.address | replace("\n", "<br>") | safe }}</p>
             </div>
 
-            <div class="contact__map">
-                <img src="{{ site.contact.mapImage }}" alt="Map Location">
+            <div>
+                <img src="{{ site.contact.mapImage }}" alt="Map Location" class="contact__map">
             </div>
 
-            <div class="contact__hours">
-                <h3>Opening Hours</h3>
-                <div class="contact__day">
-                    <span>Monday</span>
-                    <span>{{ site.contact.openingHours.monday }}</span>
-                </div>
-                <div class="contact__day">
-                    <span>Tuesday</span>
-                    <span>{{ site.contact.openingHours.tuesday }}</span>
-                </div>
-                <div class="contact__day">
-                    <span>Wednesday</span>
-                    <span>{{ site.contact.openingHours.wednesday }}</span>
-                </div>
-                <div class="contact__day">
-                    <span>Thursday</span>
-                    <span>{{ site.contact.openingHours.thursday }}</span>
-                </div>
-                <div class="contact__day">
-                    <span>Friday</span>
-                    <span>{{ site.contact.openingHours.friday }}</span>
-                </div>
-                <div class="contact__day">
-                    <span>Saturday</span>
-                    <span>{{ site.contact.openingHours.saturday }}</span>
-                </div>
-                <div class="contact__day">
-                    <span>Sunday</span>
-                    <span>{{ site.contact.openingHours.sunday }}</span>
-                </div>
+            <div>                                                                                                                                                             
+                <h3>Opening Hours</h3>   
+                <table class="contact__opening">
+                    <tbody>
+                        <tr>
+                            <th>Monday</th>
+                            <td>{{ site.contact.openingHours.monday }}</td>
+                        </tr>
+                        <tr>
+                            <th>Tuesday</th>
+                            <td>{{ site.contact.openingHours.tuesday }}</td>
+                        </tr>
+                        <tr>
+                            <th>Wednesday</th>
+                            <td>{{ site.contact.openingHours.wednesday }}</td>
+                        </tr>
+                        <tr>
+                            <th>Thursday</th>
+                            <td>{{ site.contact.openingHours.thursday }}</td>
+                        </tr>
+                        <tr>
+                            <th>Friday</th>
+                            <td>{{ site.contact.openingHours.friday }}</td>
+                        </tr>
+                        <tr>
+                            <th>Saturday</th>
+                            <td>{{ site.contact.openingHours.saturday }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sunday</th>
+                            <td>{{ site.contact.openingHours.sunday }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

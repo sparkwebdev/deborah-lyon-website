@@ -23,8 +23,8 @@
     --font-md: 1.3rem;        /* Medium text */
     --font-lg: 1.5rem;        /* Large text, merged 1.4-1.6rem */
     --font-xl: 1.8rem;        /* Extra large, merged 1.8-2.0rem */
-    --font-2xl: 2.25rem;      /* Headings, merged 2.0-2.5rem */
-    --font-3xl: 3.5rem;       /* Hero quote */
+    --font-xl: 2.25rem;      /* Headings, merged 2.0-2.5rem */
+    --font-2xl: 3.5rem;       /* Hero quote */
 
     /* Spacing */
     --space-xs: 5px;
@@ -32,9 +32,9 @@
     --space-md: 15px;
     --space-lg: 20px;
     --space-xl: 25px;
-    --space-2xl: 30px;
-    --space-3xl: 40px;
-    --space-4xl: 60px;
+    --space-xl: 30px;
+    --space-2xl: 40px;
+    --space-3xl: 60px;
 
     /* Border Radius */
     --radius-sm: 5px;
@@ -141,7 +141,7 @@
 .btn {
     background-color: var(--mauve);
     color: var(--white);
-    padding: var(--space-lg) var(--space-3xl);
+    padding: var(--space-lg) var(--space-2xl);
     font-size: var(--font-md);
     font-weight: bold;
     text-decoration: none;
@@ -176,16 +176,6 @@
     padding: 12px 24px;
 }
 
-/* Button Variant: Rectangular */
-.btn--rect {
-    border-radius: var(--radius-sm);
-    width: 100%;
-}
-
-.btn--rect:hover {
-    transform: none;
-}
-
 /* ============================================
    LAYOUT HELPERS - GRIDS & CARDS
    ============================================ */
@@ -194,7 +184,7 @@
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
 }
 
 /* Card - Base card component with shadow and hover effects */
@@ -272,7 +262,7 @@ body {
 
 .header__title h1 {
     color: var(--mauve);
-    font-size: var(--font-2xl);
+    font-size: var(--font-xl);
     margin-bottom: 2px;
     line-height: 1.15;
     text-wrap: balance;
@@ -322,9 +312,9 @@ body {
 }
 
 .hero__quote {
-    font-size: var(--font-3xl);
+    font-size: var(--font-2xl);
     color: var(--white);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     line-height: 1.2;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
@@ -340,7 +330,7 @@ body {
     }
 
     .hero__quote {
-        font-size: var(--font-2xl);
+        font-size: var(--font-xl);
     }
 
     /* Hero button responsive adjustments handled by .btn */
@@ -352,7 +342,7 @@ body {
     }
 }
 
-.dots-container {
+.reviews__dots-container {
     text-align: center;
     padding: var(--space-lg) 0;
     background-color: var(--cream);
@@ -363,7 +353,7 @@ body {
     z-index: 10;
 }
 
-.dot {
+.reviews__dot {
     height: var(--space-md);
     width: var(--space-md);
     margin: 0 var(--space-xs);
@@ -382,14 +372,14 @@ body {
 
 /* Sections */
 .section {
-    padding: var(--space-4xl) 0;
+    padding: var(--space-3xl) 0;
 }
 
 .section h2 {
     color: var(--mauve);
-    font-size: var(--font-2xl);
+    font-size: var(--font-xl);
     text-align: center;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
     line-height: 1.2;
     text-wrap: balance;
 }
@@ -406,9 +396,9 @@ h3 {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: var(--space-3xl);
+    gap: var(--space-2xl);
     align-items: flex-start;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
 }
 
 .about-image {
@@ -440,38 +430,35 @@ h3 {
     max-width: 65ch;
 }
 
-/* Feature highlights with ticks */
-.feature-highlight {
+.about-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--space-md);
+}
+
+.about-highlights li {
     display: flex;
     align-items: center;
-    margin-bottom: var(--space-md);
     font-weight: 600;
     color: var(--mauve);
 }
 
-.feature-highlight::before {
+.about-highlights li::before {
     content: "✓";
-    color: var(--mauve);
-    font-weight: bold;
     margin-right: var(--space-sm);
-    font-size: var(--font-base);
 }
 
-.read-more-container {
+.about-more {
     margin-top: auto;
 }
 
-.read-more-btn {
-    margin-bottom: var(--space-md);
-}
-
-.read-more-content {
+.about-more__content {
     display: none;
     overflow: hidden;
     transition: all var(--transition);
 }
 
-.read-more-content.show {
+.about-more__content.show {
     display: block;
     animation: fadeIn 0.3s ease;
 }
@@ -513,20 +500,20 @@ h3 {
 .book-now {
     color: var(--white);
     text-align: center;
-    padding: var(--space-4xl) 0;
+    padding: var(--space-3xl) 0;
 }
 
 .book-now h2 {
     color: var(--white);
     margin-bottom: var(--space-lg);
-    font-size: var(--font-2xl);
+    font-size: var(--font-xl);
     line-height: 1.2;
     text-wrap: balance;
 }
 
 .book-now p {
     font-size: var(--font-md);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     max-width: 65ch;
     margin-left: auto;
     margin-right: auto;
@@ -656,7 +643,7 @@ h3 {
     /* Uses: .bg-mid */
     display: none;
     text-align: left;
-    padding: var(--space-3xl);
+    padding: var(--space-2xl);
     border-radius: var(--radius-md);
     margin: var(--space-lg) 0;
     opacity: 0;
@@ -741,7 +728,7 @@ h3 {
 /* Review Navigation Arrows */
 .reviews__nav {
     position: absolute;
-    top: var(--space-3xl);
+    top: var(--space-2xl);
     background: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 50%;
@@ -780,7 +767,7 @@ h3 {
     }
 
     .reviews__item {
-        padding: var(--space-2xl);
+        padding: var(--space-xl);
     }
 }
 
@@ -855,7 +842,7 @@ h3 {
 .contact {
     display: grid;
     grid-template-columns: 1fr 1.45fr 1.25fr;
-    gap: var(--space-3xl);
+    gap: var(--space-2xl);
 }
 
 /* .contact__details - no specific styles needed */
@@ -891,14 +878,14 @@ h3 {
 .footer {
     /* Uses: .bg-dark */
     color: var(--white);
-    padding: var(--space-3xl) 0 var(--space-lg);
+    padding: var(--space-2xl) 0 var(--space-lg);
 }
 
 .footer__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5vw;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
 }
 
 /* .footer__info - no specific styles needed */
@@ -1006,7 +993,7 @@ h3 {
     /* Container responsive padding handled in utilities section */
 
     .section {
-        padding: var(--space-3xl) 0;
+        padding: var(--space-2xl) 0;
     }
 
     .section h2 {
@@ -1032,10 +1019,10 @@ h3 {
 
 .benefits__grid {
     color: var(--dark-grey);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
 }
 
 .benefits__image {
@@ -1068,9 +1055,9 @@ h3 {
 
 .benefits__box {
     /* Uses: .bg-mid */
-    padding: var(--space-2xl);
+    padding: var(--space-xl);
     border-radius: var(--radius-md);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
 }
 
 .benefits__box h3 {
@@ -1086,7 +1073,7 @@ h3 {
     max-width: 1000px;
     margin: 0 auto;
     column-count: 2;
-    column-gap: var(--space-2xl);
+    column-gap: var(--space-xl);
 }
 
 .benefits__list li {
@@ -1096,12 +1083,12 @@ h3 {
 .service-intro {
     text-align: center;
     font-size: var(--font-base);
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
     color: var(--mauve);
     font-style: italic;
 }
 
-.dots-transparent {
+.reviews__dots-transparent {
     background-color: transparent;
     position: static;
 }

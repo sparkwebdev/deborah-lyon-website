@@ -1,0 +1,21 @@
+/* Lightbox */
+.lightbox {
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    outline: none;
+    display: block;
+    box-shadow: var(--shadow-lg);
+}

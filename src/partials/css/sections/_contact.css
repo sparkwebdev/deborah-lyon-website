@@ -1,0 +1,28 @@
+/* Contact */
+.contact .grid {
+  grid-template-columns: 1fr 1.4fr 1.2fr;
+}
+
+.contact__map {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.contact__opening {
+  width: 100%;
+  border-collapse: collapse;
+}
+.contact__opening th,
+.contact__opening td {
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--light-grey);
+  text-align: left;
+}
+
+@media (max-width: 1023px) {
+  .contact .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  }
+}

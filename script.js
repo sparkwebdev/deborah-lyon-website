@@ -2,7 +2,7 @@
 let reviewIndex = 1;
 let reviewTimer;
 const reviewSection = document.querySelector('#reviews');
-const reviewDots = reviewSection ? reviewSection.querySelectorAll('.dot') : [];
+const reviewDots = reviewSection ? reviewSection.querySelectorAll('.reviews__dot') : [];
 
 function showReviews(n) {
     let reviews = document.querySelectorAll(".reviews__item");
@@ -91,31 +91,14 @@ function setReviewHeights() {
     });
 }
 
-// Read more toggle functionality
-function toggleReadMore() {
-    const content = document.getElementById('readMoreContent');
-    const button = document.querySelector('.read-more-btn');
-
-    if (content.classList.contains('show')) {
-        content.classList.remove('show');
-        button.textContent = "Read more about Deborah's expertise";
-    } else {
-        content.classList.add('show');
-        button.textContent = "Read less";
-
-        // Scroll the read more content into view
-        setTimeout(() => {
-            const header = document.querySelector('.header');
-            const headerHeight = header ? header.offsetHeight : 0;
-            const contentRect = content.getBoundingClientRect();
-            const scrollTo = contentRect.top + window.scrollY - headerHeight - 80;
-
-            window.scrollTo({
-                top: scrollTo,
-                behavior: 'smooth'
-            });
-        }, 100);
-    }
+// Close about dialog when clicking outside content
+const aboutDialog = document.getElementById('aboutDialog');
+if (aboutDialog) {
+    aboutDialog.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.close();
+        }
+    });
 }
 
 // Initialize independent slideshows
@@ -124,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize review dots click handlers
     const reviewSection = document.querySelector('#reviews');
     if (reviewSection) {
-        const dots = reviewSection.querySelectorAll('.dot');
+        const dots = reviewSection.querySelectorAll('.reviews__dot');
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentReview(index + 1);
@@ -207,75 +190,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-
-// Netlify Load content from JSON files
-async function loadContent() {
-    try {
-        // Load hero content
-        const heroResponse = await fetch('/content/hero.json');
-        if (heroResponse.ok) {
-            const heroData = await heroResponse.json();
-            // Update hero section if elements exist
-            const heroHeading = document.querySelector('.hero h1');
-            const heroSubheading = document.querySelector('.hero p');
-            if (heroHeading) heroHeading.textContent = heroData.heading;
-            if (heroSubheading) heroSubheading.textContent = heroData.subheading;
-        }
-
-        // Load about content
-        const aboutResponse = await fetch('/content/about.json');
-        if (aboutResponse.ok) {
-            const aboutData = await aboutResponse.json();
-            const aboutSection = document.querySelector('.about');
-            if (aboutSection) {
-                const heading = aboutSection.querySelector('h2');
-                if (heading) heading.textContent = aboutData.heading;
-
-                const paragraphs = aboutSection.querySelectorAll('.about-text p');
-                if (paragraphs.length >= 3) {
-                    paragraphs[0].textContent = aboutData.bio1;
-                    paragraphs[1].textContent = aboutData.bio2;
-                    paragraphs[2].textContent = aboutData.bio3;
-                }
-            }
-        }
-
-        // Load opening hours
-        const hoursResponse = await fetch('/content/hours.json');
-        if (hoursResponse.ok) {
-            const hoursData = await hoursResponse.json();
-            const hoursSection = document.querySelector('.contact-info');
-            if (hoursSection) {
-                const heading = hoursSection.querySelector('h3');
-                if (heading && heading.textContent.includes('Opening Hours')) {
-                    heading.textContent = hoursData.heading;
-                }
-
-                const hoursList = hoursSection.querySelector('.hours');
-                if (hoursList) {
-                    hoursList.innerHTML = hoursData.schedule.map(item =>
-                        `<p><strong>${item.day}:</strong> ${item.time}</p>`
-                    ).join('');
-                }
-            }
-        }
-
-        // Load gallery images
-        const galleryResponse = await fetch('/content/gallery/');
-        // Note: Gallery loading will require a server with directory listing
-        // For static hosting, you may need to maintain a gallery index file
-
-    } catch (error) {
-        console.log('Content files not found, using default content');
-    }
-}
-
-// Load content when page loads
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadContent);
-} else {
-    loadContent();
-}
 
 // Netlify Identity redirect handling
 if (window.netlifyIdentity) {

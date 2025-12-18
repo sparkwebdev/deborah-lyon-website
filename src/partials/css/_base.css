@@ -1,0 +1,33 @@
+/* Base Typography */
+:root {
+    --font-family-base: 'Lato';
+    --color--surface: var(--white);
+    --color--text: var(--color--theme-text, var(--dark-grey));
+    --color--headings: var(--brand-mid);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color--theme-text, var(--color--headings));
+}
+
+h1 {
+    font-size: var(--font-2xl);
+}
+
+h2 {
+    font-size: var(--font-xl);
+}
+
+h3 {
+    font-size: var(--font-lg);
+}
+
+p strong {
+    color: var(--brand);
+    font-weight: 700;
+}

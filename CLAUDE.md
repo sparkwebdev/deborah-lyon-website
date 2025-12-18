@@ -32,7 +32,7 @@ This is a single-page website for Deborah Lyon Lymphatic Specialist, a healthcar
 - `img/services/` - Stock photos for service cards and gallery
 
 ### Booking Integration
-External booking system URL: `http://deborah-lyon--mld--post-op-expert.book.app/`
+External booking system URL: `https://deborah-lyon--mld--post-op-expert.book.app/`
 
 ## Development Workflow
 

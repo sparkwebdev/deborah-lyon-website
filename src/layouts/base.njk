@@ -10,31 +10,32 @@
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Proza+Libre:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header__content">
-                <div class="header__title">
-                    <h1>
-                        <span class="header__name">{{ site.taglines.siteName }}</span>
-                        <span class="header__subtitle">{{ site.taglines.siteSubtitle }}</span>
-                    </h1>
-                </div>
-                <a href="{{ site.contact.bookingUrl }}" class="btn btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
-            </div>
+    <header class="section header">
+        <div class="header__content container">
+            <h1 class="header__title">
+                <span class="header__name">{{ site.taglines.siteName }}</span>
+                <span class="header__subtitle">{{ site.taglines.siteSubtitle }}</span>
+            </h1>
+            <a href="{{ site.contact.bookingUrl }}" class="btn" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
     </header>
 
     {{ content | safe }}
 
     <!-- Footer -->
-    <footer class="footer bg-dark">
+    <footer class="footer bg-dark section">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
+            <div class="grid">
+                <div>
                     <h3>{{ site.taglines.siteName }} {{ site.taglines.siteSubtitle }}</h3>
                     <p>{{ site.taglines.tagline }}</p>
                 </div>
@@ -42,7 +43,7 @@
                     <h3>Professional Memberships</h3>
                     <div class="footer__badges">
                         {% for item in site.memberships %}
-                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footer__badge">{{ item.name }} <span class="external-icon">↗</span></a>
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footer__badge">{{ item.name }} <small>↗</small></a>
                         {% endfor %}
                     </div>
                 </div>

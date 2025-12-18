@@ -1,0 +1,29 @@
+/* Hero */
+.section-hero {
+    height: 65vh;
+    min-height: 500px;
+    max-height: 800px;
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.75) 100%), url('img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+}
+
+.section-hero * {
+    margin-block: 0;
+}
+
+.section-hero__content {
+    max-width: 600px;
+    display: grid;
+    gap: var(--space-2xl);
+    padding-top: calc(var(--space-2xl) + 6vh);
+}
+
+.section-hero__quote {
+    font-size: var(--font-2xl);
+    color: var(--white);
+    line-height: 1.2;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.75);
+}

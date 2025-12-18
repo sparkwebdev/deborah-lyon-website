@@ -30,12 +30,14 @@ module.exports = function(eleventyConfig) {
   // Pass through admin folder for Netlify CMS
   eleventyConfig.addPassthroughCopy("admin");
 
-  // Pass through CSS and JS files from src
-  eleventyConfig.addPassthroughCopy("src/style.css");
+  // Pass through JS files from src
   eleventyConfig.addPassthroughCopy("src/script.js");
 
   // Watch content folder for changes
   eleventyConfig.addWatchTarget("./content/");
+
+  // Watch CSS partials for changes
+  eleventyConfig.addWatchTarget("./src/css/");
 
   return {
     dir: {

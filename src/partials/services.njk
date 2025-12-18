@@ -1,21 +1,15 @@
 <!-- Services Section -->
-<section class="section" id="services">
+<section class="section section-services bg-light" id="services">
     <div class="container">
         <h2>{{ services.heading }}</h2>
-        <p class="service-intro">{{ services.intro }}</p>
-        <div class="feature-grid">
+        <p>{{ services.intro }}</p>
+        <div class="grid">
             {% for service in services.items %}
-            <div class="card service-card">
-                <div class="service-image"><img src="{{ service.image }}" alt="{{ service.title }}"></div>
-                <div class="service-content">
+            <div class="card bg-mid">
+                <img src="{{ service.image }}" alt="{{ service.title }}">
+                <div class="card__content">
                     <h3>{{ service.title }}</h3>
                     <p>{{ service.description }}</p>
-                    <div class="benefits-wrapper hidden">
-                        <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                        <div class="benefits-tooltip">
-                            <p>{{ service.description }}</p>
-                        </div>
-                    </div>
                 </div>
             </div>
             {% endfor %}

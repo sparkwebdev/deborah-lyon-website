@@ -1,0 +1,19 @@
+/* Memberships */
+.memberships__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.memberships__logo {
+    height: 86px;
+    width: auto;
+    object-fit: contain;
+    transition: transform var(--transition);
+    mix-blend-mode: multiply;
+}
+
+.memberships__logo:hover {
+    transform: scale(1.05);
+}

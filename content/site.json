@@ -10,6 +10,7 @@
   },
   "contact": {
     "bookingUrl": "https://deborah-lyon--mld--post-op-expert.book.app/",
+    "giftUrl": "https://deborah-lyon--mld--post-op-expert.book.app/gift/card",
     "phone": "07825335039",
     "email": "deborahlyonMLD@gmail.com",
     "address": "2 New Street,\nBridge of Allan,\nStirlingshire,\nFK9 4NZ",
@@ -36,7 +37,7 @@
       "url": "https://www.lymph.org.uk/"
     },
     {
-      "name": "BLS - British Lymphology Society",
+      "name": "British Lymphology Society",
       "logo": "/img/logos/British-Lymphology-Society-logo.jpg",
       "url": "https://www.thebls.com/"
     },
@@ -51,7 +52,7 @@
       "url": "https://www.restoretherapy.co.uk/"
     },
     {
-      "name": "LSN Lymphoedema Support Network",
+      "name": "Lymphoedema Support Network",
       "logo": "/img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg",
       "url": "https://www.lymphoedema.org/"
     },

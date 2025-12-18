@@ -1,0 +1,138 @@
+/* Reviews */
+.reviews__slideshow {
+    position: relative;
+    max-width: calc(100% - 120px);
+    margin: 0 auto;
+}
+
+.reviews__item {
+    display: none;
+    text-align: left;
+    padding: var(--space-2xl);
+    border-radius: var(--radius-md);
+    margin: var(--space-lg) 0;
+    opacity: 0;
+    transition: opacity var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.reviews__item.active {
+    display: block;
+    opacity: 1;
+}
+
+.reviews__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.reviews__author {
+    color: var(--brand);
+    font-size: var(--font-xl);
+    font-weight: bold;
+    margin-bottom: var(--space-xs);
+}
+
+.reviews__date {
+    color: var(--grey);
+}
+
+.reviews__stars {
+    font-size: var(--font-lg);
+    color: #FFD700;
+    line-height: 1;
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.reviews__title {
+    font-weight: bold;
+    color: var(--brand);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-md);
+}
+.reviews__nav {
+    display: none;
+}
+
+/* Review Navigation Arrows */
+.reviews__nav {
+    position: absolute;
+    top: var(--space-2xl);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-xl);
+    line-height: 1;
+    padding: 0;
+}
+
+.reviews__nav:hover {
+    background-color: var(--brand-mid);
+    color: var(--white);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.reviews__nav--prev {
+    left: -80px;
+}
+
+.reviews__nav--next {
+    right: -80px;
+}
+
+.reviews__nav--prev::before {
+    content: "‹";
+    margin-top: -0.225em;
+}
+
+.reviews__nav--next::after {
+    content: "›";
+    margin-top: -0.225em;
+}
+
+
+@media (max-width: 599px) {
+    .reviews__slideshow {
+        max-width: 100%;
+    }
+
+    .reviews__nav {
+        display: none;
+    }
+}
+
+
+/* Dots Navigation */
+.reviews__dots-container {
+    text-align: center;
+    padding: var(--space-xl) 0 0 0;
+}
+
+.reviews__dots-transparent {
+    background-color: transparent;
+    position: static;
+}
+
+.reviews__dot {
+    height: var(--space-md);
+    width: var(--space-md);
+    margin: 0 var(--space-xs);
+    background-color: var(--light-grey);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color var(--transition);
+    border: 2px solid var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.reviews__dot.active, .reviews__dot:hover {
+    background-color: var(--brand);
+}

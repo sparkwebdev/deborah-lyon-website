@@ -1,25 +1,29 @@
 <!-- Reviews -->
-<section class="section bg-light" id="reviews">
+<section class="section section-reviews" id="reviews">
     <div class="container">
         <h2>{{ reviews.heading }}</h2>
         <div class="reviews__slideshow">
             {% for review in reviews.items %}
             <div class="reviews__item bg-mid{% if loop.first %} active{% endif %}">
-                <div class="reviews__author">{{ review.author }}</div>
-                <div class="reviews__date">{{ review.date }}</div>
-                <div class="reviews__stars">{% for i in range(0, review.stars) %}★{% endfor %}</div>
-                <div class="reviews__title">{{ review.title }}</div>
-                <div class="reviews__text">"{{ review.text }}"</div>
+                <div class="reviews__header">
+                    <div>
+                        <h3 class="reviews__author">{{ review.author }}</h3>
+                        <div class="reviews__date">{{ review.date }}</div>
+                    </div>
+                    <div class="reviews__stars">{% for i in range(0, review.stars) %}★{% endfor %}</div>
+                </div>
+                <h4 class="reviews__title">{{ review.title }}</h4>
+                <div>"{{ review.text }}"</div>
             </div>
             {% endfor %}
 
             <!-- Navigation Arrows -->
-            <button class="reviews__nav reviews__nav--prev" onclick="changeReview(-1)">‹</button>
-            <button class="reviews__nav reviews__nav--next" onclick="changeReview(1)">›</button>
+            <button class="reviews__nav reviews__nav--prev btn" onclick="changeReview(-1)" aria-label="Previous Review"></button>
+            <button class="reviews__nav reviews__nav--next btn" onclick="changeReview(1)" aria-label="Next Review"></button>
         </div>
-        <div class="dots-container dots-transparent">
+        <div class="reviews__dots-container reviews__dots-transparent">
             {% for review in reviews.items %}
-            <span class="dot{% if loop.first %} active{% endif %}" onclick="currentReview({{ loop.index }})"></span>
+            <span class="reviews__dot{% if loop.first %} active{% endif %}" onclick="currentReview({{ loop.index }})"></span>
             {% endfor %}
         </div>
     </div>

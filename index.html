@@ -23,7 +23,7 @@
                         <span class="header__subtitle">Lymphatic Specialist</span>
                     </h1>
                 </div>
-                <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+                <a href="https://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
     </header>
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="hero__content">
                 <p class="hero__quote">Ready to begin your healing journey?</p>
-                <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="btn" target="_blank" rel="noopener noreferrer">Book Now</a>
+                <a href="https://deborah-lyon--mld--post-op-expert.book.app/" class="btn" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
     </section>
@@ -49,12 +49,15 @@
                     <p>Deborah is a certified lymphoedema therapist (MLD U.K.) specialising in the lymphatic system, providing <span class="highlight">Manual Lymphatic Drainage</span>, <span class="highlight">Post-operative care</span>, <span class="highlight">Scar therapy</span>, <span class="highlight">Lymphoedema and Lipoedema management</span> and <span class="highlight">measuring services for compression</span>.</p>
 
                     <p>Deborah also provides massage treatments for <span class="highlight">Oncology care</span>, <span class="highlight">Swedish/deep tissue</span>, <span class="highlight">Brazilian lymphatic sculpting massage</span> and <span class="highlight">lymphatic facials</span>.</p>
-                    <p class="feature-highlight">Qualified Restore Scar therapist</p>
+                    <ul class="about-highlights">
+                        <li>Qualified Restore Scar therapist</li>
+                    </ul>
 
-                    <div class="read-more-container">
-                        <button class="btn btn--rect read-more-btn" onclick="toggleReadMore()">Read more about Deborah's expertise</button>
+                    <button class="btn about-more__btn" onclick="document.getElementById('aboutDialog').showModal()">Read more about Deborah's expertise</button>
 
-                        <div class="read-more-content" id="readMoreContent">
+                    <dialog class="about-dialog" id="aboutDialog">
+                        <div class="about-dialog__content">
+                            <button class="about-dialog__close" onclick="document.getElementById('aboutDialog').close()">&times;</button>
 
                             <p>With over 20 years experience, Deborah now specialises in the lymphatic system, with extensive knowledge, dealing with complex cases and compromised lymphatic systems.</p>
                             <p>Qualified in FG-MLD (fluoroscopy guided manual lymphatic drainage) LTA cert, and as a member of MLD UK and the British Lymphology Society, you can be assured you're in safe hands.</p>
@@ -87,8 +90,9 @@
                                 <li>✓ Lymphatic facials</li>
                                 <li>✓ Swedish/deep tissue and Indian head massage</li>
                             </ul>
+                            <button class="btn about-dialog__btn" onclick="document.getElementById('aboutDialog').close()">Close</button>
                         </div>
-                    </div>
+                    </dialog>
                 </div>
             </div>
 
@@ -100,7 +104,7 @@
         <div class="container gift-panel__content">
             <img src="img/gift.png" alt="" class="gift-panel__icon">
             <p class="gift-panel__text">Online booking and Gift Vouchers available</p>
-            <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--inverted btn--small" target="_blank" rel="noopener noreferrer">Buy Now</a>
+            <a href="https://deborah-lyon--mld--post-op-expert.book.app/gift/card" class="btn btn--inverted btn--small" target="_blank" rel="noopener noreferrer">Buy Now</a>
         </div>
     </section>
 
@@ -112,7 +116,7 @@
                 <div class="benefits__image">
                     <img src="img/services/iStock-1188150432.jpg" alt="Lymphatic drainage">
                 </div>
-                <div class="benefits__intro text-left">
+                <div class="benefits__intro">
                     <h3>Enhance your body's natural detoxification and immune function with lymphatic drainage</h3>
                     <p>Full Decongestive Lymphatic Therapy (DLT) an intensive treatment for Lymphoedema with multicomponent bandaging can also be provided.</p>
                     <p>Your expert care will be provided within a safe, private relaxing environment that promotes well-being.</p>
@@ -143,7 +147,7 @@
         <div class="container">
             <h2>Ready to Begin Your Healing Journey?</h2>
             <p class="text-balance">Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment.</p>
-            <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--inverted" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a href="https://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--inverted" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
     </section>
 
@@ -158,12 +162,6 @@
                     <div class="service-content">
                         <h3>Manual Lymphatic Drainage</h3>
                         <p>Manual Lymphatic Drainage helps to reduce swelling and detoxes the lymphatic system. The technique is a light skin stretch, without oil, to optimise drainage; it should not be confused with regular massage. Beneficial for lymphoedema/lipoedema management.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Manual Lymphatic Drainage helps to reduce swelling and detoxes the lymphatic system. The technique is a light skin stretch, without oil, to optimise drainage; it should not be confused with regular massage. Beneficial for lymphoedema/lipoedema management.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -172,12 +170,6 @@
                     <div class="service-content">
                         <h3>Brazilian Lymphatic Sculpting Massage</h3>
                         <p>Primarily for cosmetic purposes blending some lymphatic techniques. Sculpting and body-contouring techniques help reduce bloating and water retention. A revitalising massage with a refreshing detox oil.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Primarily for cosmetic purposes blending some lymphatic techniques. Sculpting and body-contouring techniques help reduce bloating and water retention. A revitalising massage with a refreshing detox oil.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -186,12 +178,6 @@
                     <div class="service-content">
                         <h3>Post-Operative Care</h3>
                         <p>Designed to reduce post-operative swelling. A light skin stretch technique, with no oil, reducing pain and inflammation and speeding healing. Specialised technique using alternate drainage pathways for a compromised lymphatic system.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Designed to reduce post-operative swelling. A light skin stretch technique, with no oil, reducing pain and inflammation and speeding healing. Specialised technique using alternate drainage pathways for a compromised lymphatic system.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -200,12 +186,6 @@
                     <div class="service-content">
                         <h3>Scar Therapy</h3>
                         <p>Specialised massage with fascial techniques to reduce adhesions and improve range of motion, pain and sensitivity.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Specialised massage with fascial techniques to reduce adhesions and improve range of motion, pain and sensitivity.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -214,12 +194,6 @@
                     <div class="service-content">
                         <h3>Oncology Care</h3>
                         <p>A gentle restorative massage adapted to each client, providing relaxation and calming the central nervous system.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>A gentle restorative massage adapted to each client, providing relaxation and calming the central nervous system.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -228,12 +202,6 @@
                     <div class="service-content">
                         <h3>Swedish/Deep Tissue & Indian Head Massage</h3>
                         <p>Various massage techniques to promote health and wellbeing.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Various massage techniques to promote health and wellbeing.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -242,12 +210,6 @@
                     <div class="service-content">
                         <h3>Lymphatic Facials</h3>
                         <p>A relaxing facial designed to decongest, reduce puffiness and sculpt the face. Excellent for sinus issues.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>A relaxing facial designed to decongest, reduce puffiness and sculpt the face. Excellent for sinus issues.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -256,12 +218,6 @@
                     <div class="service-content">
                         <h3>Measuring for Compression</h3>
                         <p>Made-to-measure compression service for lymphoedema/lipoedema treatment.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Made-to-measure compression service for lymphoedema/lipoedema treatment.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -270,12 +226,6 @@
                     <div class="service-content">
                         <h3>Complete Decongestive Therapy</h3>
                         <p>Multi-component bandaging service for the treatment of lymphoedema.</p>
-                        <div class="benefits-wrapper hidden">
-                            <button class="btn btn--rect see-benefits-btn" onclick="toggleBenefits(this)">See Benefits</button>
-                            <div class="benefits-tooltip">
-                                <p>Multi-component bandaging service for the treatment of lymphoedema.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -362,7 +312,7 @@
                 <button class="reviews__nav reviews__nav--prev" onclick="changeReview(-1)">‹</button>
                 <button class="reviews__nav reviews__nav--next" onclick="changeReview(1)">›</button>
             </div>
-            <div class="dots-container dots-transparent">
+            <div class="reviews__dots-container reviews__dots-transparent">
                 <span class="dot active" onclick="currentReview(1)"></span>
                 <span class="dot" onclick="currentReview(2)"></span>
                 <span class="dot" onclick="currentReview(3)"></span>
@@ -382,7 +332,7 @@
         <div class="container">
             <h2>Ready to Begin Your Healing Journey?</h2>
             <p class="text-balance">Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment.</p>
-            <a href="http://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--inverted" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a href="https://deborah-lyon--mld--post-op-expert.book.app/" class="btn btn--inverted" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
     </section>
 
@@ -474,20 +424,20 @@
     <footer class="footer bg-dark">
         <div class="container">
             <div class="footer__content">
-                <div class="footer__info">
+                <div>
                     <h3>Deborah Lyon Lymphatic Specialist</h3>
                     <p>Personalized, compassionate care for your health and wellness journey</p>
                 </div>
                 <div class="footer__memberships">
                     <h3>Professional Memberships</h3>
                     <div class="footer__badges">
-                        <a href="https://mlduk.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">MLD UK <span class="external-icon">↗</span></a>
-                        <a href="https://www.lymph.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">LTA <span class="external-icon">↗</span></a>
-                        <a href="https://www.thebls.com/" target="_blank" rel="noopener noreferrer" class="footer__badge">BLS - British Lymphology Society <span class="external-icon">↗</span></a>
-                        <a href="https://www.juzo.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Juzo <span class="external-icon">↗</span></a>
-                        <a href="https://www.restoretherapy.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Restore Scar Therapy <span class="external-icon">↗</span></a>
-                        <a href="https://www.lymphoedema.org/" target="_blank" rel="noopener noreferrer" class="footer__badge">LSN Lymphoedema Support Network <span class="external-icon">↗</span></a>
-                        <a href="https://www.lipoelastic.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Lipoelastic <span class="external-icon">↗</span></a>
+                        <a href="https://mlduk.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">MLD UK <small>↗</small></a>
+                        <a href="https://www.lymph.org.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">LTA <small>↗</small></a>
+                        <a href="https://www.thebls.com/" target="_blank" rel="noopener noreferrer" class="footer__badge">BLS - British Lymphology Society <small>↗</small></a>
+                        <a href="https://www.juzo.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Juzo <small>↗</small></a>
+                        <a href="https://www.restoretherapy.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Restore Scar Therapy <small>↗</small></a>
+                        <a href="https://www.lymphoedema.org/" target="_blank" rel="noopener noreferrer" class="footer__badge">LSN Lymphoedema Support Network <small>↗</small></a>
+                        <a href="https://www.lipoelastic.co.uk/" target="_blank" rel="noopener noreferrer" class="footer__badge">Lipoelastic <small>↗</small></a>
                     </div>
                 </div>
             </div>

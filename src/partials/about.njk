@@ -1,26 +1,29 @@
 <!-- About -->
-<section class="section bg-light">
+<section class="section section-about bg-light">
     <div class="container">
-        <div class="about-content">
-            <div class="about-image">
-                <img src="{{ about.image }}" alt="{{ about.imageAlt }}" loading="lazy">
-            </div>
-            <div class="about-text">
+        <div class="grid">
+            <img class="section-about__image" src="{{ about.image }}" alt="{{ about.imageAlt }}" loading="lazy">
+            <div class="section-about__text">
                 <p>{{ about.intro | markdown | safe }}</p>
 
                 <p>{{ about.servicesOffered | markdown | safe }}</p>
-                {% for qualification in about.specialQualifications %}
-                <p class="feature-highlight">{{ qualification }}</p>
-                {% endfor %}
 
-                <div class="read-more-container">
-                    <button class="btn btn--rect read-more-btn" onclick="toggleReadMore()">{{ about.readMoreButtonText }}</button>
+                <ul class="tick-list">
+                    {% for qualification in about.specialQualifications %}
+                    <li>{{ qualification }}</li>
+                    {% endfor %}
+                </ul>
 
-                    <div class="read-more-content" id="readMoreContent">
-                        {{ about.expandedContent | markdownFull | safe }}
-                    </div>
-                </div>
+                <button class="btn btn--full" onclick="document.getElementById('aboutDialog').showModal()">{{ about.readMoreButtonText }}</button>
+
             </div>
         </div>
+        <dialog class="section-about__dialog bg-mid" id="aboutDialog">
+            <div class="section-about__dialog-content">
+                <button class="section-about__dialog-close btn" aria-label="Close" onclick="document.getElementById('aboutDialog').close()">&times;</button>
+                {{ about.expandedContent | markdownFull | safe }}
+                <button class="section-about__dialog-close-text btn btn--full" onclick="document.getElementById('aboutDialog').close()">Close</button>
+            </div>
+        </dialog>
     </div>
 </section>

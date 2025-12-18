@@ -1,10 +1,10 @@
 <!-- Gallery -->
-<section class="section bg-light">
+<section class="section section-gallery" id="gallery">
     <div class="container">
         <h2>{{ gallery.heading }}</h2>
-        <div class="feature-grid">
+        <div class="grid">
             {% for image in gallery.images %}
-            <div class="card card--image-only" onclick="openLightbox('{{ image.src }}')"><img src="{{ image.src }}" alt="{{ image.alt }}"></div>
+            <div class="card"><img src="{{ image.src }}" alt="{{ image.alt }}"></div>
             {% endfor %}
         </div>
     </div>
