@@ -13,7 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Proza+Libre:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -25,11 +25,13 @@
                 <span class="header__name">{{ site.taglines.siteName }}</span>
                 <span class="header__subtitle">{{ site.taglines.siteSubtitle }}</span>
             </h1>
-            <a href="{{ site.contact.bookingUrl }}" class="btn" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a href="{{ site.contact.bookingUrl }}" class="btn" target="_blank" rel="noopener noreferrer">Book Now <span class="sr-only">(opens in new tab)</span></a>
         </div>
     </header>
 
+    <main id="main">
     {{ content | safe }}
+    </main>
 
     <!-- Footer -->
     <footer class="footer bg-dark section">
@@ -43,7 +45,7 @@
                     <h3>Professional Memberships</h3>
                     <div class="footer__badges">
                         {% for item in site.memberships %}
-                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footer__badge">{{ item.name }} <small>↗</small></a>
+                        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footer__badge">{{ item.name }} <small aria-hidden="true">↗</small><span class="sr-only">(opens in new tab)</span></a>
                         {% endfor %}
                     </div>
                 </div>

@@ -50,9 +50,11 @@
     text-align: center;
     width: fit-content;
     white-space: nowrap;
+    outline: none;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus-visible {
     background: var(--brand-mid);
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
@@ -63,7 +65,8 @@
     color: var(--brand);
 }
 
-.btn--inverted:hover {
+.btn--inverted:hover,
+.btn--inverted:focus-visible {
     background: var(--cream);
 }
 
@@ -98,7 +101,6 @@
     border: 0 !important;
 }
 
-
 .tick-list {
     list-style: none;
     padding: 0;
@@ -112,6 +114,7 @@
 .tick-list li {
     display: flex;
     align-items: baseline;
+    word-break: break-word;
 }
 
 .tick-list li::before {

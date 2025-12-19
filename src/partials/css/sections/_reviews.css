@@ -3,22 +3,24 @@
     position: relative;
     max-width: calc(100% - 120px);
     margin: 0 auto;
+    display: grid;
 }
 
 .reviews__item {
-    display: none;
+    grid-area: 1 / 1;
     text-align: left;
-    padding: var(--space-2xl);
+    padding: var(--space-gap);
     border-radius: var(--radius-md);
     margin: var(--space-lg) 0;
     opacity: 0;
+    visibility: hidden;
     transition: opacity var(--transition);
     box-shadow: var(--shadow-md);
 }
 
 .reviews__item.active {
-    display: block;
     opacity: 1;
+    visibility: visible;
 }
 
 .reviews__header {
@@ -113,17 +115,14 @@
 .reviews__dots-container {
     text-align: center;
     padding: var(--space-xl) 0 0 0;
-}
-
-.reviews__dots-transparent {
-    background-color: transparent;
-    position: static;
+    text-wrap: balance;
 }
 
 .reviews__dot {
-    height: var(--space-md);
-    width: var(--space-md);
-    margin: 0 var(--space-xs);
+    height: var(--space-xs);
+    width: var(--space-xs);
+    padding: min(1vw, var(--space-sm));
+    margin: 0 min(1vw, var(--space-sm));
     background-color: var(--light-grey);
     border-radius: 50%;
     display: inline-block;

@@ -2,13 +2,13 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 min(5vw, var(--space-3xl));
+    padding: 0 var(--space-gap-lg);
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
-    gap: min(5vw, var(--space-3xl));
+    gap: var(--space-gap-lg);
 }
 
 .grid > * > :first-child {
@@ -22,7 +22,7 @@
 /* Cards */
 .grid:has(.card) {
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: var(--space-xl);
+    gap: var(--space-gap);
 }
 .card {
     border-radius: var(--radius-md);
@@ -53,7 +53,7 @@
 }
 
 .card__content {
-    padding: var(--space-xl);
+    padding: var(--space-gap);
 }
 
 .card__content > :last-child {
@@ -62,7 +62,7 @@
 
 /* Sections */
 .section {
-    padding: max(6vh, var(--space-3xl)) 0;
+    padding: var(--space-vertical) 0;
     /* overflow: hidden; */
 }
 

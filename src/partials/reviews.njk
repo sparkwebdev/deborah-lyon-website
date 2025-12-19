@@ -2,28 +2,28 @@
 <section class="section section-reviews" id="reviews">
     <div class="container">
         <h2>{{ reviews.heading }}</h2>
-        <div class="reviews__slideshow">
+        <div class="reviews__slideshow" aria-live="polite">
             {% for review in reviews.items %}
-            <div class="reviews__item bg-mid{% if loop.first %} active{% endif %}">
+            <article class="reviews__item bg-mid{% if loop.first %} active{% endif %}">
                 <div class="reviews__header">
                     <div>
                         <h3 class="reviews__author">{{ review.author }}</h3>
                         <div class="reviews__date">{{ review.date }}</div>
                     </div>
-                    <div class="reviews__stars">{% for i in range(0, review.stars) %}★{% endfor %}</div>
+                    <div class="reviews__stars" aria-label="{{ review.stars }} out of 5 stars">{% for i in range(0, review.stars) %}★{% endfor %}</div>
                 </div>
                 <h4 class="reviews__title">{{ review.title }}</h4>
                 <div>"{{ review.text }}"</div>
-            </div>
+            </article>
             {% endfor %}
 
             <!-- Navigation Arrows -->
-            <button class="reviews__nav reviews__nav--prev btn" onclick="changeReview(-1)" aria-label="Previous Review"></button>
-            <button class="reviews__nav reviews__nav--next btn" onclick="changeReview(1)" aria-label="Next Review"></button>
+            <button class="reviews__nav reviews__nav--prev btn" data-dir="-1" aria-label="Previous review"></button>
+            <button class="reviews__nav reviews__nav--next btn" data-dir="1" aria-label="Next review"></button>
         </div>
-        <div class="reviews__dots-container reviews__dots-transparent">
+        <div class="reviews__dots-container" role="tablist" aria-label="Review navigation">
             {% for review in reviews.items %}
-            <span class="reviews__dot{% if loop.first %} active{% endif %}" onclick="currentReview({{ loop.index }})"></span>
+            <button class="reviews__dot{% if loop.first %} active{% endif %}" type="button" aria-label="Go to review {{ loop.index }}"></button>
             {% endfor %}
         </div>
     </div>

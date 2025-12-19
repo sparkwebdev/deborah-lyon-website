@@ -15,7 +15,7 @@
 }
 
 .section-benefits__box {
-    padding: var(--space-xl);
+    padding: var(--space-gap);
     border-radius: var(--radius-md);
     margin-bottom: var(--space-xl);
     box-shadow: var(--shadow-md);

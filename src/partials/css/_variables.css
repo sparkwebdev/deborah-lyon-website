@@ -29,6 +29,11 @@
     --space-2xl: 40px;
     --space-3xl: 60px;
 
+    /* Spacing - Responsive */
+    --space-gap: min(var(--space-xl), 6vw);
+    --space-gap-lg: min(var(--space-3xl), 6vw);
+    --space-vertical: max(var(--space-3xl), 8vh);
+
     /* Border Radius */
     --radius-sm: 5px;
     --radius-md: 10px;

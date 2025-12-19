@@ -14,15 +14,16 @@
                     {% endfor %}
                 </ul>
 
-                <button class="btn btn--full" onclick="document.getElementById('aboutDialog').showModal()">{{ about.readMoreButtonText }}</button>
+                <button class="btn btn--full" data-dialog="aboutDialog">{{ about.readMoreButtonText }}</button>
 
             </div>
         </div>
-        <dialog class="section-about__dialog bg-mid" id="aboutDialog">
+        <dialog class="section-about__dialog bg-mid" id="aboutDialog" aria-labelledby="aboutDialogTitle">
             <div class="section-about__dialog-content">
-                <button class="section-about__dialog-close btn" aria-label="Close" onclick="document.getElementById('aboutDialog').close()">&times;</button>
+                <button class="section-about__dialog-close btn" aria-label="Close dialog" data-close>&times;</button>
+                <h2 id="aboutDialogTitle" class="sr-only">About Deborah Lyon</h2>
                 {{ about.expandedContent | markdownFull | safe }}
-                <button class="section-about__dialog-close-text btn btn--full" onclick="document.getElementById('aboutDialog').close()">Close</button>
+                <button class="section-about__dialog-close-text btn btn--full" data-close>Close</button>
             </div>
         </dialog>
     </div>
