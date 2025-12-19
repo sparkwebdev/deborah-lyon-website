@@ -29,5 +29,6 @@
 
 .section-gift__text {
     font-size: var(--font-lg);
+    font-family: var(--font-family-headings);
     text-wrap: balance;
 }

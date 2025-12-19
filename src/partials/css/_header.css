@@ -30,6 +30,7 @@
     color: var(--brand);
     font-size: var(--font-lg);
     font-weight: normal;
+    font-family: var(--font-family-base);
 }
 
 @media (max-width: 767px) {

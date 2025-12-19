@@ -22,6 +22,7 @@
 
 .section-hero__quote {
     font-size: var(--font-2xl);
+    font-family: var(--font-family-headings);
     color: var(--white);
     line-height: 1.2;
     font-weight: 700;

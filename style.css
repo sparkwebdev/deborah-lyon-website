@@ -143,7 +143,7 @@
     color: var(--white);
     padding: var(--space-lg) var(--space-2xl);
     font-size: var(--font-md);
-    font-weight: bold;
+    font-weight: 400;
     text-decoration: none;
     border: none;
     border-radius: var(--radius-full);

@@ -16,9 +16,9 @@
     --font-sm: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
     --font-base: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
     --font-md: clamp(1.15rem, 1rem + 0.5vw, 1.4rem);
-    --font-lg: clamp(1.5rem, 1.25rem + 1vw, 2rem);
-    --font-xl: clamp(2rem, 1.5rem + 1.5vw, 3rem);
-    --font-2xl: clamp(2.5rem, 1.75rem + 2.5vw, 4rem);
+    --font-lg: clamp(1.4rem, 1.2rem + 0.85vw, 1.85rem);
+    --font-xl: clamp(1.85rem, 1.4rem + 1.25vw, 2.6rem);
+    --font-2xl: clamp(2.2rem, 1.6rem + 2vw, 3.4rem);
 
     /* Spacing */
     --space-xs: 5px;
