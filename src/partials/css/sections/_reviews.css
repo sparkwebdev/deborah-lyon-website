@@ -74,8 +74,9 @@
     padding: 0;
 }
 
-.reviews__nav:hover {
-    background-color: var(--brand-mid);
+.reviews__nav:hover,
+.reviews__nav:focus-visible {
+    background-color: var(--brand-dark);
     color: var(--white);
     transform: scale(1.1);
     box-shadow: var(--shadow-lg);
@@ -132,6 +133,8 @@
     box-shadow: var(--shadow-sm);
 }
 
-.reviews__dot.active, .reviews__dot:hover {
-    background-color: var(--brand);
+.reviews__dot.active, .reviews__dot:hover,
+.reviews__dot.active, .reviews__dot:focus-visible {
+    background-color: var(--brand-mid);
+    outline-color: var(--brand);
 }

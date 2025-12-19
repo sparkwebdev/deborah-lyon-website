@@ -16,7 +16,7 @@
 }
 
 .bg-dark {
-    background-color: var(--dark-grey);
+    background-color: var(--brand-dark);
 }
 
 .bg-brand {
@@ -36,7 +36,7 @@
 
 /* Buttons */
 .btn {
-    background-color: var(--brand);
+    background-color: var(--brand-mid);
     color: var(--white);
     padding: var(--space-sm) var(--space-lg);
     font-weight: bold;
@@ -55,7 +55,7 @@
 
 .btn:hover,
 .btn:focus-visible {
-    background: var(--brand-mid);
+    background: var(--brand-dark);
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
 }
