@@ -28,6 +28,21 @@ module.exports = function(eleventyConfig) {
     return `${hours12}:${minutes.toString().padStart(2, "0")} ${period}`;
   });
 
+  // Format phone number for display (e.g., "+447825335039" -> "0782 533 5039")
+  eleventyConfig.addFilter("formatPhone", (phone) => {
+    if (!phone) return "";
+    // Remove +44 and replace with 0, or just strip non-digits
+    let digits = phone.replace(/\D/g, "");
+    if (digits.startsWith("44")) {
+      digits = "0" + digits.slice(2);
+    }
+    // Format as: 0XXX XXX XXXX
+    if (digits.length === 11) {
+      return `${digits.slice(0, 4)} ${digits.slice(4, 7)} ${digits.slice(7)}`;
+    }
+    return phone; // Return original if format doesn't match
+  });
+
   // Add current year as a global data variable
   eleventyConfig.addGlobalData("currentYear", () => {
     return new Date().getFullYear();
