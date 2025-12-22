@@ -1,30 +1,45 @@
 {
+  "siteUrl": "https://deborahlyon.co.uk",
+  "favicon": "/img/favicon.png",
   "taglines": {
     "siteName": "Deborah Lyon",
     "siteSubtitle": "Lymphatic Specialist",
     "siteLocation": "Stirlingshire",
-    "tagline": "Professional lymphatic drainage and massage therapy.",
+    "tagline": "Professional lymphatic drainage and massage therapy, providing services to Bridge of Allan, Stirling and the surrounding areas.",
     "bookNowHeading": "Ready to Begin Your Healing Journey?",
     "bookNowDescription": "Experience the transformative benefits of expert lymphatic care in a safe, private, and relaxing environment.",
-    "giftPanelText": "Online booking and Gift Vouchers available"
+    "giftPanelText": "Gift Vouchers available"
   },
   "contact": {
+    "heading": "Get In Touch",
+    "intro": "",
     "bookingUrl": "https://deborah-lyon--mld--post-op-expert.book.app/",
     "giftUrl": "https://deborah-lyon--mld--post-op-expert.book.app/gift/card",
     "phone": "07825335039",
     "email": "deborahlyonMLD@gmail.com",
-    "address": "2 New Street,\nBridge of Allan,\nStirlingshire,\nFK9 4NZ",
+    "address": {
+      "streetAddress": "2 New Street",
+      "locality": "Bridge of Allan",
+      "region": "Stirlingshire",
+      "postalCode": "FK9 4NZ",
+      "country": "GB"
+    },
+    "geo": {
+      "latitude": null,
+      "longitude": null
+    },
     "mapImage": "img/map.png",
-    "openingHours": {
-      "monday": "Closed",
-      "tuesday": "10:30 AM - 7:30 PM",
-      "wednesday": "10:30 AM - 7:30 PM",
-      "thursday": "10:00 AM - 3:00 PM",
-      "friday": "Closed",
-      "saturday": "Closed",
-      "sunday": "9:30 AM - 6:30 PM"
-    }
+    "openingHours": [
+      { "day": "Monday", "closed": true },
+      { "day": "Tuesday", "opens": "10:30", "closes": "19:30" },
+      { "day": "Wednesday", "opens": "10:30", "closes": "19:30" },
+      { "day": "Thursday", "opens": "10:00", "closes": "15:00" },
+      { "day": "Friday", "closed": true },
+      { "day": "Saturday", "closed": true },
+      { "day": "Sunday", "opens": "09:30", "closes": "18:30" }
+    ]
   },
+  "areaServed": ["Bridge of Allan", "Stirling", "Dunblane", "Alloa", "Falkirk", "Stirlingshire", "Central Scotland"],
   "memberships": [
     {
       "name": "MLD UK",

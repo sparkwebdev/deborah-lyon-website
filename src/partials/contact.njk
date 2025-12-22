@@ -1,52 +1,34 @@
 <!-- Contact -->
 <section class="section contact bg-light" id="contact">
     <div class="container">
-        <h2>Get In Touch</h2>
+        <h2>{{ site.contact.heading }}</h2>
+        {% if site.contact.intro %}<p class="section-intro">{{ site.contact.intro }}</p>{% endif %}
         <div class="grid">
             <div class="contact__details">
                 <h3>Contact Details</h3>
                 <p><strong>Phone:</strong> {{ site.contact.phone }}</p>
                 <p><strong>Email:</strong> <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
                 <p><strong>Address:</strong><br>
-                {{ site.contact.address | replace("\n", "<br>") | safe }}</p>
+                {{ site.contact.address.streetAddress }},<br>
+                {{ site.contact.address.locality }},<br>
+                {{ site.contact.address.region }},<br>
+                {{ site.contact.address.postalCode }}</p>
             </div>
 
             <div>
-                <img src="{{ site.contact.mapImage }}" alt="Map visual for {{ site.contact.address | replace("\n", " ") | safe }}" class="contact__map">
+                <img src="{{ site.contact.mapImage }}" alt="Map showing location of {{ site.contact.address.streetAddress }}, {{ site.contact.address.locality }}" class="contact__map">
             </div>
 
-            <div>                                                                                                                                                             
-                <h3>Opening Hours</h3>   
+            <div>
+                <h3>Opening Hours</h3>
                 <table class="contact__opening">
                     <tbody>
+                        {% for hours in site.contact.openingHours %}
                         <tr>
-                            <th scope="row">Monday</th>
-                            <td>{{ site.contact.openingHours.monday }}</td>
+                            <th scope="row">{{ hours.day }}</th>
+                            <td>{% if hours.closed %}Closed{% else %}{{ hours.opens | formatTime }} - {{ hours.closes | formatTime }}{% endif %}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">Tuesday</th>
-                            <td>{{ site.contact.openingHours.tuesday }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Wednesday</th>
-                            <td>{{ site.contact.openingHours.wednesday }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Thursday</th>
-                            <td>{{ site.contact.openingHours.thursday }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Friday</th>
-                            <td>{{ site.contact.openingHours.friday }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Saturday</th>
-                            <td>{{ site.contact.openingHours.saturday }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Sunday</th>
-                            <td>{{ site.contact.openingHours.sunday }}</td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

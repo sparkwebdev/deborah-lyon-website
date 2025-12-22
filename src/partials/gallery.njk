@@ -2,6 +2,7 @@
 <section class="section section-gallery bg-light" id="gallery">
     <div class="container">
         <h2>{{ gallery.heading }}</h2>
+        {% if gallery.intro %}<p class="section-intro">{{ gallery.intro }}</p>{% endif %}
         <div class="grid">
             {% for image in gallery.images %}
             <div class="card"><img src="{{ image.src }}" alt="{{ image.alt }}"></div>

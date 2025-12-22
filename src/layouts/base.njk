@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ meta.description or (site.taglines.siteName + ' ' + site.taglines.siteSubtitle + ' - ' + site.taglines.siteLocation + '. ' + site.taglines.tagline) }}">
+    {% set pageTitle = meta.title or (site.taglines.siteName + ' ' + site.taglines.siteSubtitle + ' - ' + site.taglines.siteLocation) %}
+    {% set pageDescription = meta.description or (site.taglines.siteName + ' ' + site.taglines.siteSubtitle + ' - ' + site.taglines.siteLocation + '. ' + site.taglines.tagline) %}
+
+    <meta name="description" content="{{ pageDescription }}">
     <meta name="keywords" content="{{ meta.keywords }}">
-    <title>{{ meta.title or (site.taglines.siteName + ' ' + site.taglines.siteSubtitle + ' - ' + site.taglines.siteLocation) }}</title>
+    <title>{{ pageTitle }}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.siteUrl }}">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:image" content="{{ site.siteUrl }}/{{ about.image }}">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ pageTitle }}">
+    <meta name="twitter:description" content="{{ pageDescription }}">
+    <meta name="twitter:image" content="{{ site.siteUrl }}/{{ about.image }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ site.siteUrl }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ site.favicon }}">
+    <link rel="apple-touch-icon" href="{{ site.favicon }}">
 
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -17,6 +41,44 @@
 
 
     <link rel="stylesheet" href="/style.css">
+
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "{{ site.taglines.siteName }} {{ site.taglines.siteSubtitle }}",
+        "description": "{{ pageDescription }}",
+        "url": "{{ site.siteUrl }}",
+        "telephone": "{{ site.contact.phone }}",
+        "email": "{{ site.contact.email }}",
+        "image": "{{ site.siteUrl }}/{{ about.image }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ site.contact.address.streetAddress }}",
+            "addressLocality": "{{ site.contact.address.locality }}",
+            "addressRegion": "{{ site.contact.address.region }}",
+            "postalCode": "{{ site.contact.address.postalCode }}",
+            "addressCountry": "{{ site.contact.address.country }}"
+        },{% if site.contact.geo.latitude and site.contact.geo.longitude %}
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": {{ site.contact.geo.latitude }},
+            "longitude": {{ site.contact.geo.longitude }}
+        },{% endif %}
+        "openingHoursSpecification": [{% for hours in site.contact.openingHours %}{% if not hours.closed %}
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "{{ hours.day }}",
+                "opens": "{{ hours.opens }}",
+                "closes": "{{ hours.closes }}"
+            }{% if not loop.last %},{% endif %}{% endif %}{% endfor %}
+        ],
+        "priceRange": "££",
+        "areaServed": {{ site.areaServed | dump | safe }},
+        "sameAs": []
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->

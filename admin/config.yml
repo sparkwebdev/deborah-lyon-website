@@ -17,6 +17,8 @@ collections:
         name: "site"
         file: "content/site.json"
         fields:
+          - {label: "Site URL", name: "siteUrl", widget: "string", hint: "Full URL including https:// (e.g., https://deborahlyon.co.uk)"}
+          - {label: "Favicon", name: "favicon", widget: "image", hint: "Square image for browser tab icon (recommended: 512x512 PNG)"}
           - label: "Taglines"
             name: "taglines"
             widget: "object"
@@ -32,22 +34,44 @@ collections:
             name: "contact"
             widget: "object"
             fields:
+              - {label: "Section Heading", name: "heading", widget: "string", default: "Get In Touch"}
+              - {label: "Section Intro", name: "intro", widget: "string", required: false, hint: "Optional subtitle below the heading"}
               - {label: "Booking URL", name: "bookingUrl", widget: "string"}
+              - {label: "Gift Voucher URL", name: "giftUrl", widget: "string"}
               - {label: "Phone", name: "phone", widget: "string"}
               - {label: "Email", name: "email", widget: "string"}
-              - {label: "Address", name: "address", widget: "markdown", buttons: [bold, italic, link], editor_components: [], hint: "Use **text** to highlight keywords"}
+              - label: "Address"
+                name: "address"
+                widget: "object"
+                fields:
+                  - {label: "Street Address", name: "streetAddress", widget: "string"}
+                  - {label: "Town/City", name: "locality", widget: "string"}
+                  - {label: "Region/County", name: "region", widget: "string"}
+                  - {label: "Postcode", name: "postalCode", widget: "string"}
+                  - {label: "Country Code", name: "country", widget: "string", default: "GB"}
+              - label: "Map Coordinates (Optional)"
+                name: "geo"
+                widget: "object"
+                collapsed: true
+                hint: "Optional - for Google Maps structured data"
+                fields:
+                  - {label: "Latitude", name: "latitude", widget: "number", value_type: "float", required: false}
+                  - {label: "Longitude", name: "longitude", widget: "number", value_type: "float", required: false}
               - {label: "Map Image", name: "mapImage", widget: "image"}
               - label: "Opening Hours"
                 name: "openingHours"
-                widget: "object"
+                widget: "list"
+                summary: "{{fields.day}}"
                 fields:
-                  - {label: "Monday", name: "monday", widget: "string", default: "Closed"}
-                  - {label: "Tuesday", name: "tuesday", widget: "string", default: "10:30 AM - 7:30 PM"}
-                  - {label: "Wednesday", name: "wednesday", widget: "string", default: "10:30 AM - 7:30 PM"}
-                  - {label: "Thursday", name: "thursday", widget: "string", default: "10:00 AM - 3:00 PM"}
-                  - {label: "Friday", name: "friday", widget: "string", default: "Closed"}
-                  - {label: "Saturday", name: "saturday", widget: "string", default: "Closed"}
-                  - {label: "Sunday", name: "sunday", widget: "string", default: "9:30 AM - 6:30 PM"}
+                  - {label: "Day", name: "day", widget: "string"}
+                  - {label: "Closed?", name: "closed", widget: "boolean", default: false}
+                  - {label: "Opens (24h format)", name: "opens", widget: "string", required: false, hint: "e.g., 10:30"}
+                  - {label: "Closes (24h format)", name: "closes", widget: "string", required: false, hint: "e.g., 19:30"}
+          - label: "Areas Served (SEO)"
+            name: "areaServed"
+            widget: "list"
+            hint: "List of towns/regions you serve - used for search engine optimisation"
+            field: {label: "Area", name: "area", widget: "string"}
           - label: "Professional Memberships"
             name: "memberships"
             widget: "list"
@@ -107,6 +131,7 @@ collections:
         file: "content/reviews.json"
         fields:
           - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Introduction", name: "intro", widget: "string", required: false, hint: "Optional subtitle below the heading"}
           - label: "Review Items"
             name: "items"
             widget: "list"
@@ -123,6 +148,7 @@ collections:
         file: "content/gallery.json"
         fields:
           - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Introduction", name: "intro", widget: "string", required: false, hint: "Optional subtitle below the heading"}
           - label: "Gallery Images"
             name: "images"
             widget: "list"

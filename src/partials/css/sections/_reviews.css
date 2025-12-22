@@ -122,8 +122,8 @@
 .reviews__dot {
     height: var(--space-xs);
     width: var(--space-xs);
-    padding: min(1vw, var(--space-sm));
-    margin: 0 min(1vw, var(--space-sm));
+    padding: min(1.5vw, var(--space-sm));
+    margin: 0 min(0.75vw, var(--space-sm));
     background-color: var(--light-grey);
     border-radius: 50%;
     display: inline-block;

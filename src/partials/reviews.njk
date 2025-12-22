@@ -2,6 +2,7 @@
 <section class="section section-reviews" id="reviews">
     <div class="container">
         <h2>{{ reviews.heading }}</h2>
+        {% if reviews.intro %}<p class="section-intro">{{ reviews.intro }}</p>{% endif %}
         <div class="reviews__slideshow" aria-live="polite">
             {% for review in reviews.items %}
             <article class="reviews__item bg-mid{% if loop.first %} active{% endif %}">
