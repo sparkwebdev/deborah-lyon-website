@@ -17,7 +17,7 @@ collections:
         name: "site"
         file: "content/site.json"
         fields:
-          - {label: "Site URL", name: "siteUrl", widget: "string", hint: "Full URL including https:// (e.g., https://deborahlyon.co.uk)"}
+          - {label: "Site URL", name: "siteUrl", widget: "string", hint: "Full URL including https:// (e.g., https://www.deborahlyon.co.uk)"}
           - {label: "Favicon", name: "favicon", widget: "image", hint: "Square image for browser tab icon (recommended: 512x512 PNG)"}
           - label: "Taglines"
             name: "taglines"
