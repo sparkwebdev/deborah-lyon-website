@@ -60,6 +60,8 @@ module.exports = function(eleventyConfig) {
   // Pass through fonts folder
   eleventyConfig.addPassthroughCopy("fonts");
 
+  // Pass through JS files from src
+  eleventyConfig.addPassthroughCopy("src/script.js");
 
   // Watch content folder for changes
   eleventyConfig.addWatchTarget("./content/");
