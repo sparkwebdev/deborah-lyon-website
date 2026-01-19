@@ -34,13 +34,25 @@
     <!-- Preload LCP image -->
     <link rel="preload" as="image" href="/img/hero.jpg" fetchpriority="high">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="/style.css">
+    <style>
+    {% include "css/_fonts.css" %}
+    {% include "css/_reset.css" %}
+    {% include "css/_variables.css" %}
+    {% include "css/_base.css" %}
+    {% include "css/_utilities.css" %}
+    {% include "css/_layout.css" %}
+    {% include "css/_header.css" %}
+    {% include "css/sections/_hero.css" %}
+    {% include "css/sections/_about.css" %}
+    {% include "css/sections/_gift-panel.css" %}
+    {% include "css/sections/_membership-logos.css" %}
+    {% include "css/sections/_contact.css" %}
+    {% include "css/_footer.css" %}
+    {% include "css/sections/_benefits.css" %}
+    {% include "css/sections/_book-now.css" %}
+    {% include "css/sections/_reviews.css" %}
+    {% include "css/_lightbox.css" %}
+    </style>
 
     <!-- Structured Data - LocalBusiness -->
     <script type="application/ld+json">
