@@ -54,6 +54,9 @@ module.exports = function(eleventyConfig) {
   // Pass through admin folder for Netlify CMS
   eleventyConfig.addPassthroughCopy("admin");
 
+  // Pass through robots.txt
+  eleventyConfig.addPassthroughCopy("robots.txt");
+
   // Pass through JS files from src
   eleventyConfig.addPassthroughCopy("src/script.js");
 

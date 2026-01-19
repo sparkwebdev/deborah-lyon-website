@@ -5,46 +5,64 @@
     {
       "title": "Manual Lymphatic Drainage",
       "image": "/img/services/iStock-1226369341.jpg",
+      "imageWidth": 600,
+      "imageHeight": 450,
       "description": "Manual Lymphatic Drainage helps to reduce swelling and detoxes the lymphatic system. The technique is a light skin stretch, without oil, to optimise drainage; it should not be confused with regular massage. Beneficial for lymphoedema/lipoedema management."
     },
     {
       "title": "Brazilian Lymphatic Sculpting Massage",
       "image": "/img/services/iStock-1188150432.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "Primarily for cosmetic purposes blending some lymphatic techniques. Sculpting and body-contouring techniques help reduce bloating and water retention. A revitalising massage with a refreshing detox oil."
     },
     {
       "title": "Post-Operative Care",
       "image": "/img/services/iStock-514138559.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "Designed to reduce post-operative swelling. A light skin stretch technique, with no oil, reducing pain and inflammation and speeding healing. Specialised technique using alternate drainage pathways for a compromised lymphatic system."
     },
     {
       "title": "Scar Therapy",
       "image": "/img/services/iStock-1176500076.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "Specialised massage with fascial techniques to reduce adhesions and improve range of motion, pain and sensitivity."
     },
     {
       "title": "Oncology Care",
       "image": "/img/services/iStock-1648673108.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "A gentle restorative massage adapted to each client, providing relaxation and calming the central nervous system."
     },
     {
       "title": "Swedish/Deep Tissue & Indian Head Massage",
       "image": "/img/services/iStock-1289232543.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "Various massage techniques to promote health and wellbeing."
     },
     {
       "title": "Lymphatic Facials",
       "image": "/img/services/iStock-1337659476.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "A relaxing facial designed to decongest, reduce puffiness and sculpt the face. Excellent for sinus issues."
     },
     {
       "title": "Measuring for Compression",
       "image": "/img/services/measuring-for-compression.jpg",
+      "imageWidth": 400,
+      "imageHeight": 600,
       "description": "Made-to-measure compression service for lymphoedema/lipoedema treatment."
     },
     {
       "title": "Complete Decongestive Therapy",
       "image": "/img/services/iStock-182830021.jpg",
+      "imageWidth": 600,
+      "imageHeight": 400,
       "description": "Multi-component bandaging service for the treatment of lymphoedema."
     }
   ]

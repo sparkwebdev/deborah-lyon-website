@@ -4,23 +4,33 @@
   "images": [
     {
       "src": "/img/studio/IMG_0925.jpg",
-      "alt": "Deborah's Storefront"
+      "alt": "Deborah's Storefront",
+      "width": 523,
+      "height": 380
     },
     {
       "src": "/img/studio/IMG_0926.jpg",
-      "alt": "Deborah's Treatment Studio"
+      "alt": "Deborah's Treatment Studio",
+      "width": 523,
+      "height": 380
     },
     {
       "src": "/img/studio/IMG_0933.jpg",
-      "alt": "Deborah's Treatment Studio"
+      "alt": "Deborah's Treatment Studio",
+      "width": 523,
+      "height": 380
     },
     {
       "src": "/img/studio/IMG_0934.jpg",
-      "alt": "Deborah's Reception"
+      "alt": "Deborah's Reception",
+      "width": 523,
+      "height": 380
     },
     {
       "src": "/img/studio/IMG_0936.jpg",
-      "alt": "Deborah's Treatment Studio"
+      "alt": "Deborah's Treatment Studio",
+      "width": 523,
+      "height": 380
     }
   ]
 }

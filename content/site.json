@@ -44,36 +44,50 @@
     {
       "name": "MLD UK",
       "logo": "/img/logos/MLD-UK-logo.jpg",
+      "logoWidth": 600,
+      "logoHeight": 432,
       "url": "https://mlduk.org.uk/"
     },
     {
       "name": "LTA",
       "logo": "/img/logos/LTA-logo.jpg",
+      "logoWidth": 600,
+      "logoHeight": 437,
       "url": "https://www.lymph.org.uk/"
     },
     {
       "name": "British Lymphology Society",
       "logo": "/img/logos/British-Lymphology-Society-logo.jpg",
+      "logoWidth": 600,
+      "logoHeight": 262,
       "url": "https://www.thebls.com/"
     },
     {
       "name": "Juzo",
       "logo": "/img/logos/Juzo-logo.jpg",
+      "logoWidth": 600,
+      "logoHeight": 313,
       "url": "https://www.juzo.co.uk/"
     },
     {
       "name": "Restore Scar Therapy",
       "logo": "/img/logos/Restore-scar-therapy-logo.jpg",
+      "logoWidth": 586,
+      "logoHeight": 600,
       "url": "https://www.restoretherapy.co.uk/"
     },
     {
       "name": "Lymphoedema Support Network",
       "logo": "/img/logos/LSN-Lymphoedema-Support-Network-Logo.jpg",
+      "logoWidth": 600,
+      "logoHeight": 466,
       "url": "https://www.lymphoedema.org/"
     },
     {
       "name": "Lipoelastic",
       "logo": "/img/logos/Lipoelastic-logo.jpg",
+      "logoWidth": 600,
+      "logoHeight": 215,
       "url": "https://www.lipoelastic.co.uk/"
     }
   ]

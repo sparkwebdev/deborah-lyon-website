@@ -55,7 +55,10 @@ const reviewsCarousel = {
             this.reviews.forEach((r, i) => r.classList.toggle('active', i === this.index));
             setTimeout(() => this.reviews[this.index].style.opacity = '1', 50);
         }, 150);
-        this.dots.forEach((d, i) => d.classList.toggle('active', i === this.index));
+        this.dots.forEach((d, i) => {
+            d.classList.toggle('active', i === this.index);
+            d.setAttribute('aria-selected', i === this.index);
+        });
     },
 
     goTo(n, resetTimer = true) {

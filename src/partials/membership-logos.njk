@@ -3,7 +3,7 @@
     <h3 class="sr-only">Deborah's Professional Memberships</h3>
     <div class="memberships__logos">
         {% for item in site.memberships %}
-        <img src="{{ item.logo }}" alt="{{ item.name }}" class="memberships__logo" title="{{ item.name }}">
+        <img src="{{ item.logo }}" alt="{{ item.name }}" class="memberships__logo" title="{{ item.name }}" width="{{ item.logoWidth }}" height="{{ item.logoHeight }}" loading="lazy">
         {% endfor %}
     </div>
 </section>

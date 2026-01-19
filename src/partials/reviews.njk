@@ -24,7 +24,7 @@
         </div>
         <div class="reviews__dots-container" role="tablist" aria-label="Review navigation">
             {% for review in reviews.items %}
-            <button class="reviews__dot{% if loop.first %} active{% endif %}" type="button" aria-label="Go to review {{ loop.index }}"></button>
+            <button class="reviews__dot{% if loop.first %} active{% endif %}" type="button" role="tab" aria-selected="{% if loop.first %}true{% else %}false{% endif %}" aria-label="Go to review {{ loop.index }}"></button>
             {% endfor %}
         </div>
     </div>
