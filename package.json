@@ -1,6 +1,7 @@
 {
   "name": "deborah-lyon-website",
   "version": "1.0.0",
+  "homepage": "https://www.deborahlyon.co.uk/",
   "main": "script.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
